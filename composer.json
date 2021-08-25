@@ -9,9 +9,26 @@
         {"name": "Björn Heyser", "email": "info@bjoernheyser.de"},
         {"name": "Johannes Papst", "email": "info@iit-online.de"}
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/components/jquery.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/components/jqueryui.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/tabalinas/jsgrid.git"
+        }
+    ],
     "require": {
         "php": ">=7.0",
-        "smarty/smarty": "3.1.39"
+        "smarty/smarty": "3.1.39",
+        "components/jquery": "3.1.5",
+        "components/jqueryui": "1.12.1",
+        "tabalinas/jsgrid": "1.5.3"
     },
     "config": {
         "sort-packages": true
