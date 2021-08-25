@@ -12,14 +12,6 @@
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/components/jquery.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/components/jqueryui.git"
-        },
-        {
-            "type": "git",
             "url": "https://github.com/tabalinas/jsgrid.git"
         }
     ],
