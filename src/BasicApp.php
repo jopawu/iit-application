@@ -2,12 +2,12 @@
 
 /* Copyright (c) 1998-2019 ILIAS open source, Extended GPL, see docs/LICENSE */
 
-namespace iit\Application\Config;
+namespace iit\Application;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Config
+class BasicApp
 {
-
+    abstract public function run();
 }

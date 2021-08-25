@@ -9,5 +9,12 @@ namespace iit\Application\Userinterface;
  */
 class BasicPage
 {
+    protected $template;
+
     protected $pageContent;
+
+    public function __construct()
+    {
+        $this->template = new \Smarty();
+    }
 }
