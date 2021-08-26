@@ -20,7 +20,7 @@
         "smarty/smarty": "3.1.*",
         "components/jquery": "3.1.*",
         "components/jqueryui": "1.12.*",
-        "tabalinas/jsgrid": "dev-master#v1.5.3"
+        "tabalinas/jsgrid": "dev-master#9daa1aa"
     },
     "config": {
         "sort-packages": true
