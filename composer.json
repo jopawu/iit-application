@@ -12,7 +12,7 @@
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/tabalinas/jsgrid.git"
+            "url": "https://github.com/bheyser/jsgrid.git"
         }
     ],
     "require": {
@@ -20,7 +20,7 @@
         "smarty/smarty": "3.1.*",
         "components/jquery": "3.1.*",
         "components/jqueryui": "1.12.*",
-        "tabalinas/jsgrid": "dev-master"
+        "bheyser/jsgrid": "dev-master"
     },
     "config": {
         "sort-packages": true
