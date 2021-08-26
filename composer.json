@@ -19,7 +19,8 @@
         "php": ">=7.0",
         "smarty/smarty": "3.1.*",
         "components/jquery": "3.1.*",
-        "components/jqueryui": "1.12.*"
+        "components/jqueryui": "1.12.*",
+        "tabalinas/jsgrid": "dev-master#v1.5.3"
     },
     "config": {
         "sort-packages": true
