@@ -12,14 +12,15 @@
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/tabalinas/jsgrid.git"
+            "url": "https://github.com/bheyser/jsgrid.git"
         }
     ],
     "require": {
         "php": ">=7.0",
         "smarty/smarty": "3.1.*",
         "components/jquery": "3.1.*",
-        "components/jqueryui": "1.12.*"
+        "components/jqueryui": "1.12.*",
+        "bheyser/jsgrid": "dev-composer"
     },
     "config": {
         "sort-packages": true
