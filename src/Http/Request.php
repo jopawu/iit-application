@@ -10,4 +10,9 @@ namespace iit\Application\Http;
 class Request
 {
 
+
+    public function __construct()
+    {
+
+    }
 }
