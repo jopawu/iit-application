@@ -3,6 +3,8 @@
 namespace iit\Application\UI;
 
 use iit\Application\DI\Container;
+use iit\Application\Template\TemplateBase;
+use iit\Application\Template\HtmlWebTemplate;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -11,17 +13,13 @@ class BasicPage
 {
     const TEMPLATE_FILE = 'UI/basic_page.html';
 
-    const TEMPLATE_DIR = 'lib/vendor/jopawu/iit-application/tpl';
-    
-    const TEMPLATE_CACHE = 'cache';
-
     /**
      * @var Container
      */
     protected $dic;
 
     /**
-     * @var \Smarty
+     * @var HtmlWebTemplate
      */
     protected $template;
 
@@ -46,10 +44,7 @@ class BasicPage
 
     protected function initTemplate()
     {
-        $this->template = new \Smarty();
-
-        $this->template->setTemplateDir(self::TEMPLATE_DIR);
-        $this->template->setCacheDir(self::TEMPLATE_CACHE);
+        $this->template = new HtmlWebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
     }
 
     /**
@@ -72,7 +67,6 @@ class BasicPage
 
     /**
      * @return string
-     * @throws \SmartyException
      */
     public function render(PageContent $pageContent)
     {

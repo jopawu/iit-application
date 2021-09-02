@@ -2,31 +2,83 @@
 
 namespace iit\Application\UI;
 
+use iit\Application\DI\Container;
+use iit\Application\Template\WebTemplate;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class PageContent
 {
-    /**
-     * @return string
-     */
-    protected $header;
+    const TEMPLATE_FILE = 'UI/page_content.html';
 
     /**
-     * @return string
+     * @var Container
      */
-    protected $body;
+    protected $dic;
 
     /**
-     * @return string
+     * @var string
      */
-    protected $footer;
+    protected $headerHtml;
+
+    /**
+     * @var string
+     */
+    protected $contentHtml;
+
+    /**
+     * @var string
+     */
+    protected $footerHtml;
+
+    /**
+     * @param Container $dic
+     */
+    public function __construct(Container $dic)
+    {
+        $this->dic = $dic;
+
+        $this->headerHtml = '';
+        $this->contentHtml = '';
+        $this->footerHtml = '';
+    }
+
+    /**
+     * @param string $headerHtml
+     */
+    public function addHeaderHtml($headerHtml)
+    {
+        $this->headerHtml .= $headerHtml;
+    }
+
+    /**
+     * @param string $contentHtml
+     */
+    public function addContentHtml($contentHtml)
+    {
+        $this->contentHtml .= $contentHtml;
+    }
+
+    /**
+     * @param string $footerHtml
+     */
+    public function addFooterHtml($footerHtml)
+    {
+        $this->footerHtml .= $footerHtml;
+    }
 
     /**
      * @return string
      */
     public function render()
     {
-        return '';
+        $template = new WebTemplate();
+
+        $template->assign('HEADER', $this->headerHtml);
+        $template->assign('CONTENT', $this->contentHtml);
+        $template->assign('FOOTER', $this->footerHtml);
+
+        return $template->fetch(self::TEMPLATE_FILE);
     }
 }
