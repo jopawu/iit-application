@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="de">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>{$PAGE_TITLE}</title>
+
+        {foreach $PAGE_STYLESHEETS as $STYLESHEET}
+            <link type="text/css" rel="stylesheet" href="{$STYLESHEET}" />
+        {/foreach}
+
+        {foreach $PAGE_JAVASCRIPT as $JAVASCRIPT}
+            <script type="application/javascript" src="{$JAVASCRIPT}" />
+        {/foreach}
+
+    </head>
+
+    <body>
+        {$PAGE_BODY}
+    </body>
+
+</html>

@@ -2,9 +2,10 @@
 
 namespace iit\Application;
 
+use iit\Application\DI\Container;
+use iit\Application\Config\Config;
 use iit\Application\Http\Request;
 use iit\Application\Http\Response;
-use iit\Application\Config\Config;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -12,26 +13,16 @@ use iit\Application\Config\Config;
 class Application
 {
     /**
-     * @var Request
+     * @var Container
      */
-    protected $request;
+    protected $dic;
 
     /**
-     * @var Response
+     * @param Config $config
      */
-    protected $response;
-
-    /**
-     * @var Config
-     */
-    protected $config;
-
     final public function __construct(Config $config)
     {
-        $this->request = Request::fromGlobals();
-        $this->response = new Response();
-
-        $this->config = $config;
+        $this->dic = Container::create();
     }
 
     abstract public function run();

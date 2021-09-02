@@ -7,9 +7,26 @@ namespace iit\Application\UI;
  */
 class PageContent
 {
+    /**
+     * @return string
+     */
     protected $header;
 
+    /**
+     * @return string
+     */
     protected $body;
 
+    /**
+     * @return string
+     */
     protected $footer;
+
+    /**
+     * @return string
+     */
+    public function render()
+    {
+        return '';
+    }
 }
