@@ -9,47 +9,117 @@ use PDO;
  */
 class Database
 {
-    /**
-     * @var PDO
-     */
-    protected $connection;
+	/**
+	 * @var PDO
+	 */
+	protected $connection;
 
-    /**
-     * @param string $hostname
-     * @param string $database
-     * @param string $username
-     * @param string $password
-     */
-    public function __construct($hostname, $database, $username, $password)
-    {
-        $options  = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => FALSE
-        ];
+	/**
+	 * @param string $hostname
+	 * @param string $database
+	 * @param string $username
+	 * @param string $password
+	 */
+	public function __construct($hostname, $database, $username, $password)
+	{
+		$this->initConnection($hostname, $database, $username, $password);
+	}
 
-        $dsn = "mysql:host={$hostname};dbname={$database};charset=utf8";
-        
-        $this->connection = new PDO($dsn, $username, $password, $options);
-    }
+	/**
+	 * @param string $hostname
+	 * @param string $database
+	 * @return string
+	 */
+	protected function buildConnectionDsn(string $hostname, string $database): string
+	{
+		return "mysql:host={$hostname};dbname={$database};charset=utf8";
+	}
 
-    public function select()
-    {
+	/**
+	 * @return array
+	 */
+	protected function buildConnectionOptions()
+	{
+		return [
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+			PDO::ATTR_EMULATE_PREPARES => FALSE
+		];
+	}
 
-    }
+	/**
+	 * @param string $hostname
+	 * @param string $database
+	 * @param string $username
+	 * @param string $password
+	 */
+	protected function initConnection($hostname, $database, $username, $password)
+	{
+		$options = $this->buildConnectionOptions();
+		$dsn = $this->buildConnectionDsn($hostname, $database);
 
-    public function insert()
-    {
+		$this->connection = new PDO($dsn, $username, $password, $options);
+	}
 
-    }
+	/**
+	 * @param string $table
+	 * @param array $fields
+	 * @param array $where
+	 * @return array|false
+	 */
+	public function select($table, $fields, $where)
+	{
+		$query = new SelectQuery($this->connection, $table, $fields, $where);
+		$statement = $this->connection->prepare($query->getSql());
+		$statement->execute($query->getValues());
+		return $statement->fetchAll();
+	}
 
-    public function update()
-    {
+	/**
+	 * @param string $table
+	 * @param array $data
+	 * @return int
+	 */
+	public function insert($table, $data)
+	{
+		$query = new InsertQuery($this->connection, $table, $data);
+		$statement = $this->connection->prepare($query->getSql());
+		$statement->execute($query->getValues());
+		return $this->connection->lastInsertId();
+	}
 
-    }
+	/**
+	 * @param string $table
+	 * @param array $data
+	 * @param array $where
+	 * @return bool
+	 */
+	public function update($table, $data, $where)
+	{
+		$query = new UpdateQuery($this->connection, $table, $data, $where);
+		$statement = $this->connection->prepare($query->getSql());
+		return $statement->execute($query->getValues());
+	}
 
-    public function delete()
-    {
+	/**
+	 * @param string $table
+	 * @param array $where
+	 * @return bool
+	 */
+	public function delete($table, $where)
+	{
+		$query = new DeleteQuery($this->connection, $table, $where);
+		$statement = $this->connection->prepare($query->getSql());
+		return $statement->execute($query->getValues());
+	}
 
-    }
+	public function findOne()
+	{
+
+	}
+
+	public function findAll()
+	{
+
+	}
 }
