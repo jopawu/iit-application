@@ -68,12 +68,12 @@ class BasicPage
     /**
      * @return string
      */
-    public function render(PageContent $pageContent)
+    public function render()
     {
         $this->template->assign('PAGE_STYLESHEETS', $this->stylesheets);
         $this->template->assign('PAGE_JAVASCRIPT', $this->javascripts);
         
-        $this->template->assign('PAGE_BODY', $pageContent->render());
+        $this->template->assign('PAGE_BODY', $this->dic->content()->render());
 
         return $this->template->fetch(self::TEMPLATE_FILE);
     }

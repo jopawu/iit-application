@@ -71,7 +71,7 @@ class Container extends DIC
     {
         $dic = new self();
 
-        $dic['request'] = Request::fromGlobals();
+        $dic['request'] = new Request();
         $dic['response'] = new Response();
 
         $dic['config'] = $config;

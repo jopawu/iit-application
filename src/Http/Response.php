@@ -3,6 +3,8 @@
 namespace iit\Application\Http;
 
 use GuzzleHttp\Psr7\Response as ServerResponse;
+use GuzzleHttp\Psr7\StreamWrapper;
+use GuzzleHttp\Psr7\Stream;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

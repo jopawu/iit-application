@@ -2,13 +2,15 @@
 
 namespace iit\Application\Database;
 
+use PDO;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Database
 {
     /**
-     * @var \PDO
+     * @var PDO
      */
     protected $connection;
 
@@ -28,7 +30,7 @@ class Database
 
         $dsn = "mysql:host={$hostname};dbname={$database};charset=utf8";
         
-        $this->connection = new \PDO($dsn, $username, $password, $options);
+        $this->connection = new PDO($dsn, $username, $password, $options);
     }
 
     public function select()

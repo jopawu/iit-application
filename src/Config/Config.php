@@ -10,7 +10,7 @@ class Config
     /**
      * @var array
      */
-    protected $iniSections;
+    protected $ini;
     
     /**
      * @param string $filename
@@ -18,7 +18,7 @@ class Config
     protected function read($filename)
     {
         $reader = new Reader($filename);
-        $this->sections = $reader->read();
+        $this->ini = $reader->read();
     }
 
     /**
@@ -29,7 +29,7 @@ class Config
     public function getVariable($section, $variable)
     {
         $this->checkVariable($section, $variable);
-        return $this->iniSections[$section][$variable];
+        return $this->ini[$section][$variable];
     }
 
     /**
@@ -38,12 +38,12 @@ class Config
      */
     protected function checkVariable($section, $variable)
     {
-        if( !isset($this->iniSections[$section]) )
+        if( !isset($this->ini[$section]) )
         {
             throw new \InvalidArgumentException("ini section does not exist: {$section}");
         }
 
-        if( !isset($this->iniSections[$section][$variable]) )
+        if( !isset($this->ini[$section][$variable]) )
         {
             throw new \InvalidArgumentException("ini variable does not exist: {$variable}");
         }

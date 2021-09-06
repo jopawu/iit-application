@@ -10,7 +10,7 @@ use iit\Application\Http\Response;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Application
+abstract class Application
 {
     /**
      * @var Container
@@ -22,7 +22,7 @@ class Application
      */
     final public function __construct(Config $config)
     {
-        $this->dic = Container::create();
+        $this->dic = Container::create($config);
     }
 
     abstract public function run();

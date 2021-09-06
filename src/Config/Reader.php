@@ -24,7 +24,7 @@ class Reader
     {
         $this->checkFile();
 
-        $iniSections = parse_ini_file($this->filename);
+        $iniSections = parse_ini_file($this->filename, true);
 
         if( $iniSections === false )
         {
