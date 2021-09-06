@@ -14,8 +14,9 @@ abstract class TemplateBase extends \Smarty
 
     public function __construct($templateDir = self::APP_TEMPLATE_DIR)
     {
-        $this->setCacheDir(self::TEMPLATE_CACHE_DIR);
         $this->setTemplateDir($templateDir);
+        $this->setCompileDir(self::TEMPLATE_CACHE_DIR);
+        $this->setCacheDir(self::TEMPLATE_CACHE_DIR);
 
         parent::__construct();
     }
