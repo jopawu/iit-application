@@ -8,20 +8,13 @@ use iit\Application\Http\Request;
 use iit\Application\Http\Response;
 use iit\Application\Database\Database;
 use iit\Application\UI\BasicPage;
+use iit\Application\UI\PageContent;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Container extends DIC
 {
-    /**
-     * @return Config
-     */
-    public function config()
-    {
-        return $this['config'];
-    }
-
     /**
      * @return Request
      */
@@ -39,11 +32,19 @@ class Container extends DIC
     }
 
     /**
+     * @return Config
+     */
+    public function config()
+    {
+        return $this['config'];
+    }
+
+    /**
      * @return Database
      */
     public function db()
     {
-        return $this['database'];
+        return $this['db'];
     }
 
     /**
@@ -55,12 +56,36 @@ class Container extends DIC
     }
 
     /**
+     * @return PageContent
+     */
+    public function content()
+    {
+        return $this['content'];
+    }
+
+    /**
      * @param Config $config
      * @return Container
      */
     public static function create(Config $config)
     {
         $dic = new self();
+
+        $dic['request'] = Request::fromGlobals();
+        $dic['response'] = new Response();
+
+        $dic['config'] = $config;
+
+        $dic['db'] = new Database(
+            $config->getVariable('database', 'host'),
+            $config->getVariable('database', 'name'),
+            $config->getVariable('database', 'user'),
+            $config->getVariable('database', 'pass')
+        );
+
+        $dic['page'] = new BasicPage($dic);
+
+        $dic['content'] = new PageContent($dic);
 
         return $dic;
     }

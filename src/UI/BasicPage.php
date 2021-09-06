@@ -4,7 +4,7 @@ namespace iit\Application\UI;
 
 use iit\Application\DI\Container;
 use iit\Application\Template\TemplateBase;
-use iit\Application\Template\HtmlWebTemplate;
+use iit\Application\Template\WebTemplate;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -44,7 +44,7 @@ class BasicPage
 
     protected function initTemplate()
     {
-        $this->template = new HtmlWebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
+        $this->template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
     }
 
     /**
