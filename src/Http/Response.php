@@ -37,6 +37,7 @@ class Response
      */
     public function setBody($body)
     {
-        $this->serverResponse = $this->serverResponse->withBody($body);
+        $stream = \GuzzleHttp\Psr7\stream_for($body);
+        $this->serverResponse = $this->serverResponse->withBody($stream);
     }
 }
