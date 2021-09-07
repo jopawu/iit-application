@@ -7,5 +7,18 @@ namespace iit\Application\UI\Widget\Tabs;
  */
 class Bar
 {
+    /**
+     * @var Tab[]
+     */
+    protected $tabs;
+
+    /**
+     * @param Tab $tab
+     */
+    protected function addTab(Tab $tab)
+    {
+        $this->tabs[] = $tab;
+    }
+
 
 }

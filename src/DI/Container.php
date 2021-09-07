@@ -8,7 +8,7 @@ use iit\Application\Http\Request;
 use iit\Application\Http\Response;
 use iit\Application\Database\Database;
 use iit\Application\UI\BasicPage;
-use iit\Application\UI\PageContent;
+use iit\Application\UI\Content\Page;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -85,7 +85,7 @@ class Container extends DIC
 
         $dic['page'] = new BasicPage($dic);
 
-        $dic['content'] = new PageContent($dic);
+        $dic['content'] = new Page($dic);
 
         return $dic;
     }

@@ -3,8 +3,7 @@
 namespace iit\Application\Http;
 
 use GuzzleHttp\Psr7\Response as ServerResponse;
-use GuzzleHttp\Psr7\StreamWrapper;
-use GuzzleHttp\Psr7\Stream;
+use GuzzleHttp\Psr7\BufferStream;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -19,6 +18,7 @@ class Response
     public function __construct()
     {
         $this->serverResponse = new ServerResponse();
+        $this->serverResponse->withBody(new BufferStream());
     }
 
     /**
@@ -27,7 +27,7 @@ class Response
      */
     public function addHeader($headerName, $headerValue)
     {
-        $this->serverResponse = $this->serverResponse->withAddedHeader(
+        $this->serverResponse = $this->serverResponse->withHeader(
             $headerName, $headerValue
         );
     }
@@ -35,9 +35,23 @@ class Response
     /**
      * @param string $body
      */
-    public function setBody($body)
+    public function addBody($body)
     {
-        $stream = \GuzzleHttp\Psr7\stream_for($body);
-        $this->serverResponse = $this->serverResponse->withBody($stream);
+        $this->serverResponse->getBody()->write($body);
+    }
+
+    public function flush()
+    {
+        http_response_code($this->serverResponse->getStatusCode());
+
+        foreach($this->serverResponse->getHeaders() as $name => $values)
+        {
+            foreach ($values as $value)
+            {
+                header("{$name}:{$value}");
+            }
+        }
+
+        echo $this->serverResponse->getBody();
     }
 }

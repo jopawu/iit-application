@@ -19,7 +19,7 @@ class BasicPage
     protected $dic;
 
     /**
-     * @var HtmlWebTemplate
+     * @var WebTemplate
      */
     protected $template;
 
@@ -52,8 +52,7 @@ class BasicPage
      */
     public function addStylesheet($stylesheetFilename)
     {
-        $stylesheetFilename = $this->completeFilename($stylesheetFilename);
-        $this->stylesheets[] = $stylesheetFilename;
+        $this->stylesheets[$stylesheetFilename] = $this->completeFilename($stylesheetFilename);
     }
 
     /**
@@ -61,8 +60,7 @@ class BasicPage
      */
     public function addJavascript($javascriptFilename)
     {
-        $javascriptFilename = $this->completeFilename($javascriptFilename);
-        $this->javascripts[] = $javascriptFilename;
+        $this->javascripts[$javascriptFilename] = $this->completeFilename($javascriptFilename);
     }
 
     /**

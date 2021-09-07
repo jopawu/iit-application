@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI;
+namespace iit\Application\UI\Content;
 
 use iit\Application\DI\Container;
 use iit\Application\Template\WebTemplate;
@@ -8,7 +8,7 @@ use iit\Application\Template\WebTemplate;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class PageContent
+class Page
 {
     const TEMPLATE_FILE = 'UI/page_content.html';
 
