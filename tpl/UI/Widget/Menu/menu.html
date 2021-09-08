@@ -1,0 +1,32 @@
+{function name=printList}
+<ul id="{$LIST.id}">
+  {foreach $LIST.entries as $ENTRY}
+    {if $ENTRY.category}{assign "CSS_CLASS" "ui-widget-header"}{/if}
+    {if $ENTRY.disabled}{assign "CSS_CLASS" "ui-state-disabled"}{/if}
+    <li class="{$CSS_CLASS}">
+      <div>{$ENTRY.label}</div>
+      {if $ENTRY.list}{call name=printList LIST=$ENTRY.list}{/if}
+    </li>
+  {/foreach}
+</ul>
+{/function}
+
+{call name=printList LIST=$MENU}
+
+{literal}
+<script type="text/javascript">
+(function($){
+
+  var id = '{/literal}{$ID}{literal}';
+
+  $().ready(function(){
+
+    $('#'+id).menu({
+      items: "> :not(.ui-widget-header)"
+    });
+
+  });
+
+})(jQuery);
+</script>
+{/literal}

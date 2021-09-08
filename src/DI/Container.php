@@ -9,6 +9,7 @@ use iit\Application\Http\Response;
 use iit\Application\Database\Database;
 use iit\Application\UI\BasicPage;
 use iit\Application\UI\Content\Page;
+use iit\Application\UI\Factory as UiFactory;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -64,6 +65,14 @@ class Container extends DIC
     }
 
     /**
+     * @return UiFactory
+     */
+    public function ui()
+    {
+        return $this['ui'];
+    }
+
+    /**
      * @param Config $config
      * @return Container
      */
@@ -86,6 +95,8 @@ class Container extends DIC
         $dic['page'] = new BasicPage($dic);
 
         $dic['content'] = new Page($dic);
+
+        $dic['ui'] = new UiFactory();
 
         return $dic;
     }

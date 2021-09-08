@@ -69,7 +69,7 @@ class BasicPage
     public function render()
     {
         $this->template->assign('PAGE_STYLESHEETS', $this->stylesheets);
-        $this->template->assign('PAGE_JAVASCRIPT', $this->javascripts);
+        $this->template->assign('PAGE_JAVASCRIPTS', $this->javascripts);
         
         $this->template->assign('PAGE_BODY', $this->dic->content()->render());
 

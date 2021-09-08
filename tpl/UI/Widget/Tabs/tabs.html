@@ -1,0 +1,23 @@
+<div id="{$ID}">
+  <ul>
+    {foreach $TABS as $TAB}
+      <li><a href="{$TAB.href}">{$TAB.label}</a></li>
+    {/foreach}
+  </ul>
+</div>
+
+{literal}
+<script type="text/javascript">
+(function($){
+
+  var id = '{/literal}{$ID}{literal}';
+
+  $().ready(function(){
+
+    $('#'+id).tabs();
+
+  });
+
+})(jQuery);
+</script>
+{/literal}
