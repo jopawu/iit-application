@@ -11,18 +11,18 @@ class Factory
      * @param string $id
      * @return Menu
      */
-    public function menu($id)
+    public function list($id)
     {
         return new Menu($id);
     }
 
     /**
-     * @param string $href
+     * @param string $type
      * @param string $label
      * @return Entry
      */
-    public function entry($href, $label)
+    public function entry($type, $label)
     {
-        return new Entry($href, $label);
+        return new Entry($type, $label);
     }
 }

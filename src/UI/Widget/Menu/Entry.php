@@ -18,15 +18,42 @@ class Entry
     protected $type;
 
     /**
+     * @var string
+     */
+    protected $label;
+
+    /**
      * @var EntryList
      */
     protected $entryList;
 
     /**
      * @param string $type
+     * @param string $label
      */
-    public function __construct($type)
+    public function __construct($type, $label)
     {
         $this->type = $type;
+        $this->label = $label;
+
+        $this->entryList = new EntryList('');
+    }
+
+    /**
+     * @param Entry $entry
+     */
+    public function addSubEntry(Entry $entry)
+    {
+        $this->entryList->addEntry($entry);
+    }
+
+    public function getTemplateArray()
+    {
+        $tplArray = [
+            'label' => $this->label,
+            'children' => $this->entryList->getTemplateArray()
+        ];
+
+        return $tplArray;
     }
 }

@@ -1,17 +1,21 @@
 {function name=printList}
+{if count($LIST.entries)}
 <ul id="{$LIST.id}">
   {foreach $LIST.entries as $ENTRY}
     {if $ENTRY.category}{assign "CSS_CLASS" "ui-widget-header"}{/if}
     {if $ENTRY.disabled}{assign "CSS_CLASS" "ui-state-disabled"}{/if}
     <li class="{$CSS_CLASS}">
-      <div>{$ENTRY.label}</div>
-      {if $ENTRY.list}{call name=printList LIST=$ENTRY.list}{/if}
+      {if $ENTRY.href}<a href="{$ENTRY.href}">{/if}
+      <span>{$ENTRY.label}</span>
+      {if $ENTRY.href}</a>{/if}
+      {if $ENTRY.children}{call name=printList LIST=$ENTRY.children}{/if}
     </li>
   {/foreach}
 </ul>
+{/if}
 {/function}
 
-{call name=printList LIST=$MENU}
+<div style="width: 200px;">{call name=printList LIST=$MENU}</div>
 
 {literal}
 <script type="text/javascript">

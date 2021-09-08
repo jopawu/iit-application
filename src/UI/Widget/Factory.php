@@ -14,4 +14,12 @@ class Factory
     {
         return new Tabs\Factory();
     }
+
+    /**
+     * @return Menu\Factory
+     */
+    public function menu()
+    {
+        return new Menu\Factory();
+    }
 }

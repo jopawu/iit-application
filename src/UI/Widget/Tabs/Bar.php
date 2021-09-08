@@ -45,7 +45,7 @@ class Bar
     {
         $template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
 
-        $template->assign('TABS_ID', $this->id);
+        $template->assign('ID', $this->id);
         $template->assign('TABS', $this->getTabsVariable());
 
         return $template->fetch(self::TEMPLATE);
