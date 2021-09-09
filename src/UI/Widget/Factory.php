@@ -22,4 +22,12 @@ class Factory
     {
         return new Menu\Factory();
     }
+
+    /**
+     * @return Grid\Factory
+     */
+    public function grid()
+    {
+        return new Grid\Factory();
+    }
 }

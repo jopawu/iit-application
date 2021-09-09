@@ -16,6 +16,10 @@ class BasicPage
     const LOCATION_JQUERYUI_THEME = 'lib/vendor/components/jqueryui/themes';
     const JQUERY_UI_CSS_FILE = 'jquery-ui.css';
 
+    const LOCATION_JSGRID_JS = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid.min.js';
+    const LOCATION_JSGRID_CSS = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid.css';
+    const LOCATION_JSGRID_CSS_THEME = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid-theme.css';
+
     const TEMPLATE_FILE = 'UI/basic_page.html';
 
     /**
@@ -109,5 +113,13 @@ class BasicPage
             self::LOCATION_JQUERYUI_THEME . '/' .
             $this->dic->config()->getJqueryUiTheme() . '/' . self::JQUERY_UI_CSS_FILE
         );
+    }
+
+    public function addJsGrid()
+    {
+        $this->dic->page()->addJavascript(self::LOCATION_JSGRID_JS);
+
+        $this->dic->page()->addStylesheet(self::LOCATION_JSGRID_CSS);
+        $this->dic->page()->addStylesheet(self::LOCATION_JSGRID_CSS_THEME);
     }
 }
