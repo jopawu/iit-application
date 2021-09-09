@@ -59,4 +59,17 @@ class Config
         $config->read($filename);
         return $config;
     }
+
+    /**
+     * @return bool
+     */
+    public function isDevmode()
+    {
+        return (bool)$this->getVariable('system', 'devmode');
+    }
+
+    public function getJqueryUiTheme()
+    {
+        return $this->getVariable('ui', 'theme');
+    }
 }

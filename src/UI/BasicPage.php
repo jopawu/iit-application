@@ -11,6 +11,11 @@ use iit\Application\Template\WebTemplate;
  */
 class BasicPage
 {
+    const LOCATION_JQUERY_JS = 'lib/vendor/components/jquery/jquery.min.js';
+    const LOCATION_JQUERYUI_JS = 'lib/vendor/components/jqueryui/jquery-ui.min.js';
+    const LOCATION_JQUERYUI_THEME = 'lib/vendor/components/jqueryui/themes';
+    const JQUERY_UI_CSS_FILE = 'jquery-ui.css';
+
     const TEMPLATE_FILE = 'UI/basic_page.html';
 
     /**
@@ -89,5 +94,20 @@ class BasicPage
         }
         
         return $filename;
+    }
+
+    public function addJquery()
+    {
+        $this->dic->page()->addJavascript(self::LOCATION_JQUERY_JS);
+    }
+
+    public function addJqueryUi()
+    {
+        $this->dic->page()->addJavascript(self::LOCATION_JQUERYUI_JS);
+
+        $this->dic->page()->addStylesheet(
+            self::LOCATION_JQUERYUI_THEME . '/' .
+            $this->dic->config()->getJqueryUiTheme() . '/' . self::JQUERY_UI_CSS_FILE
+        );
     }
 }
