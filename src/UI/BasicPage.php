@@ -20,6 +20,9 @@ class BasicPage
     const LOCATION_JSGRID_CSS = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid.css';
     const LOCATION_JSGRID_CSS_THEME = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid-theme.css';
 
+    const LOCATION_BOOTSTRAP_JS = 'lib/vendor/twbs/bootstrap/dist/js/bootstrap.js';
+    const LOCATION_BOOTSTRAP_CSS = 'lib/vendor/twbs/bootstrap/dist/css/bootstrap.css';
+
     const TEMPLATE_FILE = 'UI/basic_page.html';
 
     /**
@@ -121,5 +124,11 @@ class BasicPage
 
         $this->dic->page()->addStylesheet(self::LOCATION_JSGRID_CSS);
         $this->dic->page()->addStylesheet(self::LOCATION_JSGRID_CSS_THEME);
+    }
+
+    public function addBootstrap()
+    {
+        $this->dic->page()->addJavascript(self::LOCATION_BOOTSTRAP_JS);
+        $this->dic->page()->addStylesheet(self::LOCATION_BOOTSTRAP_CSS);
     }
 }

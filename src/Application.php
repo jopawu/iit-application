@@ -27,6 +27,7 @@ abstract class Application
         $this->dic->page()->addJquery();
         $this->dic->page()->addJqueryUi();
         $this->dic->page()->addJsGrid();
+        $this->dic->page()->addBootstrap();
     }
 
     abstract public function run();

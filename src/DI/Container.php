@@ -57,7 +57,7 @@ class Container extends DIC
     }
 
     /**
-     * @return PageContent
+     * @return Page
      */
     public function content()
     {
