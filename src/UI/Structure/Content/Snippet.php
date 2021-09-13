@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Content;
+namespace iit\Application\UI\Structure\Content;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

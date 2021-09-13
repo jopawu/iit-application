@@ -8,26 +8,10 @@ namespace iit\Application\UI\Widget;
 class Factory
 {
     /**
-     * @return Tabs\Factory
+     * @return TabbedPanels\Factory
      */
-    public function tabs()
+    public function tabbedPanels()
     {
-        return new Tabs\Factory();
-    }
-
-    /**
-     * @return Menu\Factory
-     */
-    public function menu()
-    {
-        return new Menu\Factory();
-    }
-
-    /**
-     * @return Grid\Factory
-     */
-    public function grid()
-    {
-        return new Grid\Factory();
+        return new TabbedPanels\Factory();
     }
 }

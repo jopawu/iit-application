@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Widget\Tabs;
+namespace iit\Application\UI2\Widget\Grid;
 
 use iit\Application\Template\WebTemplate;
 use iit\Application\Template\TemplateBase;
@@ -8,19 +8,14 @@ use iit\Application\Template\TemplateBase;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Bar
+class Table
 {
-    const TEMPLATE = 'UI/Widget/Tabs/tabs.html';
+    const TEMPLATE = 'UI/Widget/Grid/table.html';
 
     /**
      * @var string
      */
     protected $id;
-
-    /**
-     * @var Tab[]
-     */
-    protected $tabs;
 
     /**
      * @param string $id
@@ -31,14 +26,6 @@ class Bar
     }
 
     /**
-     * @param Tab $tab
-     */
-    public function addTab(Tab $tab)
-    {
-        $this->tabs[] = $tab;
-    }
-
-    /**
      * @return string
      */
     public function render()
@@ -46,23 +33,7 @@ class Bar
         $template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
 
         $template->assign('ID', $this->id);
-        $template->assign('TABS', $this->getTabsVariable());
 
         return $template->fetch(self::TEMPLATE);
-    }
-
-    /**
-     * @return array
-     */
-    protected function getTabsVariable()
-    {
-        $tabs = [];
-
-        foreach($this->tabs as $tab)
-        {
-            $tabs[] = $tab->toArray();
-        }
-
-        return $tabs;
     }
 }

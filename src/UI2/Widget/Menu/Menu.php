@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Widget\Menu;
+namespace iit\Application\UI2\Widget\Menu;
 
 use iit\Application\Template\WebTemplate;
 use iit\Application\Template\TemplateBase;

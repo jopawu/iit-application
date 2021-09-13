@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Content;
+namespace iit\Application\UI\Structure\Content;
 
 use iit\Application\DI\Container;
 use iit\Application\Template\WebTemplate;
@@ -10,7 +10,7 @@ use iit\Application\Template\WebTemplate;
  */
 class Page
 {
-    const TEMPLATE_FILE = 'UI/page_content.html';
+    const TEMPLATE_FILE = 'UI/Structure/Content/page.html';
 
     /**
      * @var Container

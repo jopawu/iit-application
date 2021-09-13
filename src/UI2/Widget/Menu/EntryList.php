@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Widget\Menu;
+namespace iit\Application\UI2\Widget\Menu;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

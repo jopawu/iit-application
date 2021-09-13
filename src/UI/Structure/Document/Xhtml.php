@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI;
+namespace iit\Application\UI\Structure\Document;
 
 use iit\Application\DI\Container;
 use iit\Application\Template\TemplateBase;
@@ -9,7 +9,7 @@ use iit\Application\Template\WebTemplate;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class BasicPage
+class Xhtml
 {
     const LOCATION_JQUERY_JS = 'lib/vendor/components/jquery/jquery.min.js';
     const LOCATION_JQUERYUI_JS = 'lib/vendor/components/jqueryui/jquery-ui.min.js';
@@ -23,7 +23,7 @@ class BasicPage
     const LOCATION_BOOTSTRAP_JS = 'lib/vendor/twbs/bootstrap/dist/js/bootstrap.js';
     const LOCATION_BOOTSTRAP_CSS = 'lib/vendor/twbs/bootstrap/dist/css/bootstrap.css';
 
-    const TEMPLATE_FILE = 'UI/basic_page.html';
+    const TEMPLATE_FILE = 'UI/Structure/Document/Xhtml.html';
 
     /**
      * @var Container

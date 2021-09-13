@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Widget\Grid;
+namespace iit\Application\UI2\Widget\Grid;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

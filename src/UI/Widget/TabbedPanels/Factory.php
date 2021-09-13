@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Widget\Tabs;
+namespace iit\Application\UI\Widget\TabbedPanels;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
