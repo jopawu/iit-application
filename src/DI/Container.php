@@ -7,8 +7,8 @@ use iit\Application\Config\Config;
 use iit\Application\Http\Request;
 use iit\Application\Http\Response;
 use iit\Application\Database\Database;
-use iit\Application\UI\BasicPage;
-use iit\Application\UI\Content\Page;
+use iit\Application\UI\Structure\Document\Xhtml;
+use iit\Application\UI\Structure\Content\Page;
 use iit\Application\UI\Factory as UiFactory;
 
 /**
@@ -49,19 +49,19 @@ class Container extends DIC
     }
 
     /**
-     * @return BasicPage
+     * @return Xhtml
      */
-    public function page()
+    public function doc()
     {
-        return $this['page'];
+        return $this['doc'];
     }
 
     /**
      * @return Page
      */
-    public function content()
+    public function page()
     {
-        return $this['content'];
+        return $this['page'];
     }
 
     /**
@@ -92,9 +92,9 @@ class Container extends DIC
             $config->getVariable('database', 'pass')
         );
 
-        $dic['page'] = new BasicPage($dic);
+        $dic['doc'] = new Xhtml($dic);
 
-        $dic['content'] = new Page($dic);
+        $dic['page'] = new Page($dic);
 
         $dic['ui'] = new UiFactory();
 

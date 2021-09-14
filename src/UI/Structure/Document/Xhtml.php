@@ -23,7 +23,7 @@ class Xhtml
     const LOCATION_BOOTSTRAP_JS = 'lib/vendor/twbs/bootstrap/dist/js/bootstrap.js';
     const LOCATION_BOOTSTRAP_CSS = 'lib/vendor/twbs/bootstrap/dist/css/bootstrap.css';
 
-    const TEMPLATE_FILE = 'UI/Structure/Document/Xhtml.html';
+    const TEMPLATE_FILE = 'UI/Structure/Document/xhtml.html';
 
     /**
      * @var Container
@@ -83,7 +83,7 @@ class Xhtml
         $this->template->assign('PAGE_STYLESHEETS', $this->stylesheets);
         $this->template->assign('PAGE_JAVASCRIPTS', $this->javascripts);
         
-        $this->template->assign('PAGE_BODY', $this->dic->content()->render());
+        $this->template->assign('PAGE_BODY', $this->dic->page()->render());
 
         return $this->template->fetch(self::TEMPLATE_FILE);
     }
@@ -105,14 +105,14 @@ class Xhtml
 
     public function addJquery()
     {
-        $this->dic->page()->addJavascript(self::LOCATION_JQUERY_JS);
+        $this->addJavascript(self::LOCATION_JQUERY_JS);
     }
 
     public function addJqueryUi()
     {
-        $this->dic->page()->addJavascript(self::LOCATION_JQUERYUI_JS);
+        $this->addJavascript(self::LOCATION_JQUERYUI_JS);
 
-        $this->dic->page()->addStylesheet(
+        $this->addStylesheet(
             self::LOCATION_JQUERYUI_THEME . '/' .
             $this->dic->config()->getJqueryUiTheme() . '/' . self::JQUERY_UI_CSS_FILE
         );
@@ -120,15 +120,15 @@ class Xhtml
 
     public function addJsGrid()
     {
-        $this->dic->page()->addJavascript(self::LOCATION_JSGRID_JS);
+        $this->addJavascript(self::LOCATION_JSGRID_JS);
 
-        $this->dic->page()->addStylesheet(self::LOCATION_JSGRID_CSS);
-        $this->dic->page()->addStylesheet(self::LOCATION_JSGRID_CSS_THEME);
+        $this->addStylesheet(self::LOCATION_JSGRID_CSS);
+        $this->addStylesheet(self::LOCATION_JSGRID_CSS_THEME);
     }
 
     public function addBootstrap()
     {
-        $this->dic->page()->addJavascript(self::LOCATION_BOOTSTRAP_JS);
-        $this->dic->page()->addStylesheet(self::LOCATION_BOOTSTRAP_CSS);
+        $this->addJavascript(self::LOCATION_BOOTSTRAP_JS);
+        $this->addStylesheet(self::LOCATION_BOOTSTRAP_CSS);
     }
 }

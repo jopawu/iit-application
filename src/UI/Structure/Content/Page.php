@@ -4,6 +4,7 @@ namespace iit\Application\UI\Structure\Content;
 
 use iit\Application\DI\Container;
 use iit\Application\Template\WebTemplate;
+use iit\Application\Template\TemplateBase;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -73,7 +74,7 @@ class Page
      */
     public function render()
     {
-        $template = new WebTemplate();
+        $template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
 
         $template->assign('HEADER', $this->headerHtml);
         $template->assign('CONTENT', $this->contentHtml);
