@@ -1,26 +1,56 @@
-* Structure (struct)
-  * HtmlDocument
-  * ContentPage
+# Nächster Versuch
+
+* Structure
+  * XhtmlDoc
+  * XhtmlSnip
+* Layout
+  * StandardPage
   * ContentSnippet
-* Components (comp)
-  * Container
-    * Form
-    * Menubar
-    * Breadcrumb
-    * Dropdown
-  * Navigation
-    * Button
-    * Link
-    * Disabled?
-  * Input
-    * Select
-    * Text
-    * Radio
-    * Checkbox
+* Component
+  * Navbar
+    * Bar
+    * Nav
+  * Tabsbar
+    * Bar
+    * Tab
+  * Breadcrumb
+    * Crumb
+    * Bread
+  * Form
+    * Container
+    * Group
+    * Row
+    * Field
   * Panel
-    * Primary?
-    * Secondary?
-* Widgets (widget)
-  * Headmenu
-  * TabbedPanels
-  * GridTable
+    * Standard
+  * Table
+    * Container
+    * Row
+    * Cell
+  * Offset
+* Element
+  * Nav
+    * Anchor
+    * Link
+    * Button
+    * Disabled
+    * Dropdown
+  * Form
+    * Input
+      * Text
+      * Email
+      * Number
+    * Select
+      * Group
+      * Option
+    * Radio
+      * Group
+      * Option
+    * Checkbox
+      * Group
+      * Option
+* Widget
+  * DataTable
+  * PageHeader
+  * PageFooter
+  
