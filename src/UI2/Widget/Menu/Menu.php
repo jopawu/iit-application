@@ -42,7 +42,7 @@ class Menu
 
     public function render()
     {
-        $template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
+        $template = new WebTemplate();
 
         $template->assign('ID', $this->id);
         $template->assign('MENU', $this->entryList->getTemplateArray());

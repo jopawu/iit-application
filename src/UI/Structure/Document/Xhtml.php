@@ -5,11 +5,12 @@ namespace iit\Application\UI\Structure\Document;
 use iit\Application\DI\Container;
 use iit\Application\Template\TemplateBase;
 use iit\Application\Template\WebTemplate;
+use iit\Application\UI\Renderable;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Xhtml
+class Xhtml implements Renderable
 {
     const LOCATION_JQUERY_JS = 'lib/vendor/components/jquery/jquery.min.js';
     const LOCATION_JQUERYUI_JS = 'lib/vendor/components/jqueryui/jquery-ui.min.js';
@@ -56,7 +57,7 @@ class Xhtml
 
     protected function initTemplate()
     {
-        $this->template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
+        $this->template = new WebTemplate();
     }
 
     /**

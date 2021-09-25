@@ -5,11 +5,12 @@ namespace iit\Application\UI\Structure\Content;
 use iit\Application\DI\Container;
 use iit\Application\Template\WebTemplate;
 use iit\Application\Template\TemplateBase;
+use iit\Application\UI\Renderable;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Page
+class Page implements Renderable
 {
     const TEMPLATE_FILE = 'UI/Structure/Content/page.html';
 
@@ -74,7 +75,7 @@ class Page
      */
     public function render()
     {
-        $template = new WebTemplate(TemplateBase::LIB_TEMPLATE_DIR);
+        $template = new WebTemplate();
 
         $template->assign('HEADER', $this->headerHtml);
         $template->assign('CONTENT', $this->contentHtml);
