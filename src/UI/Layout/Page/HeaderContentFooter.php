@@ -1,16 +1,16 @@
 <?php
 
-namespace iit\Application\UI\Structure\Content;
+namespace iit\Application\UI\Layout\Page;
 
+use iit\Application\UI\Renderable;
 use iit\Application\DI\Container;
 use iit\Application\Template\WebTemplate;
 use iit\Application\Template\TemplateBase;
-use iit\Application\UI\Renderable;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Page implements Renderable
+class HeaderContentFooter implements Renderable
 {
     const TEMPLATE_FILE = 'UI/Structure/Content/page.html';
 

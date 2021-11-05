@@ -16,6 +16,11 @@ use iit\Application\UI\Factory as UiFactory;
  */
 class Container extends DIC
 {
+    public function http()
+    {
+
+    }
+
     /**
      * @return Request
      */

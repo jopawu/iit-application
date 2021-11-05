@@ -8,24 +8,34 @@ namespace iit\Application\UI;
 class Factory
 {
     /**
-     * @return Widget\Factory
-     */
-    public function structure()
-    {
-        return new Structure\Factory();
-    }
-    /**
-     * @return Widget\Factory
+     * @return Component\Factory
      */
     public function component()
     {
         return new Component\Factory();
     }
+
     /**
-     * @return Widget\Factory
+     * @return Element\Factory
      */
-    public function widget()
+    public function element()
     {
-        return new Widget\Factory();
+        return new Element\Factory();
+    }
+
+    /**
+     * @return Layout\Factory
+     */
+    public function layout()
+    {
+        return new Layout\Factory();
+    }
+
+    /**
+     * @return XHTML\Factory
+     */
+    public function xhtml()
+    {
+        return new XHTML\Factory();
     }
 }
