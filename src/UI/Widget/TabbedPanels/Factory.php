@@ -24,19 +24,19 @@ class Factory
 
     /**
      * @param string $id
-     * @return Bar
+     * @return TabsBar
      */
     public function bar($id)
     {
-        return new Bar($id);
+        return new TabsBar($id);
     }
     /**
      * @param string $href
      * @param string $label
-     * @return Tab
+     * @return TabPanel
      */
     public function tab($href, $label)
     {
-        return new Tab($href, $label);
+        return new TabPanel($href, $label);
     }
 }

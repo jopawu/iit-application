@@ -18,7 +18,7 @@ class TabsBar
     protected $id;
 
     /**
-     * @var Tab[]
+     * @var TabPanel[]
      */
     protected $tabs;
 
@@ -31,9 +31,9 @@ class TabsBar
     }
 
     /**
-     * @param Tab $tab
+     * @param TabPanel $tab
      */
-    public function addTab(Tab $tab)
+    public function addTab(TabPanel $tab)
     {
         $this->tabs[] = $tab;
     }
