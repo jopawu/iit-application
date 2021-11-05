@@ -2,7 +2,7 @@
 
 namespace iit\Application\UI\Layout\Page;
 
-use iit\Application\UI\Renderable;
+use iit\Application\UI\Module;
 use iit\Application\DI\Container;
 use iit\Application\Template\WebTemplate;
 use iit\Application\Template\TemplateBase;
@@ -10,7 +10,7 @@ use iit\Application\Template\TemplateBase;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class HeaderContentFooter implements Renderable
+class HeaderContentFooter implements Module
 {
     const TEMPLATE_FILE = 'UI/Structure/Content/page.html';
 

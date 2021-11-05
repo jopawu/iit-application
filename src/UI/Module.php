@@ -2,7 +2,7 @@
 
 namespace iit\Application\UI;
 
-interface Renderable
+interface Module
 {
     /**
      * @return string

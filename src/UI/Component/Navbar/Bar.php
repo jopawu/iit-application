@@ -2,12 +2,12 @@
 
 namespace iit\Application\UI\Element\Navbar;
 
-use iit\Application\UI\Renderable;
+use iit\Application\UI\Module;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Bar implements Renderable
+class Bar implements Module
 {
     /**
      * @return string

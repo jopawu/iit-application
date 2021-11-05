@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Layout\Page;
+namespace iit\Application\UI\Widget\Grid;
 
 use iit\Application\DI\Container;
 
@@ -23,10 +23,11 @@ class Factory
     }
 
     /**
-     * @return HeaderContentFooter
+     * @param string $id
+     * @return Table
      */
-    public function HeaderContentFooter()
+    public function table($id)
     {
-        return new HeaderContentFooter($this->dic);
+        return new Table($id);
     }
 }

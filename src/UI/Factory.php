@@ -2,17 +2,32 @@
 
 namespace iit\Application\UI;
 
+use iit\Application\DI\Container;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
     /**
+     * @var Container
+     */
+    protected $dic;
+
+    /**
+     * @param Container $dic
+     */
+    public function __construct(Container $dic)
+    {
+        $this->dic = $dic;
+    }
+
+    /**
      * @return Component\Factory
      */
     public function component()
     {
-        return new Component\Factory();
+        return new Component\Factory($this->dic);
     }
 
     /**
@@ -20,7 +35,7 @@ class Factory
      */
     public function element()
     {
-        return new Element\Factory();
+        return new Element\Factory($this->dic);
     }
 
     /**
@@ -28,7 +43,15 @@ class Factory
      */
     public function layout()
     {
-        return new Layout\Factory();
+        return new Layout\Factory($this->dic);
+    }
+
+    /**
+     * @return Widget\Factory
+     */
+    public function widget()
+    {
+        return new Widget\Factory($this->dic);
     }
 
     /**
@@ -36,6 +59,6 @@ class Factory
      */
     public function xhtml()
     {
-        return new XHTML\Factory();
+        return new XHTML\Factory($this->dic);
     }
 }

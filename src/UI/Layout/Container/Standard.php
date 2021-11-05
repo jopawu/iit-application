@@ -2,12 +2,12 @@
 
 namespace iit\Application\UI\Layout\Container;
 
-use iit\Application\UI\Renderable;
+use iit\Application\UI\Module;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Standard implements Renderable
+class Standard implements Module
 {
     public function render()
     {

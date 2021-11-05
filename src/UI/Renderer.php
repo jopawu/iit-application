@@ -1,13 +1,13 @@
 <?php
 
-namespace iit\Application\UI\Layout\Page;
+namespace iit\Application\UI;
 
 use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Factory
+abstract class Renderer
 {
     /**
      * @var Container
@@ -20,13 +20,5 @@ class Factory
     public function __construct(Container $dic)
     {
         $this->dic = $dic;
-    }
-
-    /**
-     * @return HeaderContentFooter
-     */
-    public function HeaderContentFooter()
-    {
-        return new HeaderContentFooter($this->dic);
     }
 }

@@ -2,17 +2,33 @@
 
 namespace iit\Application\UI\XHTML;
 
+use iit\Application\DI\Container;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
     /**
-     * @return Document
+     * @var Container
      */
-    public function body()
+    protected $dic;
+
+    /**
+     * @param Container $dic
+     */
+    public function __construct(Container $dic)
     {
-        return new Body();
+        $this->dic = $dic;
+    }
+
+    /**
+     * @param string $content
+     * @return Snippet
+     */
+    public function snippet($content)
+    {
+        return new Snippet($this->dic, $content);
     }
 
     /**
@@ -20,6 +36,6 @@ class Factory
      */
     public function document()
     {
-        return new Document();
+        return new Document($this->dic);
     }
 }

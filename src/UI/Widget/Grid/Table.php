@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI2\Widget\Menu;
+namespace iit\Application\UI\Widget\Grid;
 
 use iit\Application\Template\WebTemplate;
 use iit\Application\Template\TemplateBase;
@@ -8,9 +8,9 @@ use iit\Application\Template\TemplateBase;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Menu
+class Table
 {
-    const TEMPLATE = 'UI/Widget/Menu/menu.html';
+    const TEMPLATE = 'UI/Widget/Grid/table.html';
 
     /**
      * @var string
@@ -18,34 +18,21 @@ class Menu
     protected $id;
 
     /**
-     * @var EntryList
-     */
-    protected $entryList;
-
-    /**
      * @param string $id
      */
     public function __construct($id)
     {
         $this->id = $id;
-
-        $this->entryList = new EntryList($id);
     }
 
     /**
-     * @param Entry $entry
+     * @return string
      */
-    public function addEntry(Entry $entry)
-    {
-        $this->entryList->addEntry($entry);
-    }
-
     public function render()
     {
         $template = new WebTemplate();
 
         $template->assign('ID', $this->id);
-        $template->assign('MENU', $this->entryList->getTemplateArray());
 
         return $template->fetch(self::TEMPLATE);
     }

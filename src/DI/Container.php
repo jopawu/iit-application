@@ -7,20 +7,16 @@ use iit\Application\Config\Config;
 use iit\Application\Http\Request;
 use iit\Application\Http\Response;
 use iit\Application\Database\Database;
-use iit\Application\UI\Structure\Document\Xhtml;
-use iit\Application\UI\Structure\Content\Page;
+use iit\Application\UI\XHTML\Document;
+use iit\Application\UI\Layout\Page\HeaderContentFooter;
 use iit\Application\UI\Factory as UiFactory;
+use iit\Application\DI\Singletons\XhtmlDocument;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Container extends DIC
 {
-    public function http()
-    {
-
-    }
-
     /**
      * @return Request
      */
@@ -54,7 +50,7 @@ class Container extends DIC
     }
 
     /**
-     * @return Xhtml
+     * @return XhtmlDocument
      */
     public function doc()
     {
@@ -62,7 +58,7 @@ class Container extends DIC
     }
 
     /**
-     * @return Page
+     * @return HeaderContentFooter
      */
     public function page()
     {
@@ -97,11 +93,11 @@ class Container extends DIC
             $config->getVariable('database', 'pass')
         );
 
-        $dic['doc'] = new Xhtml($dic);
+        $dic['ui'] = new UiFactory($dic);
 
-        $dic['page'] = new Page($dic);
+        $dic['doc'] = new XhtmlDocument($dic->ui()->xhtml()->document());
 
-        $dic['ui'] = new UiFactory();
+        $dic['page'] = $dic->ui()->layout()->page()->HeaderContentFooter();
 
         return $dic;
     }
