@@ -24,7 +24,7 @@ class Document implements Module
     const LOCATION_BOOTSTRAP_JS = 'lib/vendor/twbs/bootstrap/dist/js/bootstrap.js';
     const LOCATION_BOOTSTRAP_CSS = 'lib/vendor/twbs/bootstrap/dist/css/bootstrap.css';
 
-    const TEMPLATE_FILE = 'UI/Structure/Document/xhtml.html';
+    const TEMPLATE_FILE = 'UI/XHTML/document.html';
 
     /**
      * @var Container

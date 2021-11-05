@@ -12,7 +12,7 @@ use iit\Application\Template\TemplateBase;
  */
 class HeaderContentFooter implements Module
 {
-    const TEMPLATE_FILE = 'UI/Structure/Content/page.html';
+    const TEMPLATE_FILE = 'UI/Layout/Page/header_content_footer.html';
 
     /**
      * @var Container
