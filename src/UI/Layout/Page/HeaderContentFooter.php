@@ -45,6 +45,30 @@ class HeaderContentFooter extends Module
     }
 
     /**
+     * @return string
+     */
+    public function getHeaderHtml() : string
+    {
+        return $this->headerHtml;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentHtml() : string
+    {
+        return $this->contentHtml;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFooterHtml() : string
+    {
+        return $this->footerHtml;
+    }
+
+    /**
      * @param string $headerHtml
      */
     public function addHeaderHtml($headerHtml)

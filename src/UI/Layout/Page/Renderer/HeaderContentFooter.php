@@ -24,9 +24,9 @@ class HeaderContentFooter extends Renderer
 
         $template = new WebTemplate();
 
-        $template->assign('HEADER', $this->headerHtml);
-        $template->assign('CONTENT', $this->contentHtml);
-        $template->assign('FOOTER', $this->footerHtml);
+        $template->assign('HEADER', $headerContentFooter->getHeaderHtml());
+        $template->assign('CONTENT', $headerContentFooter->getContentHtml());
+        $template->assign('FOOTER', $headerContentFooter->getFooterHtml());
 
         return $template->fetch(HeaderContentFooterModule::TEMPLATE_FILE);
     }
