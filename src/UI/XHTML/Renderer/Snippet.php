@@ -3,6 +3,7 @@
 namespace iit\Application\UI\XHTML\Renderer;
 
 use iit\Application\UI\Renderer;
+use iit\Application\UI\Module;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

@@ -9,8 +9,15 @@ use iit\Application\UI\Renderer;
  */
 class Standard extends Renderer
 {
-    public function render()
+    /**
+     * @param Module $standard
+     * @return string
+     */
+    public function render(Module $standard) : string
     {
+        /* @var \iit\Application\UI\Layout\Container\Standard $standard */
+        $this->assertInstanceOf($standard, \iit\Application\UI\Layout\Container\Standard::class);
+
         return '';
     }
 }

@@ -7,7 +7,7 @@ use iit\Application\UI\Module;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Bar implements Module
+class Bar extends Module
 {
     /**
      * @return string

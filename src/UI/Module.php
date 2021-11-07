@@ -5,13 +5,24 @@ namespace iit\Application\UI;
 class Module
 {
     /**
-     * @param Module $module
      * @return string
      */
-    public function render(Module $module)
+    protected function buildRendererClassname()
     {
-        $rendererClassname = get_class($module).'Renderer';
+        $namespacePathStack = explode("\\", get_class($this));
 
+        $moduleClassname = array_pop($namespacePathStack);
+        $moduleNamespace = implode("\\", $namespacePathStack);
+
+        return "{$moduleNamespace}\\Renderer\\{$moduleClassname}";
+    }
+
+    /**
+     * @return string
+     */
+    public function render()
+    {
+        $rendererClassname = $this->buildRendererClassname();
         $renderer = new $rendererClassname($this->dic);
         return $renderer->render($this);
     }

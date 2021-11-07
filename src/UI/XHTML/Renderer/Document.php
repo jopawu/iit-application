@@ -4,6 +4,8 @@ namespace iit\Application\UI\XHTML\Renderer;
 
 use iit\Application\Template\WebTemplate;
 use iit\Application\UI\Renderer;
+use iit\Application\UI\Module;
+use iit\Application\UI\XHTML\Document as DocumentModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -16,8 +18,8 @@ class Document extends Renderer
      */
     public function render(Module $document) : string
     {
-        /* @var \iit\Application\UI\XHTML\Document $document */
-        $this->assertInstanceOf($document, \iit\Application\UI\XHTML\Document::class);
+        /* @var DocumentModule $document */
+        $this->assertInstanceOf($document, DocumentModule::class);
 
         $template = new WebTemplate();
         
@@ -26,6 +28,6 @@ class Document extends Renderer
 
         $template->assign('PAGE_BODY', $document->getBody()->render());
 
-        return $template->fetch(Document::TEMPLATE_FILE);
+        return $template->fetch(DocumentModule::TEMPLATE_FILE);
     }
 }

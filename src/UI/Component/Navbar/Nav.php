@@ -7,7 +7,7 @@ use iit\Application\UI\Module;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Nav implements Module
+class Nav extends Module
 {
     /**
      * @return string
