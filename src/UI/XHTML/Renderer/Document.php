@@ -1,21 +1,24 @@
 <?php
 
-namespace iit\Application\UI\XHTML;
+namespace iit\Application\UI\XHTML\Renderer;
 
-use iit\Application\UI\Renderer as BasicRenderer;
 use iit\Application\Template\WebTemplate;
+use iit\Application\UI\Renderer;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Renderer extends BasicRenderer
+class Document extends Renderer
 {
     /**
-     * @param Document $document
+     * @param Module $document
      * @return string
      */
-    public function renderDocument(Document $document) : string
+    public function render(Module $document) : string
     {
+        /* @var \iit\Application\UI\XHTML\Document $document */
+        $this->assertInstanceOf($document, \iit\Application\UI\XHTML\Document::class);
+
         $template = new WebTemplate();
         
         $template->assign('PAGE_STYLESHEETS', $document->getStylesheets());
@@ -24,14 +27,5 @@ class Renderer extends BasicRenderer
         $template->assign('PAGE_BODY', $document->getBody()->render());
 
         return $template->fetch(Document::TEMPLATE_FILE);
-    }
-
-    /**
-     * @param Snippet $snippet
-     * @return string
-     */
-    public function renderSnippet(Snippet $snippet) : string
-    {
-        return $snippet->getContent();
     }
 }

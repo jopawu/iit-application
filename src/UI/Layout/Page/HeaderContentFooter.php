@@ -4,13 +4,11 @@ namespace iit\Application\UI\Layout\Page;
 
 use iit\Application\UI\Module;
 use iit\Application\DI\Container;
-use iit\Application\Template\WebTemplate;
-use iit\Application\Template\TemplateBase;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class HeaderContentFooter implements Module
+class HeaderContentFooter extends Module
 {
     const TEMPLATE_FILE = 'UI/Layout/Page/header_content_footer.html';
 
@@ -68,19 +66,5 @@ class HeaderContentFooter implements Module
     public function addFooterHtml($footerHtml)
     {
         $this->footerHtml .= $footerHtml;
-    }
-
-    /**
-     * @return string
-     */
-    public function render()
-    {
-        $template = new WebTemplate();
-
-        $template->assign('HEADER', $this->headerHtml);
-        $template->assign('CONTENT', $this->contentHtml);
-        $template->assign('FOOTER', $this->footerHtml);
-
-        return $template->fetch(self::TEMPLATE_FILE);
     }
 }

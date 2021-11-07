@@ -8,7 +8,7 @@ use iit\Application\DI\Container;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Snippet implements Module
+class Snippet extends Module
 {
     /**
      * @var Container
@@ -27,15 +27,6 @@ class Snippet implements Module
     {
         $this->dic = $dic;
         $this->content = $content;
-    }
-
-    /**
-     * @return string
-     */
-    public function render() : string
-    {
-        $renderer = new Renderer($this->dic);
-        return $renderer->renderSnippet($this);
     }
 
     /**

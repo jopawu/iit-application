@@ -21,4 +21,27 @@ abstract class Renderer
     {
         $this->dic = $dic;
     }
+
+    /**
+     * @param Module $module
+     * @return string
+     */
+    abstract function render(Module $module) : string;
+
+    /**
+     * @param Module $module
+     * @param string $assertionClassname
+     * @throws \InvalidArgumentException
+     */
+    protected function assertInstanceOf($module, $assertionClassname)
+    {
+        $moduleClassname = get_class($module);
+
+        if( $moduleClassname != $assertionClassname )
+        {
+            throw new \InvalidArgumentException(
+                "invalid ui module given: {$moduleClassname}, required one: {$assertionClassname}"
+            );
+        }
+    }
 }

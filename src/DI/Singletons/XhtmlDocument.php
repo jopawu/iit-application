@@ -9,7 +9,7 @@ use iit\Application\UI\XHTML\Snippet;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class XhtmlDocument implements Module
+class XhtmlDocument extends Module
 {
     /**
      * @var Document

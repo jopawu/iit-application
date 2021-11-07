@@ -10,7 +10,7 @@ use iit\Application\Template\WebTemplate;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Document implements Module
+class Document extends Module
 {
     const LOCATION_JQUERY_JS = 'lib/vendor/components/jquery/jquery.min.js';
     const LOCATION_JQUERYUI_JS = 'lib/vendor/components/jqueryui/jquery-ui.min.js';
@@ -53,15 +53,6 @@ class Document implements Module
     {
         $this->dic = $dic;
         $this->body = $this->dic->ui()->xhtml()->snippet('');
-    }
-
-    /**
-     * @return string
-     */
-    public function render()
-    {
-        $renderer = new Renderer($this->dic);
-        return $renderer->renderDocument($this);
     }
 
     /**

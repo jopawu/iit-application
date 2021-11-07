@@ -7,10 +7,6 @@ use iit\Application\UI\Module;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Standard implements Module
+class Standard extends Module
 {
-    public function render()
-    {
-        return '';
-    }
 }
