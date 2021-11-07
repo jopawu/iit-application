@@ -70,25 +70,34 @@ class HeaderContentFooter extends Module
 
     /**
      * @param string $headerHtml
+     * @return HeaderContentFooter
      */
-    public function addHeaderHtml($headerHtml)
+    public function withAddedHeaderHtml($headerHtml)
     {
-        $this->headerHtml .= $headerHtml;
+        $clone = clone $this;
+        $clone->headerHtml .= $headerHtml;
+        return $clone;
     }
 
     /**
      * @param string $contentHtml
+     * @return HeaderContentFooter
      */
-    public function addContentHtml($contentHtml)
+    public function withAddedContentHtml($contentHtml)
     {
-        $this->contentHtml .= $contentHtml;
+        $clone = clone $this;
+        $clone->contentHtml .= $contentHtml;
+        return $clone;
     }
 
     /**
      * @param string $footerHtml
+     * @return HeaderContentFooter
      */
-    public function addFooterHtml($footerHtml)
+    public function withAddedFooterHtml($footerHtml)
     {
-        $this->footerHtml .= $footerHtml;
+        $clone = clone $this;
+        $clone->footerHtml .= $footerHtml;
+        return $clone;
     }
 }
