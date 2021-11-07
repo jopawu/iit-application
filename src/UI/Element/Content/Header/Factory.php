@@ -1,8 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Element;
-
-use iit\Application\DI\Container;
+namespace iit\Application\UI\Element\Content\Header;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -20,13 +18,5 @@ class Factory
     public function __construct(Container $dic)
     {
         $this->dic = $dic;
-    }
-
-    /**
-     * @return Content\Factory
-     */
-    public function content()
-    {
-        return new Content\Factory($this->dic);
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Element;
-
-use iit\Application\DI\Container;
+namespace iit\Application\UI\Element\Content;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -23,10 +21,10 @@ class Factory
     }
 
     /**
-     * @return Content\Factory
+     * @return Listing\Factory
      */
-    public function content()
+    public function listing()
     {
-        return new Content\Factory($this->dic);
+        return new Listing\Factory($this->dic);
     }
 }
