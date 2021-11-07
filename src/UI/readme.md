@@ -32,27 +32,26 @@
       * Paragraph
       * Code
       * Snippet
-    * Control
-      * Form
-        * Input
-          * Text
-          * Email
-          * Number
-        * Select
-          * Group
-          * Option
-        * Radio
-          * Group
-          * Option
-        * Checkbox
-          * Group
-          * Option
-      * Navigation
-        * Link
-        * Anchor
-        * Button
-        * Disabled
-        * Dropdown
+    * Form
+      * Input
+        * Text
+        * Email
+        * Number
+      * Select
+        * Group
+        * Option
+      * Radio
+        * Group
+        * Option
+      * Checkbox
+        * Group
+        * Option
+    * Navigation
+      * Link
+      * Anchor
+      * Button
+      * Disabled
+      * Dropdown
   * Layout
     * Panel
       * Standard
