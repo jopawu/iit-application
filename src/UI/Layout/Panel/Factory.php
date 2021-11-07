@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Layout\Container;
+namespace iit\Application\UI\Layout\Panel;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

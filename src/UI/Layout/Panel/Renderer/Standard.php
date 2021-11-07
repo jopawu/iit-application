@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Layout\Container\Renderer;
+namespace iit\Application\UI\Layout\Panel\Renderer;
 
 use iit\Application\UI\Renderer;
 

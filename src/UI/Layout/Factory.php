@@ -2,7 +2,7 @@
 
 namespace iit\Application\UI\Layout;
 
-use iit\Application\DI\Container;
+use iit\Application\DI\Panel;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -23,11 +23,11 @@ class Factory
     }
 
     /**
-     * @return Container\Factory
+     * @return Panel\Factory
      */
     public function container()
     {
-        return new Container\Container($this->dic);
+        return new Panel\Factory($this->dic);
     }
 
     /**
