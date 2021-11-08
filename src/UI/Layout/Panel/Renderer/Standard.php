@@ -3,6 +3,7 @@
 namespace iit\Application\UI\Layout\Panel\Renderer;
 
 use iit\Application\UI\Renderer;
+use iit\Application\UI\Layout\Container\Standard as StandardModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -15,8 +16,8 @@ class Standard extends Renderer
      */
     public function render(Module $standard) : string
     {
-        /* @var \iit\Application\UI\Layout\Container\Standard $standard */
-        $this->assertInstanceOf($standard, \iit\Application\UI\Layout\Container\Standard::class);
+        /* @var StandardModule $standard */
+        $this->assertInstanceOf($standard, StandardModule::class);
 
         return '';
     }

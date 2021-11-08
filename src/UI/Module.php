@@ -4,6 +4,8 @@ namespace iit\Application\UI;
 
 class Module
 {
+    use Assertion;
+    
     /**
      * @return string
      */

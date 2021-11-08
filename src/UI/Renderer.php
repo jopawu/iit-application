@@ -3,12 +3,15 @@
 namespace iit\Application\UI;
 
 use iit\Application\DI\Container;
+use iit\Application\Template\WebTemplate;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 abstract class Renderer
 {
+    use Assertion;
+    
     /**
      * @var Container
      */
@@ -23,25 +26,16 @@ abstract class Renderer
     }
 
     /**
-     * @param Module $module
+     * @param Module $bar
      * @return string
      */
-    abstract function render(Module $module) : string;
+    abstract function render(Module $bar) : string;
 
     /**
-     * @param Module $module
-     * @param string $assertionClassname
-     * @throws \InvalidArgumentException
+     * @return WebTemplate
      */
-    protected function assertInstanceOf($module, $assertionClassname)
+    protected function getTemplate() : WebTemplate
     {
-        $moduleClassname = get_class($module);
-
-        if( $moduleClassname != $assertionClassname )
-        {
-            throw new \InvalidArgumentException(
-                "invalid ui module given: {$moduleClassname}, required one: {$assertionClassname}"
-            );
-        }
+        return new WebTemplate();
     }
 }

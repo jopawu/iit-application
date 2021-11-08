@@ -21,4 +21,12 @@ class Factory
     {
         $this->dic = $dic;
     }
+
+    /**
+     * @return Navbar\Factory
+     */
+    public function navbar() : Navbar\Factory
+    {
+        return new Navbar\Factory($this->dic);
+    }
 }

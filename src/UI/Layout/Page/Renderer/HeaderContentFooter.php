@@ -20,7 +20,7 @@ class HeaderContentFooter extends Renderer
     public function render(Module $headerContentFooter) : string
     {
         /* @var HeaderContentFooterModule $headerContentFooter */
-        $this->assertInstanceOf($headerContentFooter, HeaderContentFooterModule::class);
+        $this->assertInstanceOf($headerContentFooter, [HeaderContentFooterModule::class]);
 
         $template = new WebTemplate();
 

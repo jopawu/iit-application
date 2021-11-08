@@ -4,6 +4,7 @@ namespace iit\Application\UI\XHTML\Renderer;
 
 use iit\Application\UI\Renderer;
 use iit\Application\UI\Module;
+use iit\Application\UI\XHTML\Snippet as SnippetModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -16,8 +17,8 @@ class Snippet extends Renderer
      */
     public function render(Module $snippet) : string
     {
-        /* @var \iit\Application\UI\XHTML\Snippet $snippet */
-        $this->assertInstanceOf($snippet, \iit\Application\UI\XHTML\Snippet::class);
+        /* @var SnippetModule $snippet */
+        $this->assertInstanceOf($snippet, SnippetModule::class);
         
         return $snippet->getContent();
     }

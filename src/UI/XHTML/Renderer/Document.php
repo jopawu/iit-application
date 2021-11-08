@@ -19,7 +19,7 @@ class Document extends Renderer
     public function render(Module $document) : string
     {
         /* @var DocumentModule $document */
-        $this->assertInstanceOf($document, DocumentModule::class);
+        $this->assertInstanceOf($document, [DocumentModule::class]);
 
         $template = new WebTemplate();
         

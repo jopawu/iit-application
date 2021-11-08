@@ -21,4 +21,24 @@ class Factory
     {
         $this->dic = $dic;
     }
+
+    public function input()
+    {
+
+    }
+
+    public function select()
+    {
+
+    }
+
+    public function checkbox()
+    {
+
+    }
+
+    public function radio()
+    {
+
+    }
 }

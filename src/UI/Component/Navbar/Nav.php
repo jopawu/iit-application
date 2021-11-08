@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Element\Navbar;
+namespace iit\Application\UI\Component\Navbar;
 
 use iit\Application\UI\Module;
 
@@ -9,11 +9,5 @@ use iit\Application\UI\Module;
  */
 class Nav extends Module
 {
-    /**
-     * @return string
-     */
-    public function render()
-    {
-        return '';
-    }
+    $content
 }
