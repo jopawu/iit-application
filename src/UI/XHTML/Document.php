@@ -2,7 +2,7 @@
 
 namespace iit\Application\UI\XHTML;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
 use iit\Application\Template\TemplateBase;
 use iit\Application\Template\WebTemplate;
@@ -10,7 +10,7 @@ use iit\Application\Template\WebTemplate;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Document extends Module
+class Document extends ModuleAbstract
 {
     const LOCATION_JQUERY_JS = 'lib/vendor/components/jquery/jquery.min.js';
     const LOCATION_JQUERYUI_JS = 'lib/vendor/components/jqueryui/jquery-ui.min.js';

@@ -2,13 +2,13 @@
 
 namespace iit\Application\UI\XHTML;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Snippet extends Module
+class Snippet extends ModuleAbstract
 {
     /**
      * @var Container

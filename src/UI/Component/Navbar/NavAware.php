@@ -2,9 +2,10 @@
 
 namespace iit\Application\UI\Component\Navbar;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
+use iit\Application\UI\ModuleAware;
 
-interface NavAware
+interface NavAware extends ModuleAware
 {
 
 }

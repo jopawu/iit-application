@@ -2,13 +2,13 @@
 
 namespace iit\Application\UI\Layout\Page;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class HeaderContentFooter extends Module
+class HeaderContentFooter extends ModuleAbstract
 {
     const TEMPLATE_FILE = 'UI/Layout/Page/header_content_footer.html';
 

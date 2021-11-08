@@ -8,7 +8,7 @@ use iit\Application\Template\WebTemplate;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-abstract class Renderer
+abstract class RendererAbstract implements RendererAware
 {
     use Assertion;
     
@@ -26,10 +26,10 @@ abstract class Renderer
     }
 
     /**
-     * @param Module $bar
+     * @param ModuleAbstract $module
      * @return string
      */
-    abstract function render(Module $bar) : string;
+    abstract public function render(ModuleAbstract $module) : string;
 
     /**
      * @return WebTemplate

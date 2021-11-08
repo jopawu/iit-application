@@ -3,20 +3,20 @@
 namespace iit\Application\UI\XHTML\Renderer;
 
 use iit\Application\Template\WebTemplate;
-use iit\Application\UI\Renderer;
-use iit\Application\UI\Module;
+use iit\Application\UI\RendererAbstract;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\XHTML\Document as DocumentModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Document extends Renderer
+class Document extends RendererAbstract
 {
     /**
-     * @param Module $document
+     * @param ModuleAbstract $document
      * @return string
      */
-    public function render(Module $document) : string
+    public function render(ModuleAbstract $document) : string
     {
         /* @var DocumentModule $document */
         $this->assertInstanceOf($document, [DocumentModule::class]);

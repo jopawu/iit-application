@@ -21,8 +21,10 @@ trait Assertion
             }
         }
 
+        $assertionClassnames = "\n".implode("\n", $assertionClassnames);
+
         throw new \InvalidArgumentException(
-            "invalid ui module given: {$instanceClassname}, required one: {$assertionClassname}"
+            "invalid ui module given: {$instanceClassname}, valid: {$assertionClassname}"
         );
     }
 }

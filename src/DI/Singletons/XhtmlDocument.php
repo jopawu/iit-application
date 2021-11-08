@@ -2,14 +2,14 @@
 
 namespace iit\Application\DI\Singletons;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\XHTML\Document;
 use iit\Application\UI\XHTML\Snippet;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class XhtmlDocument extends Module
+class XhtmlDocument extends ModuleAbstract
 {
     /**
      * @var Document
@@ -27,7 +27,7 @@ class XhtmlDocument extends Module
     /**
      * @return string
      */
-    public function render()
+    public function render() : string
     {
         return $this->instance->render();
     }

@@ -2,27 +2,29 @@
 
 namespace iit\Application\UI\Component\Navbar\Renderer;
 
-use iit\Application\UI\Renderer;
-use iit\Application\UI\Module;
+use iit\Application\UI\RendererAbstract;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\Component\Navbar\Nav as NavModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Nav extends Renderer
+class Nav extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Component/Navbar/Bar.html';
+    const TEMPLATE_FILE = 'UI/Component/Navbar/Nav.html';
 
     /**
-     * @param Module $bar
+     * @param ModuleAbstract $bar
      * @return string
      */
-    function render(Module $bar) : string
+    function render(ModuleAbstract $nav) : string
     {
-        /* @var NavModule $bar */
-        $this->assertInstanceOf($bar, [NavModule::class]);
+        /* @var NavModule $nav */
+        $this->assertInstanceOf($nav, [NavModule::class]);
 
         $template = $this->getTemplate();
+
+        $template->assign('NAV_AWARE', $nav->getNavAware()->render());
 
         return $template->fetch(self::TEMPLATE_FILE);
     }}

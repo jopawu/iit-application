@@ -2,12 +2,14 @@
 
 namespace iit\Application\UI\Element\Navigation;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
+use iit\Application\UI\Component\Navbar\NavAware;
+use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Link extends Module
+class Link extends ModuleAbstract implements NavAware
 {
     /**
      * @var string
@@ -33,8 +35,10 @@ class Link extends Module
      * @param string $label
      * @param string $href
      */
-    public function __construct(string $label, string $href)
+    public function __construct(Container $dic, string $label, string $href)
     {
+        parent::__construct($dic);
+
         $this->label = $label;
         $this->href = $href;
 
@@ -69,7 +73,7 @@ class Link extends Module
     /**
      * @return bool
      */
-    public function isDisabled() : bool
+    public function isDisabledState() : bool
     {
         return $this->disabledState;
     }

@@ -23,18 +23,20 @@ class Factory
     }
 
     /**
+     * @param Nav[]
      * @return Bar
      */
-    public function bar() : Bar
+    public function bar(array $navs) : Bar
     {
-        return new Bar();
+        return new Bar($this->dic, $navs);
     }
 
     /**
+     * @param NavAware
      * @return Bar
      */
-    public function nav() : Nav
+    public function nav(NavAware $navAware) : Nav
     {
-        return new Nav();
+        return new Nav($this->dic, $navAware);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace iit\Application\UI\Layout;
 
-use iit\Application\DI\Panel;
+use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

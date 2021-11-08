@@ -21,4 +21,14 @@ class Factory
     {
         $this->dic = $dic;
     }
+
+    /**
+     * @param string $label
+     * @param string $href
+     * @return Link
+     */
+    public function link(string $label, string $href) : Link
+    {
+        return new Link($this->dic, $label, $href);
+    }
 }

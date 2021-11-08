@@ -2,22 +2,22 @@
 
 namespace iit\Application\UI\Layout\Page\Renderer;
 
-use iit\Application\UI\Renderer;
+use iit\Application\UI\RendererAbstract;
 use iit\Application\Template\WebTemplate;
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\Layout\Page\HeaderContentFooter as HeaderContentFooterModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class HeaderContentFooter extends Renderer
+class HeaderContentFooter extends RendererAbstract
 {
 
     /**
-     * @param Module $headerContentFooter
+     * @param ModuleAbstract $headerContentFooter
      * @return string
      */
-    public function render(Module $headerContentFooter) : string
+    public function render(ModuleAbstract $headerContentFooter) : string
     {
         /* @var HeaderContentFooterModule $headerContentFooter */
         $this->assertInstanceOf($headerContentFooter, [HeaderContentFooterModule::class]);

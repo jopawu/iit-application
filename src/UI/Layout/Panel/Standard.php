@@ -2,11 +2,11 @@
 
 namespace iit\Application\UI\Layout\Panel;
 
-use iit\Application\UI\Module;
+use iit\Application\UI\ModuleAbstract;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Standard extends Module
+class Standard extends ModuleAbstract
 {
 }

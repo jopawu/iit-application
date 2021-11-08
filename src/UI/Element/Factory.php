@@ -29,4 +29,20 @@ class Factory
     {
         return new Content\Factory($this->dic);
     }
+
+    /**
+     * @return Form\Factory
+     */
+    public function form()
+    {
+        return new Form\Factory($this->dic);
+    }
+
+    /**
+     * @return Navigation\Factory
+     */
+    public function navigation()
+    {
+        return new Navigation\Factory($this->dic);
+    }
 }

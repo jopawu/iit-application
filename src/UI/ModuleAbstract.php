@@ -2,14 +2,29 @@
 
 namespace iit\Application\UI;
 
-class Module
+use iit\Application\DI\Container;
+
+class ModuleAbstract implements ModuleAware
 {
     use Assertion;
-    
+
+    /**
+     * @var Container
+     */
+    protected $dic;
+
+    /**
+     * @param Container $dic
+     */
+    public function __construct(Container $dic)
+    {
+        $this->dic = $dic;
+    }
+
     /**
      * @return string
      */
-    protected function buildRendererClassname()
+    protected function buildRendererClassname() : string
     {
         $namespacePathStack = explode("\\", get_class($this));
 
@@ -22,7 +37,7 @@ class Module
     /**
      * @return string
      */
-    public function render()
+    public function render() : string
     {
         $rendererClassname = $this->buildRendererClassname();
         $renderer = new $rendererClassname($this->dic);
