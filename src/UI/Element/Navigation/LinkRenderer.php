@@ -1,15 +1,14 @@
 <?php
 
-namespace iit\Application\UI\Element\Navigation\Renderer;
+namespace iit\Application\UI\Element\Navigation;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\Element\Navigation\Link as LinkModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Link extends RendererAbstract
+class LinkRenderer extends RendererAbstract
 {
     const TEMPLATE_FILE = 'UI/Element/Navigation/Link.html';
 
@@ -18,8 +17,8 @@ class Link extends RendererAbstract
 
     public function render(ModuleAbstract $link) : string
     {
-        /* @var LinkModule $link */
-        $this->assertInstanceOf($link, [LinkModule::class]);
+        /* @var Link $link */
+        $this->assertInstanceOf($link, [Link::class]);
 
         $template = $this->getTemplate();
 
@@ -32,9 +31,9 @@ class Link extends RendererAbstract
     }
 
     /**
-     * @return LinkModule
+     * @return Link
      */
-    protected function getClasses(LinkModule $link) : string
+    protected function getClasses(Link $link) : string
     {
         $classes = [];
 

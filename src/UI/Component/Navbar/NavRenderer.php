@@ -1,15 +1,14 @@
 <?php
 
-namespace iit\Application\UI\Component\Navbar\Renderer;
+namespace iit\Application\UI\Component\Navbar;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\Component\Navbar\Nav as NavModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Nav extends RendererAbstract
+class NavRenderer extends RendererAbstract
 {
     const TEMPLATE_FILE = 'UI/Component/Navbar/Nav.html';
 
@@ -19,8 +18,8 @@ class Nav extends RendererAbstract
      */
     function render(ModuleAbstract $nav) : string
     {
-        /* @var NavModule $nav */
-        $this->assertInstanceOf($nav, [NavModule::class]);
+        /* @var Nav $nav */
+        $this->assertInstanceOf($nav, [Nav::class]);
 
         $template = $this->getTemplate();
 

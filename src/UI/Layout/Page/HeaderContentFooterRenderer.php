@@ -1,16 +1,15 @@
 <?php
 
-namespace iit\Application\UI\Layout\Page\Renderer;
+namespace iit\Application\UI\Layout\Page;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\Template\WebTemplate;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\Layout\Page\HeaderContentFooter as HeaderContentFooterModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class HeaderContentFooter extends RendererAbstract
+class HeaderContentFooterRenderer extends RendererAbstract
 {
 
     /**
@@ -19,8 +18,8 @@ class HeaderContentFooter extends RendererAbstract
      */
     public function render(ModuleAbstract $headerContentFooter) : string
     {
-        /* @var HeaderContentFooterModule $headerContentFooter */
-        $this->assertInstanceOf($headerContentFooter, [HeaderContentFooterModule::class]);
+        /* @var HeaderContentFooter $headerContentFooter */
+        $this->assertInstanceOf($headerContentFooter, [HeaderContentFooter::class]);
 
         $template = new WebTemplate();
 
@@ -28,6 +27,6 @@ class HeaderContentFooter extends RendererAbstract
         $template->assign('CONTENT', $headerContentFooter->getContentHtml());
         $template->assign('FOOTER', $headerContentFooter->getFooterHtml());
 
-        return $template->fetch(HeaderContentFooterModule::TEMPLATE_FILE);
+        return $template->fetch(HeaderContentFooter::TEMPLATE_FILE);
     }
 }

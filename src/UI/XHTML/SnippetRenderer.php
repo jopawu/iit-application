@@ -1,15 +1,14 @@
 <?php
 
-namespace iit\Application\UI\XHTML\Renderer;
+namespace iit\Application\UI\XHTML;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\XHTML\Snippet as SnippetModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Snippet extends RendererAbstract
+class SnippetRenderer extends RendererAbstract
 {
     /**
      * @param ModuleAbstract $snippet
@@ -17,8 +16,8 @@ class Snippet extends RendererAbstract
      */
     public function render(ModuleAbstract $snippet) : string
     {
-        /* @var SnippetModule $snippet */
-        $this->assertInstanceOf($snippet, [SnippetModule::class]);
+        /* @var Snippet $snippet */
+        $this->assertInstanceOf($snippet, [Snippet::class]);
         
         return $snippet->getContent();
     }

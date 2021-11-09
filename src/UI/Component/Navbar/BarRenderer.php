@@ -1,16 +1,14 @@
 <?php
 
-namespace iit\Application\UI\Component\Navbar\Renderer;
+namespace iit\Application\UI\Component\Navbar;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\Component\Navbar\Bar as BarModule;
-use iit\Application\UI\Component\Navbar\Nav as NavModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Bar extends RendererAbstract
+class BarRenderer extends RendererAbstract
 {
     const TEMPLATE_FILE = 'UI/Component/Navbar/Bar.html';
 
@@ -20,8 +18,8 @@ class Bar extends RendererAbstract
      */
     function render(ModuleAbstract $bar) : string
     {
-        /* @var BarModule $bar */
-        $this->assertInstanceOf($bar, [BarModule::class]);
+        /* @var Bar $bar */
+        $this->assertInstanceOf($bar, [Bar::class]);
 
         $template = $this->getTemplate();
 
@@ -32,9 +30,9 @@ class Bar extends RendererAbstract
     }
 
     /**
-     * @return BarModule
+     * @return Bar
      */
-    protected function getClasses(BarModule $bar) : string
+    protected function getClasses(Bar $bar) : string
     {
         $classes = [];
 
@@ -42,7 +40,7 @@ class Bar extends RendererAbstract
     }
 
     /**
-     * @param NavModule[] $navs
+     * @param Nav[] $navs
      * @return string[]
      */
     protected function getRenderedNavs(array $navs) : array

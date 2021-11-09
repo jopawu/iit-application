@@ -26,12 +26,8 @@ class ModuleAbstract implements ModuleAware
      */
     protected function buildRendererClassname() : string
     {
-        $namespacePathStack = explode("\\", get_class($this));
-
-        $moduleClassname = array_pop($namespacePathStack);
-        $moduleNamespace = implode("\\", $namespacePathStack);
-
-        return "{$moduleNamespace}\\Renderer\\{$moduleClassname}";
+        $namespacedClassname = get_class($this);
+        return "{$namespacedClassname}Renderer";
     }
 
     /**

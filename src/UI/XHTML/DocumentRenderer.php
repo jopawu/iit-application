@@ -1,16 +1,15 @@
 <?php
 
-namespace iit\Application\UI\XHTML\Renderer;
+namespace iit\Application\UI\XHTML;
 
 use iit\Application\Template\WebTemplate;
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\XHTML\Document as DocumentModule;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Document extends RendererAbstract
+class DocumentRenderer extends RendererAbstract
 {
     /**
      * @param ModuleAbstract $document
@@ -18,8 +17,8 @@ class Document extends RendererAbstract
      */
     public function render(ModuleAbstract $document) : string
     {
-        /* @var DocumentModule $document */
-        $this->assertInstanceOf($document, [DocumentModule::class]);
+        /* @var Document $document */
+        $this->assertInstanceOf($document, [Document::class]);
 
         $template = new WebTemplate();
         
@@ -28,6 +27,6 @@ class Document extends RendererAbstract
 
         $template->assign('PAGE_BODY', $document->getBody()->render());
 
-        return $template->fetch(DocumentModule::TEMPLATE_FILE);
+        return $template->fetch(Document::TEMPLATE_FILE);
     }
 }
