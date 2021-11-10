@@ -9,6 +9,7 @@
         {"name": "Björn Heyser", "email": "info@bjoernheyser.de"},
         {"name": "Johannes Papst", "email": "info@iit-online.de"}
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
         "smarty/smarty": "3.1.*",
