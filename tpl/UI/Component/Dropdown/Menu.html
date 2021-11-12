@@ -1,10 +1,10 @@
 <div class="dropdown {$CLASSES}">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         {$LABEL}
     </a>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         {foreach $ITEMS as $ITEM}
             {$ITEM}
         {/foreach}
-    </div>
+    </ul>
 </div>
