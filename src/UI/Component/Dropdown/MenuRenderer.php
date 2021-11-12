@@ -42,7 +42,7 @@ class MenuRenderer extends RendererAbstract
     }
 
     /**
-     * @param Item[] $items
+     * @param ItemAbstract[] $items
      * @return string[]
      */
     protected function getRenderedItems(array $items) : array

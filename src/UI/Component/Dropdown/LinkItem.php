@@ -1,16 +1,13 @@
 <?php
 
-namespace iit\Application\UI\Element\Navigation;
+namespace iit\Application\UI\Component\Dropdown;
 
-use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\Component\Navbar\NavAware;
-use iit\Application\UI\Component\Dropdown\ItemAware;
 use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Link extends ModuleAbstract implements NavAware
+class LinkItem extends ItemAbstract
 {
     /**
      * @var string
@@ -26,23 +23,22 @@ class Link extends ModuleAbstract implements NavAware
      * @var bool
      */
     protected $activeState;
-    
+
     /**
      * @var bool
      */
     protected $disabledState;
 
     /**
-     * @param string $label
-     * @param string $href
+     * @param Container $dic
+     * @param string    $label
+     * @param string    $href
      */
     public function __construct(Container $dic, string $label, string $href)
     {
         parent::__construct($dic);
-
         $this->label = $label;
         $this->href = $href;
-
         $this->activeState = false;
         $this->disabledState = false;
     }
@@ -80,7 +76,7 @@ class Link extends ModuleAbstract implements NavAware
     }
 
     /**
-     * @return Link
+     * @return LinkItem
      */
     public function withActiveState($activeState = true) : Link
     {
@@ -90,7 +86,7 @@ class Link extends ModuleAbstract implements NavAware
     }
 
     /**
-     * @return Link
+     * @return LinkItem
      */
     public function withDisabledState($disabledState = true) : Link
     {

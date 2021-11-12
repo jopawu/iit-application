@@ -33,11 +33,20 @@ class Factory
     }
 
     /**
-     * @param ItemAware $itemAware
-     * @return Item
+     * @param string $label
+     * @param string $href
+     * @return LinkItem
      */
-    public function item(ItemAware $itemAware) : Item
+    public function link(string $label, string $href) : LinkItem
     {
-        return new Item($this->dic, $itemAware);
+        return new LinkItem($this->dic, $label, $href);
+    }
+
+    /**
+     * @return DividerItem
+     */
+    public function divider() : DividerItem
+    {
+        return new DividerItem($this->dic);
     }
 }

@@ -17,15 +17,14 @@ class Menu extends ModuleAbstract implements NavAware
     protected $label;
 
     /**
-     * @var Item[]
+     * @var ItemAbstract[]
      */
     protected $items;
 
     /**
-     * Menu constructor.
-     * @param Container $dic
-     * @param string    $label
-     * @param array     $items
+     * @param Container    $dic
+     * @param string       $label
+     * @param ItemAbstract $items
      */
     public function __construct(Container $dic, string $label, array $items)
     {
@@ -44,7 +43,7 @@ class Menu extends ModuleAbstract implements NavAware
     }
 
     /**
-     * @return Item[]
+     * @return ItemAbstract[]
      */
     public function getItems() : array
     {
