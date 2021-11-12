@@ -11,6 +11,8 @@ use iit\Application\UI\XHTML\Document;
 use iit\Application\UI\Layout\Page\HeaderContentFooter;
 use iit\Application\UI\Factory as UiFactory;
 use iit\Application\DI\Singletons\XhtmlDocument;
+use iit\Nextcloud\DAV\Service as NcDavService;
+use iit\Nextcloud\DAV\Config as NcDavConfig;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -71,6 +73,20 @@ class Container extends DIC
     public function ui()
     {
         return $this['ui'];
+    }
+
+    /**
+     * @return NcDavService
+     */
+    public function nextcloud()
+    {
+        $config = new NcDavConfig(
+            $this->config()->getVariable('nextcloud', 'baseuri'),
+            $this->config()->getVariable('nextcloud', 'username'),
+            $this->config()->getVariable('nextcloud', 'password')
+        );
+
+        return new NcDavService($config);
     }
 
     /**

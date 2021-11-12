@@ -11,40 +11,25 @@ use iit\Application\DI\Container;
 class Item extends ModuleAbstract
 {
     /**
-     * @var string
+     * @var ItemAware
      */
-    protected $label;
+    protected $itemAware;
 
     /**
-     * @var string
+     * @param Container $dic
+     * @param ItemAware $itemAware
      */
-    protected $href;
-
-    /**
-     * Item constructor.
-     * @param string $label
-     * @param string $href
-     */
-    public function __construct(Container $dic, string $label, string $href)
+    public function __construct(Container $dic, ItemAware $itemAware)
     {
         parent::__construct($dic);
-        $this->label = $label;
-        $this->href = $href;
+        $this->itemAware = $itemAware;
     }
 
     /**
-     * @return string
+     * @return ItemAware
      */
-    public function getLabel() : string
+    public function getItemAware() : ItemAware
     {
-        return $this->label;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHref() : string
-    {
-        return $this->href;
+        return $this->itemAware;
     }
 }

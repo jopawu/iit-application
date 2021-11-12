@@ -4,6 +4,7 @@ namespace iit\Application\UI\Element\Navigation;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
+use iit\Application\UI\Constants;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -11,9 +12,6 @@ use iit\Application\UI\ModuleAbstract;
 class LinkRenderer extends RendererAbstract
 {
     const TEMPLATE_FILE = 'UI/Element/Navigation/Link.html';
-
-    const CSS_CLASS_ACTIVE_STATE = 'active';
-    const CSS_CLASS_DISABLED_STATE = 'disabled';
 
     public function render(ModuleAbstract $link) : string
     {
@@ -31,7 +29,8 @@ class LinkRenderer extends RendererAbstract
     }
 
     /**
-     * @return Link
+     * @param Link $link
+     * @return string
      */
     protected function getClasses(Link $link) : string
     {
@@ -39,12 +38,12 @@ class LinkRenderer extends RendererAbstract
 
         if( $link->isActiveState() )
         {
-            $classes[] = self::CSS_CLASS_ACTIVE_STATE;
+            $classes[] = Constants::BS_CLASS_ACTIVE;
         }
 
         if( $link->isDisabledState() )
         {
-            $classes[] = self::CSS_CLASS_DISABLED_STATE;
+            $classes[] = Constants::BS_CLASS_DISABLED;
         }
 
         return implode(' ', $classes);

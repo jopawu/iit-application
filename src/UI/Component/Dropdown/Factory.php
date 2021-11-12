@@ -23,20 +23,21 @@ class Factory
     }
 
     /**
-     * @param Nav[]
-     * @return Bar
+     * @param string $label
+     * @param Item[] $items
+     * @return Menu
      */
-    public function bar(array $navs) : Bar
+    public function menu(string $label, array $items) : Menu
     {
-        return new Bar($this->dic, $navs);
+        return new Menu($this->dic, $label, $items);
     }
 
     /**
-     * @param NavAware
-     * @return Bar
+     * @param ItemAware $itemAware
+     * @return Item
      */
-    public function nav(NavAware $navAware) : Nav
+    public function item(ItemAware $itemAware) : Item
     {
-        return new Nav($this->dic, $navAware);
+        return new Item($this->dic, $itemAware);
     }
 }

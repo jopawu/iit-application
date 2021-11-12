@@ -23,6 +23,14 @@ class Factory
     }
 
     /**
+     * @return Dropdown\Factory
+     */
+    public function dropdown() : Dropdown\Factory
+    {
+        return new Dropdown\Factory($this->dic);
+    }
+
+    /**
      * @return Navbar\Factory
      */
     public function navbar() : Navbar\Factory

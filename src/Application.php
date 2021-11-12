@@ -20,7 +20,7 @@ abstract class Application
     /**
      * @param Config $config
      */
-    final public function __construct(Config $config)
+    public function __construct(Config $config)
     {
         $this->dic = Container::create($config);
 

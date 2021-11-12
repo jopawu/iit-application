@@ -4,12 +4,13 @@ namespace iit\Application\UI\Element\Navigation;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\Component\Navbar\NavAware;
+use iit\Application\UI\Component\Dropdown\ItemAware;
 use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Link extends ModuleAbstract implements NavAware
+class Link extends ModuleAbstract implements NavAware, ItemAware
 {
     /**
      * @var string
