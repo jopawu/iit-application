@@ -7,6 +7,8 @@ namespace iit\Application\Config;
  */
 class Config
 {
+    const DEFAULT_CONFIG_FILE = 'config/config.ini.php';
+        
     /**
      * @var array
      */
