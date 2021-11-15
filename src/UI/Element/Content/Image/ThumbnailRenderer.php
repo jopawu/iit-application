@@ -22,10 +22,7 @@ class ThumbnailRenderer extends ImageRendererAbstract
 
         $template = $this->getTemplate();
 
-        $template->assign('CLASSES', $this->getClasses($image));
-
-        $template->assign('LABEL', $image->getLabel());
-        $template->assign('SRC', $image->getSrc());
+        $this->renderCommons($template, $image);
 
         return $template->fetch(self::TEMPLATE_FILE);
     }

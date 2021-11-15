@@ -10,12 +10,22 @@ abstract class ImageAbstract
     /**
      * @var string
      */
-    protected $label;
+    protected $src;
 
     /**
      * @var string
      */
-    protected $src;
+    protected $label;
+
+    /**
+     * @var int|null
+     */
+    protected $width;
+
+    /**
+     * @var int|null
+     */
+    protected $height;
 
     /**
      * @var bool
@@ -23,23 +33,16 @@ abstract class ImageAbstract
     protected $responsive;
     
     /**
-     * @param string $label
      * @param string $src
      */
-    public function __construct(string $label, string $src)
+    public function __construct(string $src)
     {
-        $this->label = $label;
         $this->src = $src;
-        
-        $this->responsive = false;
-    }
 
-    /**
-     * @return string
-     */
-    public function getLabel() : string
-    {
-        return $this->label;
+        $this->label = '';
+        $this->width = null;
+        $this->height = null;
+        $this->responsive = false;
     }
 
     /**
@@ -51,6 +54,30 @@ abstract class ImageAbstract
     }
 
     /**
+     * @return string
+     */
+    public function getLabel() : string
+    {
+        return $this->label;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getWidth() : ?int
+    {
+        return $this->width;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getHeight() : ?int
+    {
+        return $this->height;
+    }
+
+    /**
      * @return bool
      */
     public function isResponsive() : bool
@@ -59,10 +86,43 @@ abstract class ImageAbstract
     }
 
     /**
+     * @param string $label
+     * @return $this
+     */
+    public function withLabel(string $label) : self
+    {
+        $clone = clone $this;
+        $clone->label = $label;
+        return $clone;
+    }
+
+    /**
+     * @param int $width
+     * @return $this
+     */
+    public function withWidth(int $width) : self
+    {
+        $clone = clone $this;
+        $clone->width = $width;
+        return $clone;
+    }
+
+    /**
+     * @param int $height
+     * @return $this
+     */
+    public function withHeight(int $height) : self
+    {
+        $clone = clone $this;
+        $clone->height = $height;
+        return $clone;
+    }
+
+    /**
      * @param bool $responsive
      * @return self
      */
-    public function withResponsive($responsive = true) : self
+    public function withResponsive(bool $responsive = true) : self
     {
         $clone = clone $this;
         $clone->responsive = $responsive;
