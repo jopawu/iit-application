@@ -24,12 +24,42 @@ class Factory
 
     /**
      * @param string $label
-     * @param Item[] $items
-     * @return Menu
+     * @param ItemAbstract[] $items
+     * @return ButtonMenu
      */
-    public function menu(string $label, array $items) : Menu
+    public function buttonMenu(string $label, array $items) : ButtonMenu
     {
-        return new Menu($this->dic, $label, $items);
+        return new ButtonMenu($this->dic, $label, $items);
+    }
+
+    /**
+     * @param string $label
+     * @param ItemAbstract[] $items
+     * @return LinkMenu
+     */
+    public function linkMenu(string $label, array $items) : LinkMenu
+    {
+        return new LinkMenu($this->dic, $label, $items);
+    }
+
+    /**
+     * @param string $label
+     * @param Item[] $items
+     * @return ButtonSplit
+     */
+    public function buttonSplit(string $label, array $items) : ButtonSplit
+    {
+        return new ButtonSplit($this->dic, $label, $items);
+    }
+
+    /**
+     * @param string $label
+     * @param Item[] $items
+     * @return LinkSplit
+     */
+    public function linkSplit(string $label, array $items) : LinkSplit
+    {
+        return new LinkSplit($this->dic, $label, $items);
     }
 
     /**

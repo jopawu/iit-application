@@ -21,6 +21,8 @@ class Bar extends ModuleAbstract
      */
     public function __construct(Container $dic, array $navs)
     {
+        $this->assertInstancesOf($navs, [Nav::class]);
+        
         parent::__construct($dic);
         $this->navs = $navs;
     }

@@ -19,7 +19,7 @@ class LinkItemRenderer extends RendererAbstract
      */
     public function render(ModuleAbstract $item) : string
     {
-        /* @var Item $item */
+        /* @var LinkItem $item */
         $this->assertInstanceOf($item, [LinkItem::class]);
         
         $template = $this->getTemplate();
@@ -28,6 +28,11 @@ class LinkItemRenderer extends RendererAbstract
 
         $template->assign('HREF', $item->getHref());
         $template->assign('LABEL', $item->getLabel());
+
+        if( $item->hasImage() )
+        {
+            $template->assign('IMAGE', $item->getImage()->render());
+        }
 
         return $template->fetch(self::TEMPLATE_FILE);
     }

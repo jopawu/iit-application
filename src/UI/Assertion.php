@@ -9,7 +9,7 @@ trait Assertion
      * @param string[] $assertionClassnames
      * @throws \InvalidArgumentException
      */
-    protected function assertInstanceOf($instance, $assertionClassnames)
+    protected function assertInstanceOf($instance, array $assertionClassnames)
     {
         $instanceClassname = get_class($instance);
 
@@ -26,5 +26,17 @@ trait Assertion
         throw new \InvalidArgumentException(
             "invalid ui module given: {$instanceClassname}, valid: {$assertionClassname}"
         );
+    }
+
+    /**
+     * @param object $instances
+     * @param string[] $assertionClassnames
+     */
+    protected function assertInstancesOf($instances, array $assertionClassnames)
+    {
+        foreach( $instances as $instance )
+        {
+            $this->assertInstanceOf($instance, $assertionClassnames);
+        }
     }
 }

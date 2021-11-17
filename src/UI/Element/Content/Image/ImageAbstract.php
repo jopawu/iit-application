@@ -2,10 +2,12 @@
 
 namespace iit\Application\UI\Element\Content\Image;
 
+use iit\Application\UI\ModuleAbstract;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-abstract class ImageAbstract
+abstract class ImageAbstract extends ModuleAbstract
 {
     /**
      * @var string

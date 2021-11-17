@@ -2,14 +2,14 @@
 
 namespace iit\Application\UI\Component\Dropdown;
 
-use iit\Application\DI\Container;
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\Component\Navbar\NavAware;
+use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Menu extends ModuleAbstract implements NavAware
+abstract class DropdownAbstract extends ModuleAbstract implements NavAware
 {
     /**
      * @var string
@@ -49,4 +49,5 @@ class Menu extends ModuleAbstract implements NavAware
     {
         return $this->items;
     }
+
 }

@@ -13,7 +13,7 @@ class NavRenderer extends RendererAbstract
     const TEMPLATE_FILE = 'UI/Component/Navbar/Nav.html';
 
     /**
-     * @param ModuleAbstract $bar
+     * @param ModuleAbstract $nav
      * @return string
      */
     function render(ModuleAbstract $nav) : string

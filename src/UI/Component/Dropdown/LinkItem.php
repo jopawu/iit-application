@@ -3,6 +3,7 @@
 namespace iit\Application\UI\Component\Dropdown;
 
 use iit\Application\DI\Container;
+use iit\Application\UI\Element\Content\Image\ImageAbstract;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -30,6 +31,11 @@ class LinkItem extends ItemAbstract
     protected $disabledState;
 
     /**
+     * @var ImageAbstract
+     */
+    protected $image;
+
+    /**
      * @param Container $dic
      * @param string    $label
      * @param string    $href
@@ -39,8 +45,10 @@ class LinkItem extends ItemAbstract
         parent::__construct($dic);
         $this->label = $label;
         $this->href = $href;
+
         $this->activeState = false;
         $this->disabledState = false;
+        $this->image = null;
     }
 
     /**
@@ -76,9 +84,25 @@ class LinkItem extends ItemAbstract
     }
 
     /**
+     * @return ImageAbstract
+     */
+    public function getImage() : ImageAbstract
+    {
+        return $this->image;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasImage() : bool
+    {
+        return $this->image instanceof ImageAbstract;
+    }
+
+    /**
      * @return LinkItem
      */
-    public function withActiveState($activeState = true) : Link
+    public function withActiveState($activeState = true) : LinkItem
     {
         $clone = clone $this;
         $clone->activeState = $activeState;
@@ -88,10 +112,21 @@ class LinkItem extends ItemAbstract
     /**
      * @return LinkItem
      */
-    public function withDisabledState($disabledState = true) : Link
+    public function withDisabledState($disabledState = true) : LinkItem
     {
         $clone = clone $this;
         $clone->disabledState = $disabledState;
+        return $clone;
+    }
+
+    /**
+     * @param ImageAbstract $image
+     * @return LinkItem
+     */
+    public function withImage(ImageAbstract $image) : LinkItem
+    {
+        $clone = clone $this;
+        $clone->image = $image;
         return $clone;
     }
 }
