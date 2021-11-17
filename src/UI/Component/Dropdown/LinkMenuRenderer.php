@@ -24,6 +24,11 @@ class LinkMenuRenderer extends DropdownRendererAbstract
         
         $template = $this->getTemplate();
 
+        if( $linkMenu->hasImage() )
+        {
+            $template->assign('IMAGE', $linkMenu->getImage()->render());
+        }
+
         $template->assign('CLASSES', $this->getClasses($linkMenu));
         $template->assign('LABEL', $linkMenu->getLabel());
         $template->assign('ITEMS', $this->getRenderedItems($linkMenu->getItems()));

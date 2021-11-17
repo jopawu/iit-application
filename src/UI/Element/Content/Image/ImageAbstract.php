@@ -3,6 +3,7 @@
 namespace iit\Application\UI\Element\Content\Image;
 
 use iit\Application\UI\ModuleAbstract;
+use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -37,8 +38,10 @@ abstract class ImageAbstract extends ModuleAbstract
     /**
      * @param string $src
      */
-    public function __construct(string $src)
+    public function __construct(Container $dic, string $src)
     {
+        parent::__construct($dic);
+
         $this->src = $src;
 
         $this->label = '';

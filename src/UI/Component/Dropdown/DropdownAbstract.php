@@ -5,6 +5,7 @@ namespace iit\Application\UI\Component\Dropdown;
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\Component\Navbar\NavAware;
 use iit\Application\DI\Container;
+use iit\Application\UI\Element\Content\Image\ImageAbstract;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -15,6 +16,11 @@ abstract class DropdownAbstract extends ModuleAbstract implements NavAware
      * @var string
      */
     protected $label;
+
+    /**
+     * @var ImageAbstract
+     */
+    protected $image;
 
     /**
      * @var ItemAbstract[]
@@ -32,6 +38,7 @@ abstract class DropdownAbstract extends ModuleAbstract implements NavAware
 
         $this->label = $label;
         $this->items = $items;
+        $this->image = null;
     }
 
     /**
@@ -43,6 +50,22 @@ abstract class DropdownAbstract extends ModuleAbstract implements NavAware
     }
 
     /**
+     * @return bool
+     */
+    public function hasImage() : bool
+    {
+        return $this->image instanceof ImageAbstract;
+    }
+
+    /**
+     * @return ImageAbstract
+     */
+    public function getImage() : ImageAbstract
+    {
+        return $this->image;
+    }
+
+    /**
      * @return ItemAbstract[]
      */
     public function getItems() : array
@@ -50,4 +73,14 @@ abstract class DropdownAbstract extends ModuleAbstract implements NavAware
         return $this->items;
     }
 
+    /**
+     * @param ImageAbstract $image
+     * @return $this
+     */
+    public function withImage(ImageAbstract $image) : self
+    {
+        $clone = clone $this;
+        $clone->image = $image;
+        return $clone;
+    }
 }

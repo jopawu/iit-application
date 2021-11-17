@@ -17,9 +17,9 @@ abstract class ImageRendererAbstract extends RendererAbstract
 
     /**
      * @param WebTemplate $template
-     * @param RoundedPill $image
+     * @param ImageAbstract $image
      */
-    protected function renderCommons(WebTemplate $template, RoundedPill $image) : void
+    protected function renderCommons(WebTemplate $template, ImageAbstract $image) : void
     {
         $template->assign('SRC', $image->getSrc());
         $template->assign('LABEL', $image->getLabel());

@@ -23,7 +23,12 @@ class ButtonMenuRenderer extends DropdownRendererAbstract
         $this->assertInstanceOf($buttonMenu, [ButtonMenu::class]);
 
         $template = $this->getTemplate();
-
+        
+        if( $buttonMenu->hasImage() )
+        {
+            $template->assign('IMAGE', $buttonMenu->getImage()->render());
+        }
+        
         $template->assign('CLASSES', $this->getClasses($buttonMenu));
         $template->assign('LABEL', $buttonMenu->getLabel());
         $template->assign('ITEMS', $this->getRenderedItems($buttonMenu->getItems()));

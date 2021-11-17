@@ -2,6 +2,8 @@
 
 namespace iit\Application\UI\Element\Content\Listing;
 
+use iit\Application\DI\Container;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
