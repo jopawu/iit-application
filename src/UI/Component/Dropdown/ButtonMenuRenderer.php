@@ -11,7 +11,7 @@ class ButtonMenuRenderer extends DropdownRendererAbstract
 {
     const TEMPLATE_FILE = 'UI/Component/Dropdown/Menu.html';
 
-    const BUTTON_CSS_CLASS = 'btn btn-secondary';
+    const BUTTON_CSS_CLASS = 'btn';
 
     /**
      * @param ModuleAbstract $buttonMenu
