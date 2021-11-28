@@ -13,17 +13,23 @@ class SelectQuery extends QueryBase
 	 * @var array
 	 */
 	protected $fields;
+	
+	/**
+	 * @var array
+	 */
+	protected $where;
 
 	/**
 	 * @param PDO $connection
 	 * @param string $table
 	 * @param array $fields
 	 */
-	public function __construct(PDO $connection, string $table, array $fields)
+	public function __construct(PDO $connection, string $table, array $fields, array $where)
 	{
 		parent::__construct($connection, $table);
 
 		$this->fields = $fields;
+		$this->where = $where;
 	}
 
 	/**
@@ -40,7 +46,7 @@ class SelectQuery extends QueryBase
 	 */
 	public function getValues()
 	{
-		return array_values($fields);
+		return array_values($this->where);
 	}
 
 	/**
@@ -48,7 +54,7 @@ class SelectQuery extends QueryBase
 	 */
 	protected function getFields()
 	{
-		$fields = array_keys($this->data);
+		$fields = array_values($this->fields);
 		$fields = $this->quoteIdentifierArray($fields);
 		$fields = $this->implodeWithComma($fields);
 		return $fields;

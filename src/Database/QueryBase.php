@@ -42,7 +42,20 @@ abstract class QueryBase
 	 */
 	protected function quoteIdentifier($identifier)
 	{
-		return $this->connection->quote($identifier);
+		$identifier = explode('.', $identifier);
+		
+		foreach($identifier as $key => $value)
+		{
+			if( $value == '*' )
+			{
+				$identifier[$key] = $value;
+				continue;
+			}
+			
+			$identifier[$key] = "`{$value}`";
+		}
+		
+		return implode('.', $identifier);
 	}
 
 	/**

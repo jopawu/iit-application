@@ -2,6 +2,7 @@
 
 namespace iit\Application\Database;
 
+use iit\Application\Database\Exception\TooManyRowsException;
 use PDO;
 
 /**
@@ -112,21 +113,42 @@ class Database
 		$statement = $this->connection->prepare($query->getSql());
 		return $statement->execute($query->getValues());
 	}
-
-	public function findOne()
+	
+	/**
+	 * @param string $table
+	 * @param array $fields
+	 * @param array $where
+	 * @return array|false
+	 */
+	public function findOne($table, $fields, $where)
 	{
-
+		$rows = $this->select($table, $fields, $where);
+		
+		if( count($rows) > 1 )
+		{
+			throw new TooManyRowsException(
+				"Found more than one result rows, found number of rows: ".count($rows)
+			);
+		}
+		
+		return current($rows);
 	}
-
-	public function findAll()
+	
+	/**
+	 * @param string $table
+	 * @param array $fields
+	 * @param array $where
+	 * @return array|false
+	 */
+	public function findAll($table, $fields, $where)
 	{
-
+		return $this->select($table, $fields, $where);
 	}
 	
 	/**
 	 * gibt ein $stmt zurück für $stmt->fetchAll() um Daten zu holen
 	 *
-	 * @param $sql
+	 * @param string $sql
 	 * @return false|\PDOStatement
 	 */
 	public function query($sql)
@@ -138,11 +160,21 @@ class Database
 	 * gibt ein $stmt für $stmt->execute()
 	 * anschließend dann mit $stmt->fetchAll() Daten holen
 	 *
-	 * @param $sql
+	 * @param string $sql
 	 * @return false|\PDOStatement
 	 */
 	public function prepare($sql)
 	{
 		return $this->connection->prepare($sql);
+	}
+	
+	/**
+	 * @param string $table
+	 * @return array|false
+	 */
+	public function describeTable($table)
+	{
+		$statement = $this->connection->query("DESCRIBE `".$table."`");
+		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 }
