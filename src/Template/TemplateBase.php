@@ -20,7 +20,7 @@ abstract class TemplateBase extends \Smarty
         parent::__construct();
     }
 
-    public function fetch($template)
+    public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
         if( $this->isTemplateAvailable(self::APP_TEMPLATE_DIR, $template) )
         {
