@@ -122,4 +122,27 @@ class Database
 	{
 
 	}
+	
+	/**
+	 * gibt ein $stmt zurück für $stmt->fetchAll() um Daten zu holen
+	 *
+	 * @param $sql
+	 * @return false|\PDOStatement
+	 */
+	public function query($sql)
+	{
+		return $this->connection->query($sql);
+	}
+	
+	/**
+	 * gibt ein $stmt für $stmt->execute()
+	 * anschließend dann mit $stmt->fetchAll() Daten holen
+	 *
+	 * @param $sql
+	 * @return false|\PDOStatement
+	 */
+	public function prepare($sql)
+	{
+		return $this->connection->prepare($sql);
+	}
 }
