@@ -45,4 +45,12 @@ class Factory
     {
         return new Navigation\Factory($this->dic);
     }
+
+    /**
+     * @return Table\Factory
+     */
+    public function table() : Table\Factory
+    {
+        return new Table\Factory($this->dic);
+    }
 }

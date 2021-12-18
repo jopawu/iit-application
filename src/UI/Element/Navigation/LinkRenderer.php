@@ -13,6 +13,10 @@ class LinkRenderer extends RendererAbstract
 {
     const TEMPLATE_FILE = 'UI/Element/Navigation/Link.html';
 
+    /**
+     * @param ModuleAbstract $link
+     * @return string
+     */
     public function render(ModuleAbstract $link) : string
     {
         /* @var Link $link */

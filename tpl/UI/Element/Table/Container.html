@@ -1,0 +1,17 @@
+<table style="border: solid #3c3c3c 1px; border-collapse: collapse; margin: 10px;">
+{if $HEADROW}
+    <thead>
+        {$HEADROW}
+    </thead>
+{/if}
+{if $BODYROWS}
+    <tbody>
+        {foreach $BODYROWS as $ROW}{$ROW}{/foreach}
+    </tbody>
+{/if}
+{if $FOOTROW}
+    <tfoot>
+        {$FOOTROW}
+    </tfoot>
+{/if}
+</table>
