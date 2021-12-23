@@ -25,7 +25,29 @@ class CellRenderer extends RendererAbstract
 
         $template->assign('ISHEAD', (int)$cell->isHeaderCell());
         $template->assign('CONTENT', $cell->getContent());
+        $template->assign('STYLES', $this->getStyles($cell));
 
         return $template->fetch(self::TEMPLATE_FILE);
+    }
+
+    /**
+     * @param Cell $cell
+     * @return string
+     */
+    public function getStyles(Cell $cell) : string
+    {
+        $styles = [];
+
+        if( $cell->hasAlign() )
+        {
+            $styles[] = "text-align: {$cell->getAlign()};";
+        }
+
+        if( $cell->hasWidth() )
+        {
+            $styles[] = "width: {$cell->getWidth()};";
+        }
+
+        return implode(' ', $styles);
     }
 }

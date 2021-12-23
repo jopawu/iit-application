@@ -10,6 +10,10 @@ use iit\Application\DI\Container;
  */
 class Cell extends ModuleAbstract
 {
+    const ALIGN_LEFT = 'left';
+    const ALIGN_RIGHT = 'right';
+    const ALIGN_CENTER = 'center';
+
     /**
      * @var string
      */
@@ -21,6 +25,16 @@ class Cell extends ModuleAbstract
     protected $isHeaderCell;
 
     /**
+     * @var string
+     */
+    protected $align;
+
+    /**
+     * @var string
+     */
+    protected $width;
+
+    /**
      * @param Container $dic
      * @param string    $content
      */
@@ -30,6 +44,9 @@ class Cell extends ModuleAbstract
 
         $this->content = $content;
         $this->isHeaderCell = $isHeaderCell;
+
+        $this->align = null;
+        $this->width = null;
     }
 
     /**
@@ -46,5 +63,83 @@ class Cell extends ModuleAbstract
     public function isHeaderCell() : bool
     {
         return $this->isHeaderCell;
+    }
+
+    /**
+     * @param string $align
+     * @return Cell
+     */
+    public function withAlign(string $align) : Cell
+    {
+        $this->checkAlign($align);
+        $clone = clone $this;
+        $clone->align = $align;
+        return $clone;
+    }
+
+    /**
+     * @param string $align
+     */
+    private function checkAlign(string $align)
+    {
+        if( !in_array($align, [self::ALIGN_LEFT, self::ALIGN_RIGHT, self::ALIGN_CENTER]) )
+        {
+            throw new \InvalidArgumentException("invalid align given: {$align}");
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlign() : ?string
+    {
+        return $this->align;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasAlign() : bool
+    {
+        return $this->align !== null;
+    }
+
+    /**
+     * @param string $width
+     * @return Cell
+     */
+    public function withWidth(string $width) : Cell
+    {
+        $this->checkWidth($width);
+        $clone = clone $this;
+        $clone->width = $width;
+        return $clone;
+    }
+
+    /**
+     * @param string $width
+     */
+    private function checkWidth(string $width)
+    {
+        if( !preg_match('/^\d+px$/', $width) )
+        {
+            throw new \InvalidArgumentException("invalid width given: {$width}");
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getWidth() : ?string
+    {
+        return $this->width;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasWidth() : bool
+    {
+        return $this->width !== null;
     }
 }
