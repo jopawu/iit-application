@@ -177,4 +177,9 @@ class Database
 		$statement = $this->connection->query("DESCRIBE `".$table."`");
 		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
+	
+	public function tabellenStruktur($table)
+	{
+		return $this->describeTable($table);
+	}
 }
