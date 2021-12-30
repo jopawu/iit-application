@@ -62,6 +62,15 @@ class Database
 		$this->connection = new PDO($dsn, $username, $password, $options);
 	}
 
+    /**
+     * @param mixed $value
+     * @return string
+     */
+	public function quoteValue(mixed $value) : string
+    {
+        return $this->connection->quote($value);
+    }
+
 	/**
 	 * @param string $table
 	 * @param array $fields
