@@ -75,4 +75,9 @@ class XhtmlDocument extends ModuleAbstract
     {
         $this->instance = $this->instance->withAddedBootstrap();
     }
+
+    public function addIitUiCss()
+    {
+        $this->instance = $this->instance->withAddedIitUiCss();
+    }
 }

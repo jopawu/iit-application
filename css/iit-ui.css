@@ -1,0 +1,23 @@
+body {
+    background-color: #f8efc0;
+    color: #4c4c4c;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+table td, table th {
+    border: solid #7c7c7c 1px;
+    padding: 5px;
+}
+
+.layoutHeader {
+    background-color: #ffffff;
+    border-bottom: #2c3034;
+}
+
+.layoutBody {
+
+}

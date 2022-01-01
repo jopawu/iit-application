@@ -14,6 +14,8 @@ use iit\Application\DI\Singletons\XhtmlDocument;
 use iit\Nextcloud\DAV\Service as NcDavService;
 use iit\Nextcloud\DAV\Config as NcDavConfig;
 use Ramsey\Uuid\UuidFactory;
+use iit\Application\Filesystem\Service as FsService;
+use iit\Application\Navigation\System as NavSystem;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -23,7 +25,7 @@ class Container extends DIC
     /**
      * @return Request
      */
-    public function request()
+    public function request() : Request
     {
         return $this['request'];
     }
@@ -34,6 +36,22 @@ class Container extends DIC
     public function response()
     {
         return $this['response'];
+    }
+
+    /**
+     * @return FsService
+     */
+    public function filesystem()
+    {
+        return $this['filesystem'];
+    }
+
+    /**
+     * @return NavSystem
+     */
+    public function nav()
+    {
+        return $this['nav'];
     }
 
     /**
@@ -100,6 +118,9 @@ class Container extends DIC
 
         $dic['request'] = new Request();
         $dic['response'] = new Response();
+
+        $dic['filesystem'] = new FsService($dic);
+        $dic['nav'] = new NavSystem($dic);
 
         $dic['config'] = $config;
 

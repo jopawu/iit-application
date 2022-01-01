@@ -70,8 +70,19 @@ class Config
         return (bool)$this->getVariable('system', 'devmode');
     }
 
-    public function getJqueryUiTheme()
+    /**
+     * @return string
+     */
+    public function getJqueryUiTheme() : string
     {
         return $this->getVariable('ui', 'theme');
+    }
+
+    /**
+     * @return string
+     */
+    public function getApplicationPath() : string
+    {
+        return rtrim($this->getVariable('path', 'application'), '/');
     }
 }

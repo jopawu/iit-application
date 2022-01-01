@@ -48,6 +48,11 @@ class CellRenderer extends RendererAbstract
             $styles[] = "width: {$cell->getWidth()};";
         }
 
+        if( $cell->hasColor() )
+        {
+            $styles[] = "color: {$cell->getColor()};";
+        }
+
         return implode(' ', $styles);
     }
 }

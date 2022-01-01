@@ -24,6 +24,8 @@ class Document extends ModuleAbstract
     const LOCATION_BOOTSTRAP_JS = 'lib/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js';
     const LOCATION_BOOTSTRAP_CSS = 'lib/vendor/twbs/bootstrap/dist/css/bootstrap.css';
 
+    const LOCATION_IIT_UI_CSS = 'lib/vendor/jopawu/iit-application/css/iit-ui.css';
+
     const TEMPLATE_FILE = 'UI/XHTML/document.html';
 
     /**
@@ -163,6 +165,16 @@ class Document extends ModuleAbstract
         $clone->addJavascript(self::LOCATION_BOOTSTRAP_JS);
         $clone->addStylesheet(self::LOCATION_BOOTSTRAP_CSS);
 
+        return $clone;
+    }
+
+    /**
+     * @return Document
+     */
+    public function withAddedIitUiCss()
+    {
+        $clone = clone $this;
+        $clone->addStylesheet(self::LOCATION_IIT_UI_CSS);
         return $clone;
     }
 

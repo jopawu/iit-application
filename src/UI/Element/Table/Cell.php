@@ -14,6 +14,9 @@ class Cell extends ModuleAbstract
     const ALIGN_RIGHT = 'right';
     const ALIGN_CENTER = 'center';
 
+    const COLOR_BLACK = 'black';
+    const COLOR_RED = 'red';
+
     /**
      * @var string
      */
@@ -35,6 +38,11 @@ class Cell extends ModuleAbstract
     protected $width;
 
     /**
+     * @var string
+     */
+    protected $color;
+
+    /**
      * @param Container $dic
      * @param string    $content
      */
@@ -47,6 +55,7 @@ class Cell extends ModuleAbstract
 
         $this->align = null;
         $this->width = null;
+        $this->color = null;
     }
 
     /**
@@ -141,5 +150,44 @@ class Cell extends ModuleAbstract
     public function hasWidth() : bool
     {
         return $this->width !== null;
+    }
+
+    /**
+     * @param string $color
+     * @return Cell
+     */
+    public function withColor(string $color) : Cell
+    {
+        $this->checkColor($color);
+        $clone = clone $this;
+        $clone->color = $color;
+        return $clone;
+    }
+
+    /**
+     * @param string $color
+     */
+    private function checkColor(string $color)
+    {
+        if( !in_array($color, [self::COLOR_BLACK, self::COLOR_RED]) )
+        {
+            throw new \InvalidArgumentException("invalid color given: {$color}");
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor() : ?string
+    {
+        return $this->color;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasColor() : bool
+    {
+        return $this->color !== null;
     }
 }

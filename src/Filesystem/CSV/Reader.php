@@ -22,7 +22,10 @@ class Reader
         $this->filename = $filename;
     }
 
-    public function read()
+    /**
+     * @return array
+     */
+    public function read() : array
     {
         $this->checkFile();
 
@@ -35,7 +38,7 @@ class Reader
 
         $rows = [];
 
-        while( $row = fgetcsv($handle, PHP_INT_MAX, self::SEPARATOR) )
+        while( $row = fgetcsv($handle, 0, self::SEPARATOR) )
         {
             $rows[] = $row;
         }
