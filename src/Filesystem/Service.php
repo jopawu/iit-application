@@ -29,9 +29,9 @@ class Service
      * @param string $filepath
      * @return CsvFile
      */
-    public function readCsv(string $filepath) : CsvFile
+    public function readCsv(string $filepath, $skipLines = 0) : CsvFile
     {
-        $reader = new CsvReader($filepath);
+        $reader = new CsvReader($filepath, $skipLines);
         return new CsvFile($reader->read());
     }
 

@@ -22,6 +22,15 @@ class CSV implements Iterator
         $this->rows = $rows;
     }
 
+    /**
+     * @return CSV
+     */
+    public function reverse() : CSV
+    {
+        $clone = clone $this;
+        $clone->rows = array_reverse($this->rows);
+        return $clone;
+    }
 
     /**
      * @return array

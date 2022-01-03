@@ -15,11 +15,17 @@ class Reader
     protected $filename;
 
     /**
+     * @var int
+     */
+    protected $skipLines;
+
+    /**
      * @param string $filename
      */
-    public function __construct($filename)
+    public function __construct($filename, $skipLines)
     {
         $this->filename = $filename;
+        $this->skipLines = $skipLines;
     }
 
     /**
@@ -40,6 +46,12 @@ class Reader
 
         while( $row = fgetcsv($handle, 0, self::SEPARATOR) )
         {
+            if( $this->skipLines )
+            {
+                $this->skipLines--;
+                continue;
+            }
+
             $rows[] = $row;
         }
 
