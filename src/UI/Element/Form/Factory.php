@@ -2,43 +2,44 @@
 
 namespace iit\Application\UI\Element\Form;
 
-use iit\Application\DI\Container;
+use iit\Application\Helper\DicTrait;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
-    /**
-     * @var Container
-     */
-    protected $dic;
+    use DicTrait;
 
     /**
-     * @param Container $dic
+     * @return Select\Factory
      */
-    public function __construct(Container $dic)
+    public function select() : Select\Factory
     {
-        $this->dic = $dic;
+        return new Select\Factory($this->dic);
     }
 
-    public function input()
+    /**
+     * @return Radio\Factory
+     */
+    public function radio() : Radio\Factory
     {
-
+        return new Radio\Factory($this->dic);
     }
 
-    public function select()
+    /**
+     * @return Checkbox
+     */
+    public function checkbox() : Checkbox
     {
-
+        return new Checkbox();
     }
 
-    public function checkbox()
+    /**
+     * @return Input
+     */
+    public function input() : Input
     {
-
-    }
-
-    public function radio()
-    {
-
+        return new Input();
     }
 }

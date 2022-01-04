@@ -1,0 +1,5 @@
+<select name="{$NAME}">
+  {foreach $OPTIONS as $OPTION}
+    <option value="{$OPTION.value}" {if $OPTION.selected}selected="selected"{/if}>{$OPTION.label}</option>
+  {/foreach)
+</select>
