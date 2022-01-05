@@ -66,7 +66,7 @@ class Database
      * @param mixed $value
      * @return string
      */
-	public function quoteValue(mixed $value) : string
+	public function quoteValue($value) : string
     {
         return $this->connection->quote($value);
     }

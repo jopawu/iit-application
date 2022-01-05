@@ -56,7 +56,13 @@ class System
      */
     public function redirect(string $ctrl, string $cmd = null) : void
     {
-        $link = $this->creator()->link($ctrl)->withCmd($cmd);
+        $link = $this->creator()->link($ctrl);
+
+        if( $cmd !== null )
+        {
+            $link = $link->withCmd($cmd);
+        }
+
         $this->dic->response()->addHeader('Location', (string)$link);
         $this->dic->response()->flush();
     }
