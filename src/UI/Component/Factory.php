@@ -23,6 +23,14 @@ class Factory
     }
 
     /**
+     * @return Form\Factory
+     */
+    public function form() : Form\Factory
+    {
+        return new Form\Factory($this->dic);
+    }
+
+    /**
      * @return Dropdown\Factory
      */
     public function dropdown() : Dropdown\Factory

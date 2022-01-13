@@ -36,10 +36,13 @@ class Factory
     }
 
     /**
+     * @param string $id
+     * @param string $name
+     * @param string $value
      * @return Input
      */
-    public function input() : Input
+    public function input(string $id, string $name, string $value) : Input
     {
-        return new Input();
+        return new Input($this->dic, $id, $name, $value);
     }
 }

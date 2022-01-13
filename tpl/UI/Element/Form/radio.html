@@ -1,6 +1,6 @@
-{foreach $OPTIONS as $OPTION}
 <div class="formInputRadio">
+  {foreach $OPTIONS as $OPTION}
   <input type="radio" name="{$NAME}" value="{$OPTION.value}" {if $OPTION.checked}checked="checked"{/if} >
   <span>{$OPTION.label}</span>
+  {/foreach)
 </div>
-{/foreach)

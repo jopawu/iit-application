@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Element\Form;
+namespace iit\Application\UI\Component\Form\Field;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
@@ -8,19 +8,12 @@ use iit\Application\DI\Container;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Input extends ModuleAbstract
+abstract class FieldAbstract extends ModuleAbstract
 {
-    const TYPE_TEXT = 'text';
-
     /**
      * @var string
      */
     protected $id;
-
-    /**
-     * @var string
-     */
-    protected $type;
 
     /**
      * @var string
@@ -30,36 +23,26 @@ class Input extends ModuleAbstract
     /**
      * @var string
      */
-    protected $value;
+    protected $label;
 
     /**
      * @var int
      */
-    protected $size;
-
-    /**
-     * @var int
-     */
-    protected $maxlength;
+    protected $gridWidth;
 
     /**
      * @param Container $dic
      * @param string    $id
      * @param string    $name
-     * @param string    $value
+     * @param string    $label
      */
-    public function __construct(Container $dic, string $id, string $name, string $value)
+    public function __construct(Container $dic, string $id, string $name, string $label)
     {
         parent::__construct($dic);
-
         $this->id = $id;
         $this->name = $name;
-        $this->value = $value;
-
-        $this->type = self::TYPE_TEXT;
-
-        $this->size = null;
-        $this->maxlength = null;
+        $this->label = $label;
+        $this->gridWidth = 12;
     }
 
     /**
@@ -73,14 +56,6 @@ class Input extends ModuleAbstract
     /**
      * @return string
      */
-    public function getType() : string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
     public function getName() : string
     {
         return $this->name;
@@ -89,24 +64,26 @@ class Input extends ModuleAbstract
     /**
      * @return string
      */
-    public function getValue() : string
+    public function getLabel() : string
     {
-        return $this->value;
+        return $this->label;
     }
 
     /**
      * @return int
      */
-    public function getSize() : ?int
+    public function getGridWidth() : int
     {
-        return $this->size;
+        return $this->gridWidth;
     }
 
     /**
-     * @return int
+     * @param int $gridWidth
      */
-    public function getMaxlength() : ?int
+    public function withGridWidth(int $gridWidth) : FieldAbstract
     {
-        return $this->maxlength;
+        $clone = clone $this;
+        $clone->gridWidth = $gridWidth;
+        return $clone;
     }
 }

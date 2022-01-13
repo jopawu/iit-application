@@ -2,33 +2,14 @@
 
 namespace iit\Application\UI\Layout;
 
-use iit\Application\DI\Container;
+use iit\Application\Helper\DicTrait;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
-    /**
-     * @var Container
-     */
-    protected $dic;
-
-    /**
-     * @param Container $dic
-     */
-    public function __construct(Container $dic)
-    {
-        $this->dic = $dic;
-    }
-
-    /**
-     * @return Panel\Factory
-     */
-    public function container()
-    {
-        return new Panel\Factory($this->dic);
-    }
+    use DicTrait;
 
     /**
      * @return Page\Factory
@@ -36,5 +17,21 @@ class Factory
     public function page()
     {
         return new Page\Factory($this->dic);
+    }
+
+    /**
+     * @return Panel\Factory
+     */
+    public function panel()
+    {
+        return new Panel\Factory($this->dic);
+    }
+
+    /**
+     * @return Grid\Factory
+     */
+    public function grid() : Grid\Factory
+    {
+        return new Grid\Factory($this->dic);
     }
 }

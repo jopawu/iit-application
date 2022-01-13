@@ -2,24 +2,12 @@
 
 namespace iit\Application\UI;
 
-use iit\Application\DI\Container;
+use iit\Application\Helper\DicTrait;
 
 class ModuleAbstract implements ModuleAware
 {
+    use DicTrait;
     use Assertion;
-
-    /**
-     * @var Container
-     */
-    protected $dic;
-
-    /**
-     * @param Container $dic
-     */
-    public function __construct(Container $dic)
-    {
-        $this->dic = $dic;
-    }
 
     /**
      * @return string
