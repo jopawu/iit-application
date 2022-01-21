@@ -2,15 +2,16 @@
 
 namespace iit\Application\UI\Element\Form;
 
-use iit\Application\UI\ModuleAbstract;
+use iit\Application\UI\Element\ElementAbstract;
 use iit\Application\DI\Container;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Input extends ModuleAbstract
+class Input extends ElementAbstract
 {
     const TYPE_TEXT = 'text';
+    const TYPE_NUMBER = 'number';
 
     /**
      * @var string
@@ -71,6 +72,17 @@ class Input extends ModuleAbstract
     }
 
     /**
+     * @param string $type
+     * @return Input
+     */
+    public function withType(string $type) : Input
+    {
+        $clone = clone $this;
+        $clone->type = $type;
+        return $clone;
+    }
+
+    /**
      * @return string
      */
     public function getType() : string
@@ -108,5 +120,13 @@ class Input extends ModuleAbstract
     public function getMaxlength() : ?int
     {
         return $this->maxlength;
+    }
+
+    /**
+     * @return Input
+     */
+    public function withTypeNumber() : Input
+    {
+        return $this->withType(self::TYPE_NUMBER);
     }
 }

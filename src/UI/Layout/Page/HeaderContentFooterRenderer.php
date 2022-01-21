@@ -11,6 +11,7 @@ use iit\Application\UI\ModuleAbstract;
  */
 class HeaderContentFooterRenderer extends RendererAbstract
 {
+    const TEMPLATE = 'UI/Layout/Page/header_content_footer.html';
 
     /**
      * @param ModuleAbstract $headerContentFooter
@@ -27,6 +28,6 @@ class HeaderContentFooterRenderer extends RendererAbstract
         $template->assign('CONTENT', $headerContentFooter->getContentHtml());
         $template->assign('FOOTER', $headerContentFooter->getFooterHtml());
 
-        return $template->fetch(HeaderContentFooter::TEMPLATE_FILE);
+        return $template->fetch(self::TEMPLATE);
     }
 }

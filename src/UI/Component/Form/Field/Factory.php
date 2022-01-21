@@ -21,4 +21,26 @@ class Factory
     {
         return new Text($this->dic, $id, $name, $label);
     }
+
+    /**
+     * @param string $id
+     * @param string $name
+     * @param string $label
+     * @return Date
+     */
+    public function date(string $id, string $name, string $label) : Date
+    {
+        return new Date($this->dic, $id, $name, $label);
+    }
+
+    /**
+     * @param string $id
+     * @param string $name
+     * @param string $label
+     * @return Currency
+     */
+    public function currency(string $id, string $name, string $label) : Currency
+    {
+        return new Currency($this->dic, $id, $name, $label);
+    }
 }

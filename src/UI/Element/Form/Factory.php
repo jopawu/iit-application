@@ -45,4 +45,14 @@ class Factory
     {
         return new Input($this->dic, $id, $name, $value);
     }
+
+    /**
+     * @param string $label
+     * @param string $command
+     * @return Submit
+     */
+    public function submit(string $label, string $command) : Submit
+    {
+        return new Submit($this->dic, $label, $command);
+    }
 }

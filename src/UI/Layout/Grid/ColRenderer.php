@@ -23,9 +23,25 @@ class ColRenderer extends RendererAbstract
 
         $template = $this->getTemplate();
 
-        $template->assign('CLASSES', '');
+        $template->assign('CLASSES', $this->getGridClasses($col));
         $template->assign('CONTENT', $col->getContent());
 
         return $template->fetch(self::TEMPLATE);
+    }
+
+    /**
+     * @param Col $col
+     * @return string
+     */
+    public function getGridClasses(Col $col) : string
+    {
+        $classes = [];
+
+        foreach($col->getWidth() as $screen => $width)
+        {
+            $classes[] = "{$screen}-{$width}";
+        }
+
+        return implode(' ', $classes);
     }
 }

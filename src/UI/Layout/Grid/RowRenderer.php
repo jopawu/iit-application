@@ -24,7 +24,7 @@ class RowRenderer extends RendererAbstract
         $template = $this->getTemplate();
 
         $template->assign('CLASSES', '');
-        $template->assign('COLUMNS', $row->getColumns());
+        $template->assign('COLUMNS', $this->getRenderedColumns($row));
 
         return $template->fetch(self::TEMPLATE);
     }

@@ -9,4 +9,7 @@ class Constants
 {
     const BS_CLASS_ACTIVE = 'active';
     const BS_CLASS_DISABLED = 'disabled';
+
+    const BS_CLASS_PRIMARY = 'primary';
+    const BS_CLASS_SECONDARY = 'secondary';
 }

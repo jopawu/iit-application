@@ -10,8 +10,6 @@ use iit\Application\DI\Container;
  */
 class HeaderContentFooter extends ModuleAbstract
 {
-    const TEMPLATE_FILE = 'UI/Layout/Page/header_content_footer.html';
-
     /**
      * @var Container
      */

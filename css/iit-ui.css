@@ -1,7 +1,37 @@
+/* LAYOUT */
+
 body {
-    background-color: #f8efc0;
-    color: #4c4c4c;
+    background-color: #f8eecc;
+    color: #747474;
+    /* color: #708a9e */;
 }
+
+.layoutHeader {
+    box-shadow: 0 0 10px #666;
+    background-color: #ffffff;
+    border-bottom: #2c3034;
+    margin-bottom: 30px;
+}
+
+.layoutBody {
+
+}
+
+/* PANEL */
+
+.layoutPanel {
+    box-shadow: 0 0 10px #666;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.layoutPanelHeader {
+    border-bottom: solid 1px #747474;
+    margin-bottom: 40px;
+}
+
+/* TABLES */
 
 table {
     border-collapse: collapse;
@@ -13,11 +43,37 @@ table td, table th {
     padding: 5px;
 }
 
-.layoutHeader {
-    background-color: #ffffff;
-    border-bottom: #2c3034;
+/* FORMS */
+
+.formContainer {
+    box-shadow: 0 0 10px #666;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formLabel {
+    border-bottom: solid 1px #747474;
+    margin-bottom: 40px;
 }
 
-.layoutBody {
+fieldset {
+    margin: 20px;
+    padding: 0 25px 25px;
+    border: 2px solid #747474;
+    /* border: 2px solid #708a9e; */
+    border-radius: 8px;
+    padding-top: 10px;
+}
 
+fieldset > legend {
+    width: auto;
+    float: left;
+    margin-top: -30px;
+    padding: 2px 8px;
+    background-color: #f8eecc;
+}
+
+fieldset > legend + * {
+    clear: both;
 }

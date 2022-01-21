@@ -11,6 +11,7 @@ use iit\Application\UI\ModuleAbstract;
 class FieldsetRenderer extends RendererAbstract
 {
     const TEMPLATE = 'UI/Component/Form/fieldset.html';
+
     /**
      * @param ModuleAbstract $fieldset
      * @return string
@@ -40,7 +41,7 @@ class FieldsetRenderer extends RendererAbstract
 
         foreach($fieldset->getFields() as $field)
         {
-            $columns[] = $gui->col($field->render())->render();
+            $columns[] = $gui->col($field->render())->withWidth($field->getGridWidth());
         }
 
         return $gui->row($columns)->render();

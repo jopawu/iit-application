@@ -11,7 +11,6 @@ use iit\Application\UI\Component\Form\Fieldset;
  */
 class TextRenderer extends RendererAbstract
 {
-
     const TEMPLATE = 'UI/Component/Form/Field/text.html';
     /**
      * @param ModuleAbstract $field

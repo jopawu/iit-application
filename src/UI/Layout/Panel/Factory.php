@@ -12,10 +12,11 @@ class Factory
     use DicTrait;
 
     /**
+     * @param string $header
      * @return Standard
      */
-    public function standard()
+    public function standard(string $header = '') : Standard
     {
-        return new Standard();
+        return new Standard($this->dic, $header);
     }
 }

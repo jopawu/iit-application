@@ -31,9 +31,14 @@ class Container extends ModuleAbstract
     protected $label;
 
     /**
-     * @var FieldSet[]
+     * @var Fieldset[]
      */
     protected $fieldsets;
+
+    /**
+     * @var Submit[]
+     */
+    protected $submits;
 
     /**
      * @param DiContainer $dic
@@ -50,6 +55,7 @@ class Container extends ModuleAbstract
         $this->action = $action;
         $this->label = $label;
         $this->fieldsets = [];
+        $this->submits = [];
     }
 
     /**
@@ -93,13 +99,31 @@ class Container extends ModuleAbstract
     }
 
     /**
-     * @param array $fieldsets
+     * @param Fieldset $fieldset
      * @return Container
      */
-    public function withFieldsets(array $fieldsets) : Container
+    public function withAddedFieldset(Fieldset $fieldset) : Container
     {
         $clone = clone $this;
-        $clone->fieldsets = $fieldsets;
+        $clone->fieldsets[] = $fieldset;
         return $clone;
     }
+
+    /**
+     * @return Submit[]
+     */
+    public function getSubmits() : array
+    {
+        return $this->submits;
+    }
+
+    /**
+     * @param Submit $submit
+     */
+    public function withAddedSubmit(Submit $submit) : void
+    {
+        $this->submits[] = $submit;
+    }
+
+
 }

@@ -11,6 +11,8 @@ use iit\Application\UI\Layout\Panel\Standard;
  */
 class StandardRenderer extends RendererAbstract
 {
+    const TEMPLATE = 'UI/Layout/Panel/standard.html';
+
     /**
      * @param ModuleAbstract $standard
      * @return string
@@ -20,6 +22,11 @@ class StandardRenderer extends RendererAbstract
         /* @var Standard $standard */
         $this->assertInstanceOf($standard, [Standard::class]);
 
-        return '';
+        $template = $this->getTemplate();
+
+        $template->assign('HEADER', $standard->getHeader());
+        $template->assign('CONTENT', $standard->getContent());
+
+        return $template->fetch(self::TEMPLATE);
     }
 }

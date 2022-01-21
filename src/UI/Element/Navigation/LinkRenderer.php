@@ -11,7 +11,7 @@ use iit\Application\UI\Constants;
  */
 class LinkRenderer extends RendererAbstract
 {
-    const TEMPLATE_FILE = 'UI/Element/Navigation/Link.html';
+    const TEMPLATE = 'UI/Element/Navigation/link.html';
 
     /**
      * @param ModuleAbstract $link
@@ -29,7 +29,7 @@ class LinkRenderer extends RendererAbstract
         $template->assign('HREF', $link->getHref());
         $template->assign('LABEL', $link->getLabel());
 
-        return $template->fetch(self::TEMPLATE_FILE);
+        return $template->fetch(self::TEMPLATE);
     }
 
     /**

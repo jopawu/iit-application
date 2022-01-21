@@ -1,0 +1,17 @@
+<label for="{$ID}">{$LABEL}</label>
+<div id="datepicker{$ID}" class="input-group date">
+  {$INPUT}<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+</div>
+<script type="text/javascript">
+  (function($){
+    $().ready(function(){
+
+      $('#datepicker{$ID}').datepicker({
+        format: "mm.dd.yyyy",
+        todayBtn: "linked",
+        language: "de"
+      });
+
+    });
+  })(jQuery);
+</script>

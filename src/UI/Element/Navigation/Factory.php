@@ -31,4 +31,14 @@ class Factory
     {
         return new Link($this->dic, $label, $href);
     }
+
+    /**
+     * @param string $label
+     * @param string $href
+     * @return Button
+     */
+    public function button(string $label, string $href) : Button
+    {
+        return new Button($this->dic, $label, $href);
+    }
 }

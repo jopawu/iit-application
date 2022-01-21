@@ -1,8 +1,17 @@
-<form id="{$ID}" name="{$NAME}" action>
-    <div class="formContainerLabel">{$LABEL}</div>
-    <div class="container">
-        {foreach $FIELDSETS as $FIELDSET}
-            {$FIELDSET}
+<form id="{$ID}" name="{$NAME}" action="{$ACTION}">
+    <div class="container formContainer">
+    {if $LABEL}
+        <div class="formLabel">{$LABEL}</div>
+    {/if}
+    {foreach $FIELDSETS as $FIELDSET}
+        {$FIELDSET}
+    {/foreach}
+    {if $ACTIONBUTTONS}
+        <div class="formButtons">
+        {foreach $ACTIONBUTTONS as $BUTTON}
+            {$BUTTON}
         {/foreach}
+        </div>
+    {/if}
     </div>
 </form>
