@@ -1,4 +1,4 @@
-<label for="{$ID}">{$LABEL}</label>
+<label for="{$ID}" class="glyphicon glyphicon-th">{$LABEL}</label>
 <div id="datepicker{$ID}" class="input-group date">
   {$INPUT}<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
 </div>
@@ -7,9 +7,10 @@
     $().ready(function(){
 
       $('#datepicker{$ID}').datepicker({
-        format: "mm.dd.yyyy",
+        format: "dd.mm.yyyy",
         todayBtn: "linked",
-        language: "de"
+        language: "de",
+        autoclose: true
       });
 
     });

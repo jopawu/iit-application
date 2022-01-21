@@ -24,6 +24,9 @@ class Document extends ModuleAbstract
     const LOCATION_BOOTSTRAP_JS = 'lib/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js';
     const LOCATION_BOOTSTRAP_CSS = 'lib/vendor/twbs/bootstrap/dist/css/bootstrap.css';
 
+    const LOCATION_DATEPICKER_JS = 'lib/vendor/eternicode/bootstrap-datepicker/dist/js/bootstrap-datepicker.js';
+    const LOCATION_DATEPICKER_CSS = 'lib/vendor/eternicode/bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
+
     const LOCATION_IIT_UI_CSS = 'lib/vendor/jopawu/iit-application/css/iit-ui.css';
 
     const TEMPLATE_FILE = 'UI/XHTML/document.html';
@@ -164,6 +167,9 @@ class Document extends ModuleAbstract
 
         $clone->addJavascript(self::LOCATION_BOOTSTRAP_JS);
         $clone->addStylesheet(self::LOCATION_BOOTSTRAP_CSS);
+
+        $clone->addJavascript(self::LOCATION_DATEPICKER_JS);
+        $clone->addStylesheet(self::LOCATION_DATEPICKER_CSS);
 
         return $clone;
     }

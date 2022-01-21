@@ -13,6 +13,7 @@
         "php": ">=7.0",
         "smarty/smarty": "3.1.*",
         "twbs/bootstrap": "5.0.*",
+        "twbs/bootstrap-icons": "1.7.*",
         "eternicode/bootstrap-datepicker": "1.9.*",
         "components/jquery": "3.1.*",
         "components/jqueryui": "1.12.*",
