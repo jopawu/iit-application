@@ -33,6 +33,66 @@ body {
     margin-bottom: 40px;
 }
 
+@media (min-width: 576px) {
+    .container.verysmall {
+        max-width: 150px;
+    }
+    .container.small {
+        max-width: 250px;
+    }
+    .container.large {
+        max-width: 620px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container.verysmall {
+        max-width: 330px;
+    }
+    .container.small {
+        max-width: 530px;
+    }
+    .container.large {
+        max-width: 900px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container.verysmall {
+        max-width: 570px;
+    }
+    .container.small {
+        max-width: 770px;
+    }
+    .container.large {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.verysmall {
+        max-width: 750px;
+    }
+    .container.small {
+        max-width: 950px;
+    }
+    .container.large {
+        max-width: 1320px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container.verysmall {
+        max-width: 930px;
+    }
+    .container.small {
+        max-width: 1130px;
+    }
+    .container.large {
+        max-width: 1500px;
+    }
+}
+
 /* TABLES */
 
 table {
@@ -64,9 +124,9 @@ table td, table th {
 }
 
 fieldset {
-    margin: 20px;
+    margin: 40px 20px;
     padding: 0 25px 25px;
-    border: 2px solid #747474;
+    border: 1px solid #747474;
     /* border: 2px solid #708a9e; */
     border-radius: 8px;
     padding-top: 10px;
@@ -75,9 +135,10 @@ fieldset {
 fieldset > legend {
     width: auto;
     float: left;
-    margin-top: -30px;
+    margin-top: -25px;
     padding: 2px 8px;
     background-color: #f8eecc;
+    font-size: 1em;
 }
 
 fieldset > legend + * {

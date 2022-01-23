@@ -25,6 +25,16 @@ class Factory
     }
 
     /**
+     * @param string $command
+     * @param string $label
+     * @return Submit
+     */
+    public function submit(string $command, string $label) : Submit
+    {
+        return new Submit($this->dic, $command, $label);
+    }
+
+    /**
      * @param string $label
      * @return FieldSet
      */

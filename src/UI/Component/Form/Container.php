@@ -120,9 +120,11 @@ class Container extends ModuleAbstract
     /**
      * @param Submit $submit
      */
-    public function withAddedSubmit(Submit $submit) : void
+    public function withAddedSubmit(Submit $submit) : Container
     {
-        $this->submits[] = $submit;
+        $clone = clone $this;
+        $clone->submits[] = $submit;
+        return $clone;
     }
 
 

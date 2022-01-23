@@ -1,4 +1,4 @@
-<form id="{$ID}" name="{$NAME}" action="{$ACTION}">
+<form id="{$ID}" name="{$NAME}" action="{$ACTION}" method="post" enctype="application/x-www-form-urlencoded">
     <div class="container formContainer">
     {if $LABEL}
         <div class="formLabel">{$LABEL}</div>
@@ -6,12 +6,6 @@
     {foreach $FIELDSETS as $FIELDSET}
         {$FIELDSET}
     {/foreach}
-    {if $ACTIONBUTTONS}
-        <div class="formButtons">
-        {foreach $ACTIONBUTTONS as $BUTTON}
-            {$BUTTON}
-        {/foreach}
-        </div>
-    {/if}
+    {$SUBMITS}
     </div>
 </form>

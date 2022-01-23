@@ -27,6 +27,6 @@ class StandardRenderer extends RendererAbstract
         $template->assign('HEADER', $standard->getHeader());
         $template->assign('CONTENT', $standard->getContent());
 
-        return $template->fetch(self::TEMPLATE);
+        return $template->fetch(static::TEMPLATE);
     }
 }

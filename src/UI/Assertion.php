@@ -11,17 +11,16 @@ trait Assertion
      */
     protected function assertInstanceOf($instance, array $assertionClassnames)
     {
-        $instanceClassname = get_class($instance);
-
         foreach($assertionClassnames as $assertionClassname)
         {
-            if( $instanceClassname == $assertionClassname )
+            if( $instance instanceof $assertionClassname )
             {
                 return;
             }
         }
 
         $assertionClassnames = "\n".implode("\n", $assertionClassnames);
+        $instanceClassname = get_class($instance);
 
         throw new \InvalidArgumentException(
             "invalid ui module given: {$instanceClassname}, valid: {$assertionClassname}"

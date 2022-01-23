@@ -28,6 +28,7 @@ class ContainerRenderer extends RendererAbstract
         $template->assign('ACTION', $container->getAction());
 
         $template->assign('FIELDSETS', $this->getRenderedFieldsets($container));
+        $template->assign('SUBMITS', $this->getRenderedSubmits($container));
 
         return $template->fetch(self::TEMPLATE);
     }
@@ -46,5 +47,22 @@ class ContainerRenderer extends RendererAbstract
         }
 
         return $renderedFieldsets;
+    }
+
+    /**
+     * @param Container $container
+     * @return string
+     */
+    protected function getRenderedSubmits(Container $container) : string
+    {
+        $submitCols = [];
+
+        foreach($container->getSubmits() as $submit)
+        {
+            $submitCols[] = $this->dic->ui()->layout()->grid()->col($submit->render())
+                                                              ->withAutoWidth();
+        }
+
+        return $this->dic->ui()->layout()->grid()->row($submitCols)->render();
     }
 }
