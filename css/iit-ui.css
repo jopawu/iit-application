@@ -35,10 +35,10 @@ body {
 
 @media (min-width: 576px) {
     .container.verysmall {
-        max-width: 150px;
+        max-width: 350px;
     }
     .container.small {
-        max-width: 250px;
+        max-width: 350px;
     }
     .container.large {
         max-width: 620px;
@@ -47,7 +47,7 @@ body {
 
 @media (min-width: 768px) {
     .container.verysmall {
-        max-width: 330px;
+        max-width: 430px;
     }
     .container.small {
         max-width: 530px;
