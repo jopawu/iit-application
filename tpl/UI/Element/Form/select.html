@@ -1,7 +1,7 @@
-<div class="formInputSelect">
-  <select name="{$NAME}">
-    {foreach $OPTIONS as $OPTION}
-      <option value="{$OPTION.value}" {if $OPTION.selected}selected="selected"{/if}>{$OPTION.label}</option>
-    {/foreach)
-  </select>
-</div>
+<select id="{$ID}" name="{$NAME}" class="form-select">
+  {foreach $OPTIONS as $OPTION}
+    {if $OPTION.selected}<option value="{$OPTION.value}" selected="selected">
+    {else}<option value="{$OPTION.value}">
+    {/if}{$OPTION.label}</option>
+  {/foreach}
+</select>

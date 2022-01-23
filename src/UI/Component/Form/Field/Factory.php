@@ -26,6 +26,17 @@ class Factory
      * @param string $id
      * @param string $name
      * @param string $label
+     * @return Select
+     */
+    public function select(string $id, string $name, string $label) : Select
+    {
+        return new Select($this->dic, $id, $name, $label);
+    }
+
+    /**
+     * @param string $id
+     * @param string $name
+     * @param string $label
      * @return Date
      */
     public function date(string $id, string $name, string $label) : Date
