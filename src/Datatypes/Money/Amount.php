@@ -9,26 +9,23 @@ use NumberFormatter;
  */
 class Amount
 {
-    const WAEHRUNG_EUR = 'EUR';
-
     /**
      * @var int
      */
     protected $value;
 
     /**
-     * @var string
+     * @var Currency
      */
-    protected $waehrung;
+    protected $currency;
 
     /**
-     * @param string $waehrung
-     * @param int    $wert
+     * @param int    $value
      */
-    public function __construct(int $wert, string $waehrung = self::WAEHRUNG_EUR)
+    public function __construct(int $amountValue, string $currencyCode = Currency::CODE_EUR)
     {
         $this->value = $value;
-        $this->waehrung = $waehrung;
+        $this->currency = new Currency($currencyCode);
     }
 
     /**

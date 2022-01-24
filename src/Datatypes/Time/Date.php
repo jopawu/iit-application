@@ -66,7 +66,7 @@ class Date
      * @param string $format
      * @return string
      */
-    public function getPresentation(string $format = 'Y-m-d') : string
+    public function getPresentation(string $format = 'd.m.Y') : string
     {
         return date($format, $this->unixTimestamp);
     }

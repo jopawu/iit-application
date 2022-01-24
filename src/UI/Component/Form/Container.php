@@ -41,6 +41,11 @@ class Container extends ModuleAbstract
     protected $submits;
 
     /**
+     * @var array
+     */
+    protected $hiddenParameters;
+
+    /**
      * @param DiContainer $dic
      * @param string    $id
      * @param string    $name
@@ -56,6 +61,7 @@ class Container extends ModuleAbstract
         $this->label = $label;
         $this->fieldsets = [];
         $this->submits = [];
+        $this->hiddenParameters = [];
     }
 
     /**
@@ -127,5 +133,23 @@ class Container extends ModuleAbstract
         return $clone;
     }
 
+    /**
+     * @return array
+     */
+    public function getHiddenParameters() : array
+    {
+        return $this->hiddenParameters;
+    }
 
+    /**
+     * @param string $paramName
+     * @param string $paramValue
+     * @return Container
+     */
+    public function withAddedHiddenParameter(string $paramName, string $paramValue) : Container
+    {
+        $clone = clone $this;
+        $clone->hiddenParameters[$paramName] = $paramValue;
+        return $clone;
+    }
 }

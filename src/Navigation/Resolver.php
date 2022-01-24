@@ -52,6 +52,14 @@ class Resolver
      */
     public function paramCmd() : ?string
     {
+        if( isset($_POST[System::PARAM_COMMAND]) )
+        {
+            if( is_array($_POST[System::PARAM_COMMAND]) )
+            {
+                return key($_POST[System::PARAM_COMMAND]);
+            }
+        }
+
         if( isset($_GET[System::PARAM_COMMAND]) )
         {
             return $_GET[System::PARAM_COMMAND];

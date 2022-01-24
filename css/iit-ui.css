@@ -3,7 +3,7 @@
 /* LAYOUT */
 
 body {
-    background-color: #f8eecc;
+    background-color: #fff5e9;
     color: #747474;
     /* color: #708a9e */;
 }
@@ -22,6 +22,7 @@ body {
 /* PANEL */
 
 .layoutPanel {
+    background-color: #dadeef;
     box-shadow: 0 0 10px #666;
     border-radius: 8px;
     padding: 20px;
@@ -29,6 +30,7 @@ body {
     margin-bottom: 15px;
 }
 .layoutPanelHeader {
+    font-size: 1.2em;
     border-bottom: solid 1px #747474;
     margin-bottom: 40px;
 }
@@ -108,6 +110,7 @@ table td, table th {
 /* FORMS */
 
 .formContainer {
+    background-color: #dadeef;
     box-shadow: 0 0 10px #666;
     border-radius: 8px;
     padding: 20px;
@@ -115,6 +118,7 @@ table td, table th {
     margin-bottom: 15px;
 }
 .formLabel {
+    font-size: 1.2em;
     border-bottom: solid 1px #747474;
     margin-bottom: 40px;
 }
@@ -137,7 +141,7 @@ fieldset > legend {
     float: left;
     margin-top: -25px;
     padding: 2px 8px;
-    background-color: #f8eecc;
+    background-color: #dadeef;
     font-size: 1em;
 }
 

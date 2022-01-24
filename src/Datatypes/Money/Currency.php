@@ -7,7 +7,7 @@ namespace iit\Application\Datatypes\Money;
  */
 class Currency
 {
-    const EUR = 'EUR';
+    const CODE_EUR = 'EUR';
 
     /**
      * @var string

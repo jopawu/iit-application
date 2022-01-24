@@ -28,6 +28,8 @@ class ContainerRenderer extends RendererAbstract
         $template->assign('ACTION', $container->getAction());
 
         $template->assign('FIELDSETS', $this->getRenderedFieldsets($container));
+
+        $template->assign('HIDDENS', $this->getRenderedHiddens($container));
         $template->assign('SUBMITS', $this->getRenderedSubmits($container));
 
         return $template->fetch(self::TEMPLATE);
@@ -47,6 +49,22 @@ class ContainerRenderer extends RendererAbstract
         }
 
         return $renderedFieldsets;
+    }
+
+    /**
+     * @param Container $container
+     * @return string
+     */
+    protected function getRenderedHiddens(Container $container) : string
+    {
+        $hiddens = [];
+
+        foreach($container->getHiddenParameters() as $paramName => $paramValue)
+        {
+            $hiddens[] = $this->dic->ui()->element()->form()->hidden($paramName, $paramValue)->render();
+        }
+
+        return implode("\n", $hiddens);
     }
 
     /**

@@ -55,4 +55,14 @@ class Factory
     {
         return new Submit($this->dic, $label, $command);
     }
+
+    /**
+     * @param string $parameter
+     * @param string $value
+     * @return Hidden
+     */
+    public function hidden(string $parameter, string $value) : Hidden
+    {
+        return new Hidden($this->dic, $parameter, $value);
+    }
 }
