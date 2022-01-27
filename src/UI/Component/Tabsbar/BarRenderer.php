@@ -1,16 +1,16 @@
 <?php
 
-namespace iit\Application\UI\Component\Navbar;
+namespace iit\Application\UI\Component\Tabsbar;
 
-use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
+use iit\Application\UI\RendererAbstract;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class BarRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Component/Navbar/bar.html';
+    const TEMPLATE = 'UI/Component/Tabsbar/bar.html';
 
     /**
      * @param ModuleAbstract $bar
@@ -24,7 +24,7 @@ class BarRenderer extends RendererAbstract
         $template = $this->getTemplate();
 
         $template->assign('CLASSES', $this->getClasses($bar));
-        $template->assign('NAVS', $this->getRenderedNavs($bar));
+        $template->assign('TABS', $this->getRenderedTabs($bar));
 
         return $template->fetch(self::TEMPLATE);
     }
@@ -44,15 +44,15 @@ class BarRenderer extends RendererAbstract
      * @param Bar $bar
      * @return string[]
      */
-    protected function getRenderedNavs(Bar $bar) : array
+    protected function getRenderedTabs(Bar $bar) : array
     {
-        $renderedNavs = [];
+        $renderedTabs = [];
 
-        foreach($bar->getNavs() as $nav)
+        foreach($bar->getTabs() as $tab)
         {
-            $renderedNavs[] = $nav->render();
+            $renderedTabs[] = $tab->render();
         }
 
-        return $renderedNavs;
+        return $renderedTabs;
     }
 }

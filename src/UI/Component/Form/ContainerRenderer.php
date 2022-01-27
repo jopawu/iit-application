@@ -27,7 +27,7 @@ class ContainerRenderer extends RendererAbstract
         $template->assign('LABEL', $container->getLabel());
         $template->assign('ACTION', $container->getAction());
 
-        $template->assign('FIELDSETS', $this->getRenderedFieldsets($container));
+        $template->assign('FIELDSETS', $this->getRenderedSections($container));
 
         $template->assign('HIDDENS', $this->getRenderedHiddens($container));
         $template->assign('SUBMITS', $this->getRenderedSubmits($container));
@@ -39,16 +39,16 @@ class ContainerRenderer extends RendererAbstract
      * @param Container $container
      * @return string[]
      */
-    protected function getRenderedFieldsets(Container $container) : array
+    protected function getRenderedSections(Container $container) : array
     {
-        $renderedFieldsets = [];
+        $renderedSections = [];
 
-        foreach($container->getFieldsets() as $fieldset)
+        foreach($container->getSections() as $fieldset)
         {
-            $renderedFieldsets[] = $fieldset->render();
+            $renderedSections[] = $fieldset->render();
         }
 
-        return $renderedFieldsets;
+        return $renderedSections;
     }
 
     /**

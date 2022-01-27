@@ -10,7 +10,7 @@ use iit\Application\UI\ModuleAbstract;
  */
 class NavRenderer extends RendererAbstract
 {
-    const TEMPLATE_FILE = 'UI/Component/Navbar/Nav.html';
+    const TEMPLATE = 'UI/Component/Navbar/nav.html';
 
     /**
      * @param ModuleAbstract $nav
@@ -25,5 +25,6 @@ class NavRenderer extends RendererAbstract
 
         $template->assign('NAV_AWARE', $nav->getNavAware()->render());
 
-        return $template->fetch(self::TEMPLATE_FILE);
-    }}
+        return $template->fetch(self::TEMPLATE);
+    }
+}

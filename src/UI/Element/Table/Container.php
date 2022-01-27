@@ -4,11 +4,12 @@ namespace iit\Application\UI\Element\Table;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container as DicContainer;
+use iit\Application\UI\Component\Form\SectionAware;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Container extends ModuleAbstract
+class Container extends ModuleAbstract implements SectionAware
 {
     /**
      * @var Row[]

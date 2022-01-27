@@ -2,25 +2,14 @@
 
 namespace iit\Application\UI\Component\Navbar;
 
-use iit\Application\DI\Container;
+use iit\Application\Helper\DicTrait;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
-    /**
-     * @var Container
-     */
-    protected $dic;
-
-    /**
-     * @param Container $dic
-     */
-    public function __construct(Container $dic)
-    {
-        $this->dic = $dic;
-    }
+    use DicTrait;
 
     /**
      * @param Nav[]

@@ -45,4 +45,12 @@ class Factory
     {
         return new Navbar\Factory($this->dic);
     }
+
+    /**
+     * @return Tabsbar\Factory
+     */
+    public function tabsbar() : Tabsbar\Factory
+    {
+        return new Tabsbar\Factory($this->dic);
+    }
 }

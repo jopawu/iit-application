@@ -9,7 +9,7 @@ use iit\Application\UI\Component\Form\Field\FieldAbstract;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Fieldset extends ModuleAbstract
+class Fieldset extends ModuleAbstract implements SectionAware
 {
     /**
      * @var string

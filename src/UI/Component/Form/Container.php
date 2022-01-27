@@ -31,9 +31,9 @@ class Container extends ModuleAbstract
     protected $label;
 
     /**
-     * @var Fieldset[]
+     * @var SectionAware[]
      */
-    protected $fieldsets;
+    protected $sections;
 
     /**
      * @var Submit[]
@@ -59,7 +59,7 @@ class Container extends ModuleAbstract
         $this->name = $name;
         $this->action = $action;
         $this->label = $label;
-        $this->fieldsets = [];
+        $this->sections = [];
         $this->submits = [];
         $this->hiddenParameters = [];
     }
@@ -97,21 +97,21 @@ class Container extends ModuleAbstract
     }
 
     /**
-     * @return FieldSet[]
+     * @return SectionAware[]
      */
-    public function getFieldsets() : array
+    public function getSections() : array
     {
-        return $this->fieldsets;
+        return $this->sections;
     }
 
     /**
-     * @param Fieldset $fieldset
+     * @param SectionAware $section
      * @return Container
      */
-    public function withAddedFieldset(Fieldset $fieldset) : Container
+    public function withAddedSection(SectionAware $section) : Container
     {
         $clone = clone $this;
-        $clone->fieldsets[] = $fieldset;
+        $clone->sections[] = $section;
         return $clone;
     }
 
