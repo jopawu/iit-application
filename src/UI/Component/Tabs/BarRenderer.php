@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Component\Tabsbar;
+namespace iit\Application\UI\Component\Tabs;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\RendererAbstract;
@@ -10,7 +10,7 @@ use iit\Application\UI\RendererAbstract;
  */
 class BarRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Component/Tabsbar/bar.html';
+    const TEMPLATE = 'UI/Component/Tabs/bar.html';
 
     /**
      * @param ModuleAbstract $bar
@@ -25,6 +25,7 @@ class BarRenderer extends RendererAbstract
 
         $template->assign('CLASSES', $this->getClasses($bar));
         $template->assign('TABS', $this->getRenderedTabs($bar));
+        $template->assign('PANEL', $bar->getPanel()->render());
 
         return $template->fetch(self::TEMPLATE);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Component\Tabsbar;
+namespace iit\Application\UI\Component\Tabs;
 
 use iit\Application\Helper\DicTrait;
 
@@ -22,7 +22,7 @@ class Factory
 
     /**
      * @param TabAware
-     * @return Bar
+     * @return Tab
      */
     public function tab(TabAware $tabAware) : Tab
     {

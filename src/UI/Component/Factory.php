@@ -47,10 +47,10 @@ class Factory
     }
 
     /**
-     * @return Tabsbar\Factory
+     * @return Tabs\Factory
      */
-    public function tabsbar() : Tabsbar\Factory
+    public function tabs() : Tabs\Factory
     {
-        return new Tabsbar\Factory($this->dic);
+        return new Tabs\Factory($this->dic);
     }
 }

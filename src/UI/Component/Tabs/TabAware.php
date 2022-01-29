@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Component\Tabsbar;
+namespace iit\Application\UI\Component\Tabs;
 
 use iit\Application\UI\ModuleAware;
 

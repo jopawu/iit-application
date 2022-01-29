@@ -4,14 +4,13 @@ namespace iit\Application\UI\Layout\Panel;
 
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
-use iit\Application\UI\Layout\Panel\Standard;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class StandardRenderer extends RendererAbstract
+class PrimaryRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Layout/Panel/standard.html';
+    const TEMPLATE = 'UI/Layout/Panel/primary.html';
 
     /**
      * @param ModuleAbstract $standard
@@ -19,13 +18,14 @@ class StandardRenderer extends RendererAbstract
      */
     public function render(ModuleAbstract $standard) : string
     {
-        /* @var Standard $standard */
-        $this->assertInstanceOf($standard, [Standard::class]);
+        /* @var Primary $standard */
+        $this->assertInstanceOf($standard, [Primary::class]);
 
         $template = $this->getTemplate();
 
         $template->assign('HEADER', $standard->getHeader());
         $template->assign('CONTENT', $standard->getContent());
+        $template->assign('CLASSES', $standard->getSize());
 
         return $template->fetch(static::TEMPLATE);
     }

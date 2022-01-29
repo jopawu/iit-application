@@ -4,7 +4,7 @@ namespace iit\Application\UI\Element\Navigation;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\Component\Navbar\NavAware;
-use iit\Application\UI\Component\Tabsbar\TabAware;
+use iit\Application\UI\Component\Tabs\TabAware;
 use iit\Application\DI\Container;
 
 /**

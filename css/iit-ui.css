@@ -21,22 +21,30 @@ body {
 
 /* PANEL */
 
-.layoutPanel {
-    background-color: #dadeef;
+.layoutPanelPrimary {
+    background-color: #ffffff;
     box-shadow: 0 0 10px #666;
     border-radius: 8px;
     padding: 20px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
 .layoutPanelHeader {
     font-size: 1.2em;
     border-bottom: solid 1px #747474;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.layoutPanelSecondary {
+    padding: 15px 25px;
+    background-color: #ebf1ff;
+    border: solid 2px #a7abad;
+    border-radius: 8px;
 }
 
 @media (min-width: 576px) {
-    .container.verysmall {
+    .container.tiny {
         max-width: 350px;
     }
     .container.small {
@@ -48,7 +56,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    .container.verysmall {
+    .container.tiny {
         max-width: 430px;
     }
     .container.small {
@@ -60,7 +68,7 @@ body {
 }
 
 @media (min-width: 992px) {
-    .container.verysmall {
+    .container.tiny {
         max-width: 570px;
     }
     .container.small {
@@ -72,7 +80,7 @@ body {
 }
 
 @media (min-width: 1200px) {
-    .container.verysmall {
+    .container.tiny {
         max-width: 750px;
     }
     .container.small {
@@ -84,7 +92,7 @@ body {
 }
 
 @media (min-width: 1400px) {
-    .container.verysmall {
+    .container.tiny {
         max-width: 930px;
     }
     .container.small {
@@ -93,6 +101,35 @@ body {
     .container.large {
         max-width: 1500px;
     }
+}
+
+/* TABS */
+
+.nav-tabs {
+    padding-left: 20px;
+    border-bottom-width: 0;
+    border-color: #a7abad;
+}
+
+.nav-tabs .nav-link {
+    margin-left: 4px;
+    margin-bottom: -2px;
+    border-width: 2px;
+    border-color: #a7abad;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.nav-tabs .nav-link:not(.active):hover {
+    border-bottom-width: 0;
+    margin-bottom: 0;
+}
+
+.nav-tabs .nav-link.active {
+    color: #747474;
+    border-color: #a7abad;
+    border-bottom-color: #ebf1ff;
+    background-color: #ebf1ff;
 }
 
 /* TABLES */
@@ -110,12 +147,7 @@ table td, table th {
 /* FORMS */
 
 .formContainer {
-    background-color: #dadeef;
-    box-shadow: 0 0 10px #666;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    width: 100%;
 }
 .formLabel {
     font-size: 1.2em;
@@ -128,11 +160,10 @@ table td, table th {
 }
 
 fieldset {
-    margin: 40px 20px;
-    padding: 0 25px 25px;
-    border: 1px solid #747474;
-    /* border: 2px solid #708a9e; */
     border-radius: 8px;
+    border: solid 1px #747474;
+    margin: 25px 0 25px 0;
+    padding: 0 25px 0 25px;
     padding-top: 10px;
 }
 
@@ -141,10 +172,22 @@ fieldset > legend {
     float: left;
     margin-top: -25px;
     padding: 2px 8px;
-    background-color: #dadeef;
     font-size: 1em;
+    background-color: #ebf1ff;
 }
 
 fieldset > legend + * {
     clear: both;
+}
+
+/* CONTROLS */
+
+.btn {
+    margin: 5px 0;
+}
+
+/* KOPFMENU */
+
+div.dropdown a img {
+    margin: 0 5px 0 0;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Component\Tabsbar;
+namespace iit\Application\UI\Component\Tabs;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\UI\RendererAbstract;
@@ -10,7 +10,7 @@ use iit\Application\UI\RendererAbstract;
  */
 class TabRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Component/Tabsbar/tab.html';
+    const TEMPLATE = 'UI/Component/Tabs/tab.html';
 
     /**
      * @param ModuleAbstract $tab

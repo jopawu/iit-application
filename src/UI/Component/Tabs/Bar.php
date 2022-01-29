@@ -1,9 +1,10 @@
 <?php
 
-namespace iit\Application\UI\Component\Tabsbar;
+namespace iit\Application\UI\Component\Tabs;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
+use iit\Application\UI\Layout\Panel\Secondary;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -16,6 +17,11 @@ class Bar extends ModuleAbstract
     protected $tabs;
 
     /**
+     * @var Secondary
+     */
+    protected $panel;
+
+    /**
      * @param Container $dic
      * @param Tab[]     $tabs
      */
@@ -24,7 +30,9 @@ class Bar extends ModuleAbstract
         $this->assertInstancesOf($tabs, [Tab::class]);
 
         parent::__construct($dic);
+
         $this->tabs = $tabs;
+        $this->panel = $dic->ui()->layout()->panel()->secondary('');
     }
 
     /**
@@ -33,5 +41,24 @@ class Bar extends ModuleAbstract
     public function getTabs() : array
     {
         return $this->tabs;
+    }
+
+    /**
+     * @return Secondary
+     */
+    public function getPanel() : Secondary
+    {
+        return $this->panel;
+    }
+
+    /**
+     * @param Secondary $panel
+     * @return Bar
+     */
+    public function withPanel(Secondary $panel) : Bar
+    {
+        $clone = clone $this;
+        $clone->panel = $panel;
+        return $clone;
     }
 }

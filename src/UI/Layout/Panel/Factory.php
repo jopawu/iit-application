@@ -13,37 +13,19 @@ class Factory
 
     /**
      * @param string $header
-     * @return Standard
+     * @return Primary
      */
-    public function standard(string $header = '') : Standard
+    public function primary(string $header = '') : Primary
     {
-        return new Standard($this->dic, $header);
+        return new Primary($this->dic, $header);
     }
 
     /**
-     * @param string $header
-     * @return Large
+     * @param string $content
+     * @return Secondary
      */
-    public function large(string $header = '') : Large
+    public function secondary(string $content = '') : Secondary
     {
-        return new Large($this->dic, $header);
-    }
-
-    /**
-     * @param string $header
-     * @return Small
-     */
-    public function small(string $header = '') : Small
-    {
-        return new Small($this->dic, $header);
-    }
-
-    /**
-     * @param string $header
-     * @return VerySmall
-     */
-    public function verysmall(string $header = '') : VerySmall
-    {
-        return new VerySmall($this->dic, $header);
+        return new Secondary($this->dic, $content);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Component\Tabsbar;
+namespace iit\Application\UI\Component\Tabs;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
@@ -14,6 +14,11 @@ class Tab extends ModuleAbstract
      * @var TabAware
      */
     protected $tabAware;
+
+    /**
+     * @var
+     */
+    protected $panel;
 
     /**
      * @param TabAware $tabAware
