@@ -36,9 +36,9 @@ class Request
 
     /**
      * @param string $parameterName
-     * @return string
+     * @return mixed
      */
-    public function param(string $parameterName) : ?string
+    public function param(string $parameterName)
     {
         if( !$this->paramExists($parameterName) )
         {

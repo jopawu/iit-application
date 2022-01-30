@@ -51,16 +51,22 @@ class System
     }
 
     /**
-     * @param string $ctrl
-     * @param string $cmd
+     * @param string      $ctrl
+     * @param string|null $cmd
+     * @param array       $params
      */
-    public function redirect(string $ctrl, string $cmd = null) : void
+    public function redirect(string $ctrl, string $cmd = null, $params = []) : void
     {
         $link = $this->creator()->link($ctrl);
 
         if( $cmd !== null )
         {
             $link = $link->withCmd($cmd);
+        }
+
+        foreach($params as $name => $value)
+        {
+            $link = $link->withAddedParam($name, $value);
         }
 
         $this->dic->response()->addHeader('Location', (string)$link);
