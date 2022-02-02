@@ -183,8 +183,7 @@ class Date
      */
     public static function fromNowDate() : Date
     {
-        $date = new self( time() );
-        return $date->withResetToStartOfDay();
+        return new self( time() );
     }
 
     /**
