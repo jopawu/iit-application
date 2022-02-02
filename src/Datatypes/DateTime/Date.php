@@ -165,6 +165,7 @@ class Date
     {
         list($y, $m, $d) = explode('-', date('Y-m-d', $unixTimestamp));
         $unixTimestamp = mktime(0, 0, 0, (int)$m, (int)$d, (int)$y);
+        return $unixTimestamp;
     }
 
     /**
