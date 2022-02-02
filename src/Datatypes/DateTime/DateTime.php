@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\Datatypes\Time;
+namespace iit\Application\Datatypes\DateTime;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

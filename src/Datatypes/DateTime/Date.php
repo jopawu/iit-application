@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\Datatypes\Time;
+namespace iit\Application\Datatypes\DateTime;
 
 use InvalidArgumentException;
 
@@ -19,7 +19,7 @@ class Date
      */
     public function __construct(int $unixTimestamp)
     {
-        $this->unixTimestamp = $unixTimestamp;
+        $this->unixTimestamp = self::ensureUnixTimestampStartOfDay($unixTimestamp);
     }
 
     /**
@@ -77,14 +77,6 @@ class Date
     public function getMysqlDate() : string
     {
         return date("Y-m-d", $this->unixTimestamp);
-    }
-
-    /**
-     * @return string
-     */
-    public function getMysqlDateTime() : string
-    {
-        return date("Y-m-d H:i:s", $this->unixTimestamp);
     }
 
     /**
@@ -157,6 +149,25 @@ class Date
     }
 
     /**
+     * @param Date $date
+     * @return bool
+     */
+    public function isSameOrLater(Date $date) : bool
+    {
+        return $this->getUnixTimestamp() >= $date->getUnixTimestamp();
+    }
+
+    /**
+     * @param int $unixTimestamp
+     * @return int
+     */
+    protected static function ensureUnixTimestampStartOfDay(int $unixTimestamp) : int
+    {
+        list($y, $m, $d) = explode('-', date('Y-m-d', $unixTimestamp));
+        $unixTimestamp = mktime(0, 0, 0, (int)$m, (int)$d, (int)$y);
+    }
+
+    /**
      * @param string $mysqlDate
      * @return Date
      */
@@ -167,23 +178,12 @@ class Date
     }
 
     /**
-     * @param string $mysqlDate
-     * @return Date
-     */
-    public static function fromMysqlDateTime(string $mysqlDateTime) : Date
-    {
-        list($date, $time) = explode(' ', $mysqlDateTime);
-        list($y, $m, $d) = explode('-', $date);
-        list($h, $i, $s) = explode(':', $date);
-        return new self( mktime((int)$h, (int)$i, (int)$s, (int)$m, (int)$d, (int)$y) );
-    }
-
-    /**
      * @return Date
      */
     public static function fromNowDate() : Date
     {
-        return new self( time() );
+        $date = new self( time() );
+        return $date->withResetToStartOfDay();
     }
 
     /**
