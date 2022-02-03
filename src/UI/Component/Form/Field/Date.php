@@ -27,6 +27,14 @@ class Date extends FieldAbstract
     }
 
     /**
+     * @return bool
+     */
+    public function hasValue() : bool
+    {
+        return $this->value instanceof DateValue;
+    }
+
+    /**
      * @return DateValue
      */
     public function getValue() : DateValue

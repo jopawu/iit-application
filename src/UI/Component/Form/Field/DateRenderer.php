@@ -35,8 +35,15 @@ class DateRenderer extends RendererAbstract
      */
     protected function renderInput(Date $date) : string
     {
+        $value = '';
+
+        if( $date->hasValue() )
+        {
+            $value = $date->getValue()->getPresentation('d.m.Y');
+        }
+
         $input = $this->dic->ui()->element()->form()->input(
-            $date->getId(), $date->getName(), $date->getValue()->getPresentation('d.m.Y')
+            $date->getId(), $date->getName(), $value
         );
 
         return $input->render();

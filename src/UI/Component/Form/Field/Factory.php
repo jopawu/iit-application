@@ -26,6 +26,17 @@ class Factory
      * @param string $id
      * @param string $name
      * @param string $label
+     * @return Number
+     */
+    public function number(string $id, string $name, string $label) : Number
+    {
+        return new Number($this->dic, $id, $name, $label);
+    }
+
+    /**
+     * @param string $id
+     * @param string $name
+     * @param string $label
      * @return Select
      */
     public function select(string $id, string $name, string $label) : Select

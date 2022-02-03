@@ -26,6 +26,16 @@ abstract class FieldAbstract extends ModuleAbstract
     protected $label;
 
     /**
+     * @var string
+     */
+    protected $prefix;
+
+    /**
+     * @var string
+     */
+    protected $suffix;
+
+    /**
      * @var int
      */
     protected $gridWidth;
@@ -67,6 +77,44 @@ abstract class FieldAbstract extends ModuleAbstract
     public function getLabel() : string
     {
         return $this->label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrefix() : string
+    {
+        return $this->prefix;
+    }
+
+    /**
+     * @param string $prefix
+     * @return $this
+     */
+    public function withPrefix(string $prefix)
+    {
+        $clone = clone $this;
+        $clone->prefix = $prefix;
+        return $clone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSuffix() : string
+    {
+        return $this->suffix;
+    }
+
+    /**
+     * @param string $suffix
+     * @return $this
+     */
+    public function withSuffix(string $suffix)
+    {
+        $clone = clone $this;
+        $clone->suffix = $suffix;
+        return $clone;
     }
 
     /**
