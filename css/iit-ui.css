@@ -38,6 +38,7 @@ body {
 
 .layoutPanelSecondary {
     padding: 15px 25px;
+    margin: 15px 0 15px 0;
     background-color: #ebf1ff;
     border: solid 2px #a7abad;
     border-radius: 8px;
