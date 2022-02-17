@@ -13,19 +13,19 @@ class PrimaryRenderer extends RendererAbstract
     const TEMPLATE = 'UI/Layout/Panel/primary.html';
 
     /**
-     * @param ModuleAbstract $standard
+     * @param ModuleAbstract $icon
      * @return string
      */
-    public function render(ModuleAbstract $standard) : string
+    public function render(ModuleAbstract $icon) : string
     {
-        /* @var Primary $standard */
-        $this->assertInstanceOf($standard, [Primary::class]);
+        /* @var Primary $icon */
+        $this->assertInstanceOf($icon, [Primary::class]);
 
         $template = $this->getTemplate();
 
-        $template->assign('HEADER', $standard->getHeader());
-        $template->assign('CONTENT', $standard->getContent());
-        $template->assign('CLASSES', $standard->getSize());
+        $template->assign('HEADER', $icon->getHeader());
+        $template->assign('CONTENT', $icon->getContent());
+        $template->assign('CLASSES', $icon->getSize());
 
         return $template->fetch(static::TEMPLATE);
     }

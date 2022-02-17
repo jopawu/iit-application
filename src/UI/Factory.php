@@ -3,24 +3,14 @@
 namespace iit\Application\UI;
 
 use iit\Application\DI\Container;
+use iit\Application\Helper\DicTrait;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
-    /**
-     * @var Container
-     */
-    protected $dic;
-
-    /**
-     * @param Container $dic
-     */
-    public function __construct(Container $dic)
-    {
-        $this->dic = $dic;
-    }
+    use DicTrait;
 
     /**
      * @return Component\Factory
@@ -36,6 +26,14 @@ class Factory
     public function element()
     {
         return new Element\Factory($this->dic);
+    }
+
+    /**
+     * @return Icon\Factory
+     */
+    public function icon()
+    {
+        return new Icon\Factory($this->dic);
     }
 
     /**
