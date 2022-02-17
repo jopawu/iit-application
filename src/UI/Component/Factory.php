@@ -53,4 +53,12 @@ class Factory
     {
         return new Tabs\Factory($this->dic);
     }
+
+    /**
+     * @return Confirmation
+     */
+    public function confirmation() : Confirmation
+    {
+        return new Confirmation($this->dic);
+    }
 }

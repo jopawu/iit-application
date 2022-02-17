@@ -4,11 +4,12 @@ namespace iit\Application\UI\Element\Navigation;
 
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\DI\Container;
+use iit\Application\UI\Component\Navbar\NavAware;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Button extends ModuleAbstract
+class Button extends ModuleAbstract implements NavAware
 {
     /**
      * @var string

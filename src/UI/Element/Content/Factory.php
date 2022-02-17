@@ -3,23 +3,21 @@
 namespace iit\Application\UI\Element\Content;
 
 use iit\Application\DI\Container;
+use iit\Application\Helper\DicTrait;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
 class Factory
 {
-    /**
-     * @var Container
-     */
-    protected $dic;
+    use DicTrait;
 
     /**
-     * @param Container $dic
+     * @return Paragraph\Factory
      */
-    public function __construct(Container $dic)
+    public function paragraph() : Paragraph\Factory
     {
-        $this->dic = $dic;
+        return new Paragraph\Factory($this->dic);
     }
 
     /**

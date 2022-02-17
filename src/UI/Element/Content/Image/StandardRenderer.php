@@ -9,7 +9,7 @@ use iit\Application\UI\ModuleAbstract;
  */
 class StandardRenderer extends ImageRendererAbstract
 {
-    const TEMPLATE_FILE = 'UI/Element/Content/Image/Standard.html';
+    const TEMPLATE = 'UI/Element/Content/Image/Standard.html';
 
     /**
      * @param ModuleAbstract $image
@@ -24,6 +24,6 @@ class StandardRenderer extends ImageRendererAbstract
 
         $this->renderCommons($template, $image);
 
-        return $template->fetch(self::TEMPLATE_FILE);
+        return $template->fetch(self::TEMPLATE);
     }
 }
