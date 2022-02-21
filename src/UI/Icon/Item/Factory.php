@@ -12,6 +12,14 @@ class Factory
     use DicTrait;
 
     /**
+     * @return Add
+     */
+    public function add() : Add
+    {
+        return new Add($this->dic);
+    }
+
+    /**
      * @return Edit
      */
     public function edit() : Edit

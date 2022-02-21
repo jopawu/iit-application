@@ -1,0 +1,7 @@
+<div class="presentationListing">
+	{foreach $ITEMS as $ITEM}
+		<div class="presentationItem {cycle values='odd,even'}">
+			{$ITEM->render()}
+		</div>
+	{/foreach}
+</div>

@@ -23,7 +23,7 @@ class ColRenderer extends RendererAbstract
 
         $template = $this->getTemplate();
 
-        $template->assign('CLASSES', $this->getGridClasses($col));
+        $template->assign('CLASSES', $this->getCssClasses($col));
         $template->assign('CONTENT', $col->getContent());
 
         return $template->fetch(self::TEMPLATE);
@@ -33,7 +33,17 @@ class ColRenderer extends RendererAbstract
      * @param Col $col
      * @return string
      */
-    public function getGridClasses(Col $col) : string
+    public function getCssClasses(Col $col) : string
+    {
+        $cssClasses = array_merge($col->getCssClasses(), $this->getGridClasses($col));
+        return implode(' ', $cssClasses);
+    }
+
+    /**
+     * @param Col $col
+     * @return array
+     */
+    public function getGridClasses(Col $col) : array
     {
         $classes = [];
 
@@ -42,6 +52,6 @@ class ColRenderer extends RendererAbstract
             $classes[] = "{$screen}-{$width}";
         }
 
-        return implode(' ', $classes);
+        return $classes;
     }
 }

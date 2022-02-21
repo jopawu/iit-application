@@ -27,7 +27,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .layoutPanelHeader {
@@ -156,9 +156,6 @@ table td, table th {
     margin-bottom: 40px;
 }
 
-.formContainer .col {
-    margin-bottom: 15px;
-}
 
 fieldset {
     border-radius: 8px;
@@ -191,4 +188,24 @@ fieldset > legend + * {
 
 div.dropdown a img {
     margin: 0 5px 0 0;
+}
+
+/* PRESENTATION LISTING */
+
+.itemTitle, .propertyLabel {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.presentationItem {
+    border-radius: 8px;
+    margin: 25px 0 25px 0;
+    padding: 15px;
+}
+
+.presentationItem.odd {
+    background-color: #ffffff;
+}
+.presentationItem.even {
+    background-color: #ffffff;
 }

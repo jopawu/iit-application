@@ -55,6 +55,14 @@ class Factory
     }
 
     /**
+     * @return Presentation\Factory
+     */
+    public function presentation() : Presentation\Factory
+    {
+        return new Presentation\Factory($this->dic);
+    }
+
+    /**
      * @return Confirmation
      */
     public function confirmation() : Confirmation
