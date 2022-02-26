@@ -104,6 +104,12 @@ body {
     }
 }
 
+/* ICONS */
+
+i.bi {
+    font-size: 1em;
+}
+
 /* TABS */
 
 .nav-tabs {

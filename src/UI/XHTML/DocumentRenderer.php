@@ -11,6 +11,8 @@ use iit\Application\UI\ModuleAbstract;
  */
 class DocumentRenderer extends RendererAbstract
 {
+    const TEMPLATE = 'UI/XHTML/document.html';
+
     /**
      * @param ModuleAbstract $document
      * @return string
@@ -24,9 +26,10 @@ class DocumentRenderer extends RendererAbstract
         
         $template->assign('PAGE_STYLESHEETS', $document->getStylesheets());
         $template->assign('PAGE_JAVASCRIPTS', $document->getJavascripts());
+        $template->assign('PAGE_JSONDATA', $document->getJsondata());
 
         $template->assign('PAGE_BODY', $document->getBody()->render());
 
-        return $template->fetch(Document::TEMPLATE_FILE);
+        return $template->fetch(self::TEMPLATE);
     }
 }

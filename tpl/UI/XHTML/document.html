@@ -15,6 +15,19 @@
             <script type="application/javascript" src="{$JAVASCRIPT}"></script>
         {/foreach}
 
+        {if $PAGE_JSONDATA}
+            <script type="application/javascript">
+
+                if(typeof iit == 'undefined') var iit = {};
+                if(typeof iit.data == 'undefined') iit.data = {};
+
+                {foreach $PAGE_JSONDATA as $JSONNAME => $JSONDATA}
+                    iit.data.{$JSONNAME} = {$JSONDATA};
+                {/foreach}
+
+            </script>
+        {/if}
+
     </head>
 
     <body>

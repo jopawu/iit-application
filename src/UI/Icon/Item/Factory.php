@@ -20,6 +20,14 @@ class Factory
     }
 
     /**
+     * @return Remove
+     */
+    public function remove() : Remove
+    {
+        return new Remove($this->dic);
+    }
+
+    /**
      * @return Edit
      */
     public function edit() : Edit

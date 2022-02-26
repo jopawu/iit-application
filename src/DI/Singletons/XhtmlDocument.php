@@ -56,6 +56,15 @@ class XhtmlDocument extends ModuleAbstract
         $this->instance = $this->instance->withAddedJavascript($javascriptFilename);
     }
 
+    /**
+     * @param $jsonName
+     * @param $jsonData
+     */
+    public function addJsonData($jsonName, $jsonData)
+    {
+        $this->instance = $this->instance->withAddedJsonData($jsonName, $jsonData);
+    }
+
     public function addJquery()
     {
         $this->instance = $this->instance->withAddedJquery();

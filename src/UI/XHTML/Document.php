@@ -29,8 +29,6 @@ class Document extends ModuleAbstract
 
     const LOCATION_IIT_UI_CSS = 'lib/vendor/jopawu/iit-application/css/iit-ui.css';
 
-    const TEMPLATE_FILE = 'UI/XHTML/document.html';
-
     /**
      * @var Container
      */
@@ -52,12 +50,21 @@ class Document extends ModuleAbstract
     protected $javascripts;
 
     /**
+     * @var array
+     */
+    protected $jsondata;
+
+    /**
      * @param Container $dic
      */
     public function __construct(Container $dic)
     {
         $this->dic = $dic;
         $this->body = $this->dic->ui()->xhtml()->snippet('');
+
+        $this->stylesheets = [];
+        $this->javascripts = [];
+        $this->jsondata = [];
     }
 
     /**
@@ -82,6 +89,14 @@ class Document extends ModuleAbstract
     public function getJavascripts() : array
     {
         return $this->javascripts;
+    }
+
+    /**
+     * @return array
+     */
+    public function getJsondata() : array
+    {
+        return $this->jsondata;
     }
 
     /**
@@ -114,6 +129,18 @@ class Document extends ModuleAbstract
     {
         $clone = clone $this;
         $clone->addJavascript($javascriptFilename);
+        return $clone;
+    }
+
+    /**
+     * @param string $jsonName
+     * @param string $jsonData
+     * @return Document
+     */
+    public function withAddedJsonData($jsonName, $jsonData)
+    {
+        $clone = clone $this;
+        $clone->jsondata[$jsonName] = $jsonData;
         return $clone;
     }
 
