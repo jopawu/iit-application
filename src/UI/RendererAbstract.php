@@ -38,4 +38,13 @@ abstract class RendererAbstract implements RendererAware
     {
         return new WebTemplate();
     }
+
+    /**
+     * @param WebTemplate    $template
+     * @param ModuleAbstract $module
+     */
+    protected function renderCssClasses(WebTemplate $template, ModuleAbstract $module)
+    {
+        $template->assign('CSS_CLASSES', implode(' ', $module->getCssClasses()));
+    }
 }

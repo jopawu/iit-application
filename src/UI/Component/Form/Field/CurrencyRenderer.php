@@ -37,7 +37,7 @@ class CurrencyRenderer extends RendererAbstract
     protected function renderInput(Currency $field) : string
     {
         $input = $this->dic->ui()->element()->form()->input(
-            $field->getId(), $field->getName(), $field->getValue()->getWert()
+            $field->getId(), $field->getName(), $field->getValue()->getDecimal()
         )->withTypeNumber()
          ->withClassAdded('currency');
 

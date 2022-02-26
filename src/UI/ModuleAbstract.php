@@ -10,6 +10,30 @@ class ModuleAbstract implements ModuleAware
     use Assertion;
 
     /**
+     * @var string[]
+     */
+    protected $cssClasses = [];
+
+    /**
+     * @return string[]
+     */
+    public function getCssClasses() : array
+    {
+        return $this->cssClasses;
+    }
+
+    /**
+     * @param string $cssClass
+     * @return static
+     */
+    public function withCssClassAdded(string $cssClass)
+    {
+        $clone = clone $this;
+        $clone->cssClasses[] = $cssClass;
+        return $clone;
+    }
+
+    /**
      * @return string
      */
     protected function buildRendererClassname() : string

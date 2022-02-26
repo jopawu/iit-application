@@ -35,4 +35,12 @@ class Factory
     {
         return new Listing\Factory($this->dic);
     }
+
+    /**
+     * @return Divider\Factory
+     */
+    public function divider() : Divider\Factory
+    {
+        return new Divider\Factory($this->dic);
+    }
 }

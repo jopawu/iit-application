@@ -30,11 +30,6 @@ class Col extends ModuleAbstract
     protected $width = [];
 
     /**
-     * @var string[]
-     */
-    protected $cssClasses;
-
-    /**
      * @param Container $dic
      * @param string $content
      */
@@ -43,7 +38,6 @@ class Col extends ModuleAbstract
         parent::__construct($dic);
         $this->content = $content;
         $this->width = [];
-        $this->cssClasses = [];
     }
 
     /**
@@ -60,14 +54,6 @@ class Col extends ModuleAbstract
     public function getWidth() : array
     {
         return $this->width;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getCssClasses() : array
-    {
-        return $this->cssClasses;
     }
 
     /**
@@ -90,17 +76,6 @@ class Col extends ModuleAbstract
     {
         $clone = clone $this;
         $clone->width[$screen] = self::WIDTH_AUTO;
-        return $clone;
-    }
-
-    /**
-     * @param string $cssClass
-     * @return Col
-     */
-    public function withCssClassAdded(string $cssClass) : Col
-    {
-        $clone = clone $this;
-        $clone->cssClasses[] = $cssClass;
         return $clone;
     }
 }
