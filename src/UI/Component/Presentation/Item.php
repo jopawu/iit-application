@@ -29,6 +29,11 @@ class Item extends ModuleAbstract
     protected $properties;
 
     /**
+     * @var string[]
+     */
+    protected $contents;
+
+    /**
      * @var string
      */
     protected $leadingContent;
@@ -52,6 +57,7 @@ class Item extends ModuleAbstract
         $this->title = $title;
         $this->description = '';
         $this->properties = [];
+        $this->contents = [];
         $this->leadingContent = '';
         $this->trailingContent = '';
         $this->largeSurroundingContent = false;
@@ -79,6 +85,22 @@ class Item extends ModuleAbstract
     public function getProperties() : array
     {
         return $this->properties;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getContents() : array
+    {
+        return $this->contents;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasContents() : bool
+    {
+        return count($this->contents);
     }
 
     /**
@@ -141,6 +163,17 @@ class Item extends ModuleAbstract
     {
         $clone = clone $this;
         $clone->properties[$name] = $value;
+        return $clone;
+    }
+
+    /**
+     * @param string $content
+     * @return Item
+     */
+    public function withContentAdded(string $content) : Item
+    {
+        $clone = clone $this;
+        $clone->contents[] = $content;
         return $clone;
     }
 

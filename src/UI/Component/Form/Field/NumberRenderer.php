@@ -38,7 +38,7 @@ class NumberRenderer extends RendererAbstract
     {
         $input = $this->dic->ui()->element()->form()->input(
             $field->getId(), $field->getName(), $field->getValue()
-        )->withTypeNumber()->withClassAdded('');
+        )->withTypeNumber()->withCssClassAdded('');
 
         $input = $input->withAttributeAdded('min', '0')
                        ->withAttributeAdded('step', '1');

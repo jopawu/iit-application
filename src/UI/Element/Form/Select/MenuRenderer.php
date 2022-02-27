@@ -27,6 +27,9 @@ class MenuRenderer extends RendererAbstract
         $template->assign('NAME', $menu->getName());
         $template->assign('OPTIONS', $this->buildOptionsArray($menu));
 
+        $this->renderAttributes($template, $menu);
+        $this->renderCssClasses($template, $menu);
+
         return $template->fetch(self::TEMPLATE);
     }
 

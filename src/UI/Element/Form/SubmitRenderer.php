@@ -26,6 +26,9 @@ class SubmitRenderer extends RendererAbstract
         $template->assign('LABEL', $submit->getLabel());
         $template->assign('FIELDGRID', $this->renderFieldgrid($submit));
 
+        $this->renderAttributes($template, $submit);
+        $this->renderCssClasses($template, $submit);
+
         return $template->fetch(self::TEMPLATE);
     }
 }

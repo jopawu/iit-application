@@ -19,6 +19,7 @@ body {
 
 }
 
+
 /* PANEL */
 
 .layoutPanelPrimary {
@@ -203,10 +204,20 @@ div.dropdown a img {
     margin-bottom: 10px;
 }
 
+.presentationTitle {
+    margin-top: 25px;
+}
+
 .presentationItem {
     border-radius: 8px;
+    border: 1px solid #ced4da;
     margin: 25px 0 25px 0;
     padding: 15px;
+}
+
+.itemContent {
+    padding-left: 30px;
+    padding-right: 0px;
 }
 
 .presentationItem.odd {

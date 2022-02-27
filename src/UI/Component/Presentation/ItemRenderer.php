@@ -11,7 +11,7 @@ use iit\Application\UI\Layout\Grid\Row;
  */
 class ItemRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Component/Presentation/Item.html';
+    const TEMPLATE = 'UI/Component/Presentation/item.html';
 
     const CSS_CLASS_PROPERTY_LABEL = 'propertyLabel';
     const CSS_CLASS_PROPERTY_VALUE = 'propertyValue';
@@ -30,7 +30,7 @@ class ItemRenderer extends RendererAbstract
             return $gf->row($this->getBodySurroundingColumns($item))->render();
         }
 
-        return $this->getRenderedBodyContent();
+        return $this->getRenderedBodyContent($item);
     }
 
     /**
@@ -44,6 +44,7 @@ class ItemRenderer extends RendererAbstract
         $template->assign('TITLE', $item->getTitle());
         $template->assign('DESCRIPTION', $item->getDescription());
         $template->assign('PROPERTIES', $this->getPropertiesGrid($item)->render());
+        $template->assign('CONTENTS', $item->getContents());
 
         return $template->fetch(self::TEMPLATE);
     }

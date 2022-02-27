@@ -15,6 +15,11 @@ class ModuleAbstract implements ModuleAware
     protected $cssClasses = [];
 
     /**
+     * @var array
+     */
+    protected $attributes = [];
+
+    /**
      * @return string[]
      */
     public function getCssClasses() : array
@@ -30,6 +35,37 @@ class ModuleAbstract implements ModuleAware
     {
         $clone = clone $this;
         $clone->cssClasses[] = $cssClass;
+        return $clone;
+    }
+
+    /**
+     * @param string[] $cssClasses
+     * @return static
+     */
+    public function withCssClassesAdded(array $cssClasses)
+    {
+        $clone = clone $this;
+        $clone->cssClasses = array_merge($clone->cssClasses, $cssClasses);
+        return $clone;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes() : array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param string $name
+     * @param string $value
+     * @return static
+     */
+    public function withAttributeAdded(string $name, string $value)
+    {
+        $clone = clone $this;
+        $clone->attributes[$name] = $value;
         return $clone;
     }
 

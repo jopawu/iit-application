@@ -30,8 +30,8 @@ class InputRenderer extends RendererAbstract
         $template->assign('SIZE', $input->getSize());
         $template->assign('MAXLENGTH', $input->getMaxlength());
 
-        $template->assign('CLASSES', $input->getRenderedClasses());
-        $template->assign('ATTR', $input->getRenderedAttributes());
+        $this->renderAttributes($template, $input);
+        $this->renderCssClasses($template, $input);
 
         return $template->fetch(self::TEMPLATE);
     }

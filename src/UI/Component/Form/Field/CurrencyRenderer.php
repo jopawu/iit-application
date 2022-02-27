@@ -39,7 +39,7 @@ class CurrencyRenderer extends RendererAbstract
         $input = $this->dic->ui()->element()->form()->input(
             $field->getId(), $field->getName(), $field->getValue()->getDecimal()
         )->withTypeNumber()
-         ->withClassAdded('currency');
+         ->withCssClassAdded('currency');
 
         $input = $input->withAttributeAdded('min', '0')
                        ->withAttributeAdded('step', '0.01')

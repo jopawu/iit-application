@@ -10,7 +10,7 @@ use iit\Application\UI\ModuleAbstract;
  */
 class ListingRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Component/Presentation/Listing.html';
+    const TEMPLATE = 'UI/Component/Presentation/listing.html';
 
     /**
      * @param ModuleAbstract $listing
@@ -23,6 +23,7 @@ class ListingRenderer extends RendererAbstract
 
         $template = $this->getTemplate();
         
+        $template->assign('TITLE', $listing->getTitle());
         $template->assign('ITEMS', $listing->getItems());
 
         return $template->fetch(self::TEMPLATE);

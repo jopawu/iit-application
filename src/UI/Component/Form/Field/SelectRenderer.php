@@ -39,6 +39,8 @@ class SelectRenderer extends RendererAbstract
             $field->getId(), $field->getName(), $field->getOptions()
         );
 
+        $input = $input->withCssClassesAdded($field->getCssClasses());
+
         return $input->render();
     }
 }

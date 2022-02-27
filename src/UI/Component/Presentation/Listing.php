@@ -15,6 +15,11 @@ class Listing extends ModuleAbstract implements SectionAware
     use DicTrait;
 
     /**
+     * @var string
+     */
+    protected $title;
+
+    /**
      * @var Item[]
      */
     protected $items;
@@ -25,7 +30,16 @@ class Listing extends ModuleAbstract implements SectionAware
     public function __construct(Container $dic, array $items)
     {
         parent::__construct($dic);
+        $this->title = '';
         $this->items = $items;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle() : string
+    {
+        return $this->title;
     }
 
     /**
@@ -34,5 +48,16 @@ class Listing extends ModuleAbstract implements SectionAware
     public function getItems() : array
     {
         return $this->items;
+    }
+
+    /**
+     * @param string $title
+     * @return Listing
+     */
+    public function withTitle(string $title) : Listing
+    {
+        $clone = clone $this;
+        $clone->title = $title;
+        return $clone;
     }
 }

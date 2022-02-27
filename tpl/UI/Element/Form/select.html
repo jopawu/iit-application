@@ -1,4 +1,4 @@
-<select id="{$ID}" name="{$NAME}" class="form-select">
+<select id="{$ID}" name="{$NAME}" class="form-select {$CSS_CLASSES}">
   {foreach $OPTIONS as $OPTION}
     {if $OPTION.selected}<option value="{$OPTION.value}" selected="selected">
     {else}<option value="{$OPTION.value}">

@@ -47,4 +47,20 @@ abstract class RendererAbstract implements RendererAware
     {
         $template->assign('CSS_CLASSES', implode(' ', $module->getCssClasses()));
     }
+
+    /**
+     * @param WebTemplate    $template
+     * @param ModuleAbstract $module
+     */
+    protected function renderAttributes(WebTemplate $template, ModuleAbstract $module)
+    {
+        $attributes = [];
+
+        foreach($module->getAttributes() as $attrName => $attrValue)
+        {
+            $attributes[] = $attrName.'="'.$attrValue.'"';
+        }
+
+        $template->assign('ATTRIBUTES', implode(' ', $attributes));
+    }
 }

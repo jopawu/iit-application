@@ -41,11 +41,6 @@ abstract class FieldAbstract extends ModuleAbstract
     protected $gridWidth;
 
     /**
-     * @var string[]
-     */
-    protected $cssClasses;
-
-    /**
      * @param Container $dic
      * @param string    $id
      * @param string    $name
@@ -58,7 +53,6 @@ abstract class FieldAbstract extends ModuleAbstract
         $this->name = $name;
         $this->label = $label;
         $this->gridWidth = 12;
-        $this->cssClasses = [];
     }
 
     /**
@@ -138,24 +132,6 @@ abstract class FieldAbstract extends ModuleAbstract
     {
         $clone = clone $this;
         $clone->gridWidth = $gridWidth;
-        return $clone;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getCssClasses() : array
-    {
-        return $this->cssClasses;
-    }
-
-    /**
-     * @param string $cssClass
-     */
-    public function withAddedCssClass(string $cssClass) : FieldAbstract
-    {
-        $clone = clone $this;
-        $clone->cssClasses[] = $cssClass;
         return $clone;
     }
 }

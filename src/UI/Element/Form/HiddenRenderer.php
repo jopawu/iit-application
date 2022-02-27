@@ -26,6 +26,9 @@ class HiddenRenderer extends RendererAbstract
         $template->assign('NAME', $hidden->getName());
         $template->assign('VALUE', $hidden->getValue());
 
+        $this->renderAttributes($template, $hidden);
+        $this->renderCssClasses($template, $hidden);
+
         return $template->fetch(self::TEMPLATE);
     }
 
