@@ -20,6 +20,11 @@ class Listing extends ModuleAbstract implements SectionAware
     protected $title;
 
     /**
+     * @var string
+     */
+    protected $description;
+
+    /**
      * @var Item[]
      */
     protected $items;
@@ -31,6 +36,7 @@ class Listing extends ModuleAbstract implements SectionAware
     {
         parent::__construct($dic);
         $this->title = '';
+        $this->description = '';
         $this->items = $items;
     }
 
@@ -40,6 +46,14 @@ class Listing extends ModuleAbstract implements SectionAware
     public function getTitle() : string
     {
         return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription() : string
+    {
+        return $this->description;
     }
 
     /**
@@ -58,6 +72,17 @@ class Listing extends ModuleAbstract implements SectionAware
     {
         $clone = clone $this;
         $clone->title = $title;
+        return $clone;
+    }
+
+    /**
+     * @param string $description
+     * @return Listing
+     */
+    public function withDescription(string $description) : Listing
+    {
+        $clone = clone $this;
+        $clone->description = $description;
         return $clone;
     }
 }

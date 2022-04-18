@@ -11,6 +11,9 @@ use iit\Application\UI\ModuleAbstract;
 class ContainerRenderer extends RendererAbstract
 {
     const TEMPLATE = 'UI/Component/Form/container.html';
+
+    const CLASS_SUBMIT_ROW = 'formSubmitRow';
+
     /**
      * @param ModuleAbstract $container
      * @return string
@@ -21,6 +24,8 @@ class ContainerRenderer extends RendererAbstract
         $this->assertInstanceOf($container, [Container::class]);
 
         $template = $this->getTemplate();
+
+        $this->renderCssClasses($template, $container);
 
         $template->assign('ID', $container->getId());
         $template->assign('NAME', $container->getName());
@@ -81,6 +86,9 @@ class ContainerRenderer extends RendererAbstract
                                                               ->withAutoWidth();
         }
 
-        return $this->dic->ui()->layout()->grid()->row($submitCols)->render();
+        $row = $this->dic->ui()->layout()->grid()->row($submitCols)
+                                                 ->withCssClassAdded(self::CLASS_SUBMIT_ROW);
+
+        return $row->render();
     }
 }

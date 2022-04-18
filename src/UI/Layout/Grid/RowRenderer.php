@@ -23,10 +23,20 @@ class RowRenderer extends RendererAbstract
 
         $template = $this->getTemplate();
 
-        $template->assign('CLASSES', '');
+        $this->renderCssClasses($template, $row);
+
         $template->assign('COLUMNS', $this->getRenderedColumns($row));
 
         return $template->fetch(self::TEMPLATE);
+    }
+
+    /**
+     * @param Row $row
+     * @return string
+     */
+    public function getCssClasses(Row $row) : string
+    {
+        return implode(' ', $row->getCssClasses());
     }
 
     /**

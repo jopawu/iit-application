@@ -23,7 +23,7 @@ class ColRenderer extends RendererAbstract
 
         $template = $this->getTemplate();
 
-        $template->assign('CLASSES', $this->getCssClasses($col));
+        $template->assign('CSS_CLASSES', $this->getCssClasses($col));
         $template->assign('CONTENT', $col->getContent());
 
         return $template->fetch(self::TEMPLATE);

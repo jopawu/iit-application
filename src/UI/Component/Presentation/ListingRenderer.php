@@ -24,6 +24,7 @@ class ListingRenderer extends RendererAbstract
         $template = $this->getTemplate();
         
         $template->assign('TITLE', $listing->getTitle());
+        $template->assign('DESCRIPTION', $listing->getDescription());
         $template->assign('ITEMS', $listing->getItems());
 
         return $template->fetch(self::TEMPLATE);

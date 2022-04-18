@@ -1,7 +1,6 @@
 <div class="presentationListing">
-	{if $TITLE}
-		<div class="presentationTitle">{$TITLE}</div>
-	{/if}
+	{if $TITLE}<div class="presentationTitle">{$TITLE}</div>{/if}
+	{if $DESCRIPTION}<div class="presentationDescription">{$DESCRIPTION}</div>{/if}
 	{foreach $ITEMS as $ITEM}
 		<div class="presentationItem {cycle values='odd,even'}">
 			{$ITEM->render()}
