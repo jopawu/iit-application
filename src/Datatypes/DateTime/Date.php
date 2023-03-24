@@ -174,6 +174,11 @@ class Date
      */
     public static function fromMysqlDate(string $mysqlDate) : Date
     {
+        if( !self::isMysqlDate($mysqlDate) )
+        {
+            throw new InvalidArgumentException("invalid mysql date string given: {$mysqlDate}");
+        }
+
         list($y, $m, $d) = explode('-', $mysqlDate);
         return new self( mktime(0, 0, 0, (int)$m, (int)$d, (int)$y) );
     }
@@ -183,6 +188,11 @@ class Date
      */
     public static function fromNowDate() : Date
     {
+        if( defined('DEVDATE') )
+        {
+            return self::fromMysqlDate(DEVDATE);
+        }
+
         return new self( time() );
     }
 
@@ -192,7 +202,7 @@ class Date
      */
     public static function fromDatePresentation(string $datePresentation) : Date
     {
-        if( !preg_match('/^\d{1,2}.\d{1,2}.\d{2,4}$/', $datePresentation) )
+        if( !self::isDatePresentation($datePresentation) )
         {
             throw new InvalidArgumentException("invalid date presentation string given: {$datePresentation}");
         }
@@ -200,5 +210,23 @@ class Date
         list($d, $m, $y) = explode('.', $datePresentation);
 
         return new self( mktime(0, 0, 0, (int)$m, (int)$d, (int)$y) );
+    }
+
+    /**
+     * @param string $mysqlDate
+     * @return bool
+     */
+    public static function isMysqlDate(string $mysqlDate) : bool
+    {
+        return preg_match('/^\d{4}-\d{2}-\d{2}$/', $mysqlDate);
+    }
+
+    /**
+     * @param string $datePresentation
+     * @return bool
+     */
+    public static function isDatePresentation(string $datePresentation) : bool
+    {
+        return preg_match('/^\d{1,2}.\d{1,2}.\d{2,4}$/', $datePresentation);
     }
 }
