@@ -2,7 +2,7 @@
     "name": "jopawu/iit-application",
     "type": "library",
     "description": "iit Application Framework",
-    "keywords": ["iit", "application", "php", 'bootstrap', "jquery", "pdo"],
+    "keywords": ["iit", "application", "php", "bootstrap", "jquery", "pdo"],
     "homepage": "http://www.iit-online.de",
     "license": "MIT",
     "authors": [
