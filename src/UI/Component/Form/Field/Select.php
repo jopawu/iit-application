@@ -15,11 +15,24 @@ class Select extends FieldAbstract
     protected $options = [];
 
     /**
+     * @var bool
+     */
+    protected $searchEnabled = false;
+
+    /**
      * @return Option[]
      */
     public function getOptions() : array
     {
         return $this->options;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSearchEnabled(): bool
+    {
+        return $this->searchEnabled;
     }
 
     /**
@@ -34,6 +47,26 @@ class Select extends FieldAbstract
 
         $clone->options[] = $this->dic->ui()->element()->form()->select()->option($label, $value)
                                                                         ->withSelected($selected);
+        return $clone;
+    }
+
+    /**
+     * @return Select
+     */
+    public function withSearchEnabled() : Select
+    {
+        $clone = clone $this;
+        $clone->searchEnabled = true;
+        return $clone;
+    }
+
+    /**
+     * @return Select
+     */
+    public function withSearchDisabled() : Select
+    {
+        $clone = clone $this;
+        $clone->searchEnabled = false;
         return $clone;
     }
 }

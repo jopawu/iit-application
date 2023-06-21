@@ -33,6 +33,9 @@ class SelectRenderer extends RendererAbstract
         $template->assign('SELECT', $this->renderSelect($field));
         $template->assign('GLYPHS_HTML', $this->getChevronGlyphsHtml());
 
+        $optSearchDisabled = $field->isSearchEnabled() ? 'false' : 'true';
+        $template->assign('OPT_SEARCH_ENABLED', $optSearchDisabled);
+
         return $template->fetch(self::TEMPLATE);
     }
 
