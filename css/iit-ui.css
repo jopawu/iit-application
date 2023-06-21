@@ -159,11 +159,8 @@ table td, table th {
 }
 
 .formLabel {
-    font-size: 1.2em;
-    border-bottom: solid 1px #747474;
-    margin-bottom: 30px;
+    margin: 8px 0;
 }
-
 
 fieldset {
     border-radius: 8px;
@@ -188,7 +185,6 @@ fieldset > legend {
     background-color: #ffffff;
 }
 
-
 fieldset > legend + * {
     clear: both;
 }
@@ -200,15 +196,25 @@ fieldset > legend + * {
     font-size: inherit;
 }
 
+.chosen-container-single .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-single {
+    background: none;
+    background-color: #ffffff;
+    border-color: #ced4da
+}
+
 .chosen-container-active .chosen-single,
 .chosen-container-active.chosen-with-drop .chosen-single,
 .chosen-container-active.chosen-with-drop .chosen-drop {
 
     outline: 0;
     border-radius: 0.25rem;
-    border-color: #66afe9;
-    box-shadow: inset 5px 0 5px rgba(0,0,0,.075), 5px 0 5px rgba(102,175,233,.6);
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.075),0 0 5px rgba(102,175,233,.6);
+    border-color: #66afe9 !important;
+
+    /*box-shadow: inset 8px 0 8px rgba(0,0,0,.075), 8px 0 8px rgba(102,175,233,.6);
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
+    box-shadow: 8px 0 8px rgba(102,175,233,1);
+    -webkit-box-shadow: 0 0 8px rgba(102,175,233,1);
 
     transition-delay: 0s, 0s;
     transition-duration: 0.15s, 0.15s;
@@ -216,11 +222,8 @@ fieldset > legend + * {
     transition-timing-function: ease-in-out, ease-in-out;
 }
 
-.chosen-container-single .chosen-single,
-.chosen-container-active.chosen-with-drop .chosen-single {
-    background: none;
-    background-color: #ffffff;
-    border-color: #ced4da
+.chosen-container-active.chosen-with-drop .chosen-drop {
+    margin-top: 4px;
 }
 
 .chosen-container-single .chosen-single {
@@ -244,46 +247,6 @@ fieldset > legend + * {
 .chosen-container-single.chosen-with-drop .chosen-single div .chevron-up-glyph {
     display: block;
 }
-
-/*
-.chosen-single, .chosen-container,
-.chosen-single span, .chosen-single div {
-    background-color: #fff;
-    height: 38px;
-
-}
-.chosen-single div {
-    width: 18px;
-}
-.chosen-single span {
-    margin-right: 18px;
-    padding-right: 10px;
-}
-.chosen-single {
-    margin-left: 0;
-    padding-left: 10px;
-}
-
-.xchosen-container-single .xchosen-single {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    padding: 0 0 0 8px;
-    height: 25px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    background-color: #fff;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #f6f6f6), color-stop(52%, #eee), to(#f4f4f4));
-    background: linear-gradient(#fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%);
-    background-clip: padding-box;
-    -webkit-box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
-    color: #444;
-    text-decoration: none;
-    white-space: nowrap;
-    line-height: 24px;
-}
-*/
 
 /* CONTROLS */
 

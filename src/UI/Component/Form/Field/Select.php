@@ -20,6 +20,11 @@ class Select extends FieldAbstract
     protected $searchEnabled = false;
 
     /**
+     * @var bool
+     */
+    protected $containsSearch = true;
+
+    /**
      * @return Option[]
      */
     public function getOptions() : array
@@ -33,6 +38,14 @@ class Select extends FieldAbstract
     public function isSearchEnabled(): bool
     {
         return $this->searchEnabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isContainsSearch(): bool
+    {
+        return $this->containsSearch;
     }
 
     /**
@@ -67,6 +80,26 @@ class Select extends FieldAbstract
     {
         $clone = clone $this;
         $clone->searchEnabled = false;
+        return $clone;
+    }
+
+    /**
+     * @return Select
+     */
+    public function withContainsSearch() : Select
+    {
+        $clone = clone $this;
+        $clone->containsSearch = true;
+        return $clone;
+    }
+
+    /**
+     * @return Select
+     */
+    public function withBeginsSearch() : Select
+    {
+        $clone = clone $this;
+        $clone->containsSearch = false;
         return $clone;
     }
 }

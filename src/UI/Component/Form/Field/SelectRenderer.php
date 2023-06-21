@@ -2,6 +2,7 @@
 
 namespace iit\Application\UI\Component\Form\Field;
 
+use iit\Application\Template\WebTemplate;
 use iit\Application\UI\RendererAbstract;
 use iit\Application\UI\ModuleAbstract;
 
@@ -33,8 +34,7 @@ class SelectRenderer extends RendererAbstract
         $template->assign('SELECT', $this->renderSelect($field));
         $template->assign('GLYPHS_HTML', $this->getChevronGlyphsHtml());
 
-        $optSearchDisabled = $field->isSearchEnabled() ? 'false' : 'true';
-        $template->assign('OPT_SEARCH_ENABLED', $optSearchDisabled);
+        $this->assignJqueryChosenOptions($template, $field);
 
         return $template->fetch(self::TEMPLATE);
     }
@@ -66,5 +66,20 @@ class SelectRenderer extends RendererAbstract
             ->up()->withCssClassAdded(self::CSS_CLASS_CHEVRON_UP);
 
         return $chevDown->render().$chevUp->render();
+    }
+
+    /**
+     * @param WebTemplate $template
+     * @param Select $field
+     */
+    public function assignJqueryChosenOptions(WebTemplate $template, Select $field): void
+    {
+        $template->assign('OPT_NO_RESULTS_TEXT', 'Keine Treffer für: ');
+
+        $optSearchDisabled = $field->isSearchEnabled() ? 'false' : 'true';
+        $template->assign('OPT_SEARCH_DISABLED', $optSearchDisabled);
+
+        $optContainsSearch = $field->isContainsSearch() ? 'true' : 'false';
+        $template->assign('OPT_SEARCH_CONTAINS', $optContainsSearch);
     }
 }

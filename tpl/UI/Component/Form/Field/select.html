@@ -1,4 +1,4 @@
-<label for="{$ID}">{$LABEL}</label>
+<label for="{$ID}" class="formLabel">{$LABEL}</label>
 {$SELECT}
 <script type="text/javascript">
 (function($){
@@ -7,7 +7,12 @@
 
         $('#{$ID}').chosen({
 
-            disable_search: {$OPT_SEARCH_ENABLED}
+            width: '100%',
+
+            no_results_text: '{$OPT_NO_RESULTS_TEXT}',
+
+            disable_search: {$OPT_SEARCH_DISABLED},
+            search_contains: {$OPT_SEARCH_CONTAINS}
 
         });
 
