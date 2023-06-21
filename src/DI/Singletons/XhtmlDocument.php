@@ -49,6 +49,16 @@ class XhtmlDocument extends ModuleAbstract
     }
 
     /**
+     * @param string $stylesheetFilename
+     */
+    public function addImportantStylesheet($importantStylesheetFilename)
+    {
+        $this->instance = $this->instance->withAddedImportantStylesheet(
+            $importantStylesheetFilename
+        );
+    }
+
+    /**
      * @param string $javascriptFilename
      */
     public function addJavascript($javascriptFilename)
@@ -73,6 +83,11 @@ class XhtmlDocument extends ModuleAbstract
     public function addJqueryUi()
     {
         $this->instance = $this->instance->withAddedJqueryUi();
+    }
+
+    public function addJqueryChosen()
+    {
+        $this->instance = $this->instance->withAddedJqueryChosen();
     }
 
     public function addJsGrid()

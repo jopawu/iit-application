@@ -1,13 +1,13 @@
 <?php
 
-namespace iit\Application\UI\Icon;
+namespace iit\Application\UI\Component\Glyph\Item;
 
 use iit\Application\UI\ModuleAbstract;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-abstract class IconAbstract extends ModuleAbstract
+class Edit extends ModuleAbstract
 {
 
 }

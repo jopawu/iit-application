@@ -29,11 +29,11 @@ class Factory
     }
 
     /**
-     * @return Icon\Factory
+     * @return Component\Glyph\Factory
      */
     public function icon()
     {
-        return new Icon\Factory($this->dic);
+        return $this->component()->glyph($this->dic);
     }
 
     /**

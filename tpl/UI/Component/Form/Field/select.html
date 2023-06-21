@@ -1,2 +1,19 @@
 <label for="{$ID}">{$LABEL}</label>
 {$SELECT}
+<script type="text/javascript">
+(function($){
+
+    $().ready(function(){
+
+        $('#{$ID}').chosen({
+
+
+
+        });
+
+        $('#{$ID}_chosen .chosen-single div').html('{$GLYPHS_HTML}');
+
+    });
+
+}(jQuery));
+</script>

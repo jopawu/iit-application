@@ -31,6 +31,14 @@ class Factory
     }
 
     /**
+     * @return Glyph\Factory
+     */
+    public function glyph() : Glyph\Factory
+    {
+        return new Glyph\Factory($this->dic);
+    }
+
+    /**
      * @return Dropdown\Factory
      */
     public function dropdown() : Dropdown\Factory
@@ -69,4 +77,6 @@ class Factory
     {
         return new Confirmation($this->dic);
     }
+
+
 }

@@ -23,6 +23,7 @@ abstract class Application
     public function __construct(Config $config)
     {
         $this->handleDevTime($config);
+        $this->handleErrorReporting($config);
 
         $this->dic = Container::create($config);
 
@@ -30,6 +31,7 @@ abstract class Application
         //$this->dic->doc()->addJqueryUi();
         //$this->dic->doc()->addJsGrid();
         $this->dic->doc()->addBootstrap();
+        $this->dic->doc()->addIitUiCss();
         $this->dic->doc()->addIitUiCss();
     }
 
@@ -42,6 +44,18 @@ abstract class Application
         if( strlen($devdate) )
         {
             define('DEVDATE', $devdate);
+        }
+    }
+
+    /**
+     * @param Config $config
+     */
+    public function handleErrorReporting(Config $config): void
+    {
+        if( $config->isDevmode() )
+        {
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL & ~E_DEPRECATED & ~E_WARNING);
         }
     }
 

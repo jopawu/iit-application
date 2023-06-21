@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Icon\Item;
+namespace iit\Application\UI\Component\Glyph\Item;
 
 use iit\Application\Helper\DicTrait;
 

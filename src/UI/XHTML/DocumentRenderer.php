@@ -22,9 +22,13 @@ class DocumentRenderer extends RendererAbstract
         /* @var Document $document */
         $this->assertInstanceOf($document, [Document::class]);
 
+        $documentStyleSheets = array_merge(
+            $document->getStylesheets(), $document->getImportantStylesheets()
+        );
+
         $template = new WebTemplate();
-        
-        $template->assign('PAGE_STYLESHEETS', $document->getStylesheets());
+
+        $template->assign('PAGE_STYLESHEETS', $documentStyleSheets);
         $template->assign('PAGE_JAVASCRIPTS', $document->getJavascripts());
         $template->assign('PAGE_JSONDATA', $document->getJsondata());
 

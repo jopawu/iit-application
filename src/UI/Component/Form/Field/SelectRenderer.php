@@ -11,6 +11,10 @@ use iit\Application\UI\ModuleAbstract;
 class SelectRenderer extends RendererAbstract
 {
     const TEMPLATE = 'UI/Component/Form/Field/select.html';
+
+    const CSS_CLASS_CHEVRON_DOWN = 'chevron-down-glyph';
+    const CSS_CLASS_CHEVRON_UP = 'chevron-up-glyph';
+
     /**
      * @param ModuleAbstract $field
      * @return string
@@ -20,11 +24,14 @@ class SelectRenderer extends RendererAbstract
         /* @var Select $field */
         $this->assertInstanceOf($field, [Select::class]);
 
+        $this->dic->doc()->addJqueryChosen();
+
         $template = $this->getTemplate();
 
         $template->assign('ID', $field->getId());
-        $template->assign('LABEL', $field->getLabel());
+        $template->assign('LABEL', $field->getLabel() . $chev);
         $template->assign('SELECT', $this->renderSelect($field));
+        $template->assign('GLYPHS_HTML', $this->getChevronGlyphsHtml());
 
         return $template->fetch(self::TEMPLATE);
     }
@@ -42,5 +49,19 @@ class SelectRenderer extends RendererAbstract
         $input = $input->withCssClassesAdded($field->getCssClasses());
 
         return $input->render();
+    }
+
+    /**
+     * @return string
+     */
+    public function getChevronGlyphsHtml(): string
+    {
+        $chevDown = $this->dic->ui()->component()->glyph()->chevron()
+            ->down()->withCssClassAdded(self::CSS_CLASS_CHEVRON_DOWN);
+
+        $chevUp = $this->dic->ui()->component()->glyph()->chevron()
+            ->up()->withCssClassAdded(self::CSS_CLASS_CHEVRON_UP);
+
+        return $chevDown->render().$chevUp->render();
     }
 }

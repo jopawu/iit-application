@@ -193,6 +193,91 @@ fieldset > legend + * {
     clear: both;
 }
 
+/* FIX JQUERY CHOSEN SELECT LAYOUT */
+
+.chosen-container-single {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.chosen-container-active .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-drop {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 3px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 3px 3px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.chosen-container-single .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-single {
+    background: none;
+}
+
+.chosen-container-single .chosen-single {
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+}
+
+.chosen-container-single .chosen-single div {
+    width: 24px;
+}
+.chosen-container-single .chosen-single div .chevron-down-glyph {
+    display: block;
+}
+.chosen-container-single .chosen-single div .chevron-up-glyph {
+    display: none;
+}
+.chosen-container-single.chosen-with-drop .chosen-single div .chevron-down-glyph {
+    display: none;
+}
+.chosen-container-single.chosen-with-drop .chosen-single div .chevron-up-glyph {
+    display: block;
+}
+
+/*
+.chosen-single, .chosen-container,
+.chosen-single span, .chosen-single div {
+    background-color: #fff;
+    height: 38px;
+
+}
+.chosen-single div {
+    width: 18px;
+}
+.chosen-single span {
+    margin-right: 18px;
+    padding-right: 10px;
+}
+.chosen-single {
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+.xchosen-container-single .xchosen-single {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    height: 25px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #f6f6f6), color-stop(52%, #eee), to(#f4f4f4));
+    background: linear-gradient(#fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%);
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #444;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 24px;
+}
+*/
+
 /* CONTROLS */
 
 .btn {

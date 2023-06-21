@@ -16,6 +16,8 @@ class Document extends ModuleAbstract
     const LOCATION_JQUERYUI_JS = 'lib/vendor/components/jqueryui/jquery-ui.min.js';
     const LOCATION_JQUERYUI_THEME = 'lib/vendor/components/jqueryui/themes';
     const JQUERY_UI_CSS_FILE = 'jquery-ui.css';
+    const LOCATION_JQUERYCHOSEN_JS = 'lib/vendor/harvesthq/chosen/chosen.jquery.js';
+    const LOCATION_JQUERYCHOSEN_CSS = 'lib/vendor/harvesthq/chosen/chosen.css';
 
     const LOCATION_JSGRID_JS = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid.min.js';
     const LOCATION_JSGRID_CSS = 'lib/vendor/jopawu/iit-application/lib/jsgrid-1.5.3/dist/jsgrid.css';
@@ -47,6 +49,11 @@ class Document extends ModuleAbstract
     /**
      * @var array
      */
+    protected $importantStylesheets;
+
+    /**
+     * @var array
+     */
     protected $javascripts;
 
     /**
@@ -63,6 +70,7 @@ class Document extends ModuleAbstract
         $this->body = $this->dic->ui()->xhtml()->snippet('');
 
         $this->stylesheets = [];
+        $this->importantStylesheets = [];
         $this->javascripts = [];
         $this->jsondata = [];
     }
@@ -81,6 +89,14 @@ class Document extends ModuleAbstract
     public function getStylesheets() : array
     {
         return $this->stylesheets;
+    }
+
+    /**
+     * @return array
+     */
+    public function getImportantStylesheets() : array
+    {
+        return $this->importantStylesheets;
     }
 
     /**
@@ -118,6 +134,17 @@ class Document extends ModuleAbstract
     {
         $clone = clone $this;
         $clone->addStylesheet($stylesheetFilename);
+        return $clone;
+    }
+
+    /**
+     * @param string $importantStylesheetFilename
+     * @return Document
+     */
+    public function withAddedImportantStylesheet($importantStylesheetFilename)
+    {
+        $clone = clone $this;
+        $clone->addImportantStylesheet($importantStylesheetFilename);
         return $clone;
     }
 
@@ -174,6 +201,19 @@ class Document extends ModuleAbstract
     /**
      * @return Document
      */
+    public function withAddedJqueryChosen()
+    {
+        $clone = clone $this;
+
+        $clone->addJavascript(self::LOCATION_JQUERYCHOSEN_JS);
+        $clone->addStylesheet(self::LOCATION_JQUERYCHOSEN_CSS);
+
+        return $clone;
+    }
+
+    /**
+     * @return Document
+     */
     public function withAddedJsGrid()
     {
         $clone = clone $this;
@@ -207,7 +247,7 @@ class Document extends ModuleAbstract
     public function withAddedIitUiCss()
     {
         $clone = clone $this;
-        $clone->addStylesheet(self::LOCATION_IIT_UI_CSS);
+        $clone->addImportantStylesheet(self::LOCATION_IIT_UI_CSS);
         return $clone;
     }
 
@@ -217,6 +257,14 @@ class Document extends ModuleAbstract
     protected function addStylesheet($stylesheetFilename)
     {
         $this->stylesheets[$stylesheetFilename] = $this->completeFilename($stylesheetFilename);
+    }
+
+    /**
+     * @param $importantStylesheetFilename
+     */
+    protected function addImportantStylesheet($importantStylesheetFilename)
+    {
+        $this->importantStylesheets[$importantStylesheetFilename] = $this->completeFilename($importantStylesheetFilename);
     }
 
     /**
