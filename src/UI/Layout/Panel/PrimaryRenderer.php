@@ -13,19 +13,24 @@ class PrimaryRenderer extends RendererAbstract
     const TEMPLATE = 'UI/Layout/Panel/primary.html';
 
     /**
-     * @param ModuleAbstract $glyph
+     * @param ModuleAbstract $primary
      * @return string
      */
-    public function render(ModuleAbstract $glyph) : string
+    public function render(ModuleAbstract $primary) : string
     {
-        /* @var Primary $glyph */
-        $this->assertInstanceOf($glyph, [Primary::class]);
+        /* @var Primary $primary */
+        $this->assertInstanceOf($primary, [Primary::class]);
 
         $template = $this->getTemplate();
 
-        $template->assign('HEADER', $glyph->getHeader());
-        $template->assign('CONTENT', $glyph->getContent());
-        $template->assign('CLASSES', $glyph->getSize());
+        if( $primary->hasActions() )
+        {
+            $template->assign('ACTIONS', $primary->getActions()->render());
+        }
+
+        $template->assign('HEADER', $primary->getHeader());
+        $template->assign('CONTENT', $primary->getContent());
+        $template->assign('CLASSES', $primary->getSize());
 
         return $template->fetch(static::TEMPLATE);
     }

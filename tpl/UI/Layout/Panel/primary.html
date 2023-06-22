@@ -1,4 +1,9 @@
 <div class="container layoutPanelPrimary {$CLASSES}">
-  {if $HEADER}<div class="layoutPanelHeader">{$HEADER}</div>{/if}
+  {if $HEADER || $ACTIONS}
+    <div class="layoutPanelHeader">
+      {$HEADER}
+      {if $ACTIONS}<div class="layoutPanelActions">{$ACTIONS}</div>{/if}
+    </div>
+  {/if}
   <div class="layoutPanelContent">{$CONTENT}</div>
 </div>

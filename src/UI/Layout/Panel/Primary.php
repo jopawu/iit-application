@@ -5,6 +5,7 @@ namespace iit\Application\UI\Layout\Panel;
 use iit\Application\UI\ModuleAbstract;
 use iit\Application\Helper\DicTrait;
 use iit\Application\DI\Container;
+use iit\Application\UI\ModuleAware;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -24,6 +25,11 @@ class Primary extends ModuleAbstract
     protected $header;
 
     /**
+     * @var ModuleAware
+     */
+    protected $actions;
+
+    /**
      * @var string
      */
     protected $content;
@@ -41,6 +47,7 @@ class Primary extends ModuleAbstract
     {
         parent::__construct($dic);
         $this->header = $header;
+        $this->actions = null;
         $this->content = '';
         $this->size = self::SIZE_MEDIUM;
     }
@@ -54,11 +61,38 @@ class Primary extends ModuleAbstract
     }
 
     /**
+     * @return ModuleAware
+     */
+    public function getActions(): ModuleAware
+    {
+        return $this->actions;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasActions(): bool
+    {
+        return $this->actions instanceof ModuleAware;
+    }
+
+    /**
      * @return string
      */
     public function getContent() : string
     {
         return $this->content;
+    }
+
+    /**
+     * @param ModuleAware $actions
+     * @return Primary
+     */
+    public function withActions(ModuleAware $actions) : Primary
+    {
+        $clone = clone $this;
+        $clone->actions = $actions;
+        return $clone;
     }
 
     /**

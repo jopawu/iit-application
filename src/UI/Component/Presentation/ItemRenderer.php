@@ -24,13 +24,18 @@ class ItemRenderer extends RendererAbstract
         /* @var Item $item */
         $this->assertInstanceOf($item, [Item::class]);
 
+        $pf = $this->dic->ui()->layout()->panel();
+
         if( $item->hasLeadingContent() || $item->hasTrailingContent() )
         {
             $gf = $this->dic->ui()->layout()->grid();
-            return $gf->row($this->getBodySurroundingColumns($item))->render();
+
+            return $pf->tertiary(
+                $gf->row($this->getBodySurroundingColumns($item))->render()
+            )->render();
         }
 
-        return $this->getRenderedBodyContent($item);
+        return $pf->tertiary($this->getRenderedBodyContent($item))->render();
     }
 
     /**

@@ -8,9 +8,9 @@ use iit\Application\UI\ModuleAbstract;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class SecondaryRenderer extends RendererAbstract
+class TertiaryRenderer extends RendererAbstract
 {
-    const TEMPLATE = 'UI/Layout/Panel/secondary.html';
+    const TEMPLATE = 'UI/Layout/Panel/tertiary.html';
 
     /**
      * @param ModuleAbstract $tertiary
@@ -19,7 +19,7 @@ class SecondaryRenderer extends RendererAbstract
     function render(ModuleAbstract $tertiary) : string
     {
         /* @var Secondary $tertiary */
-        $this->assertInstanceOf($tertiary, [Secondary::class]);
+        $this->assertInstanceOf($tertiary, [Tertiary::class]);
 
         $template = $this->getTemplate();
 

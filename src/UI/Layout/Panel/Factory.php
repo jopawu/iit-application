@@ -28,4 +28,13 @@ class Factory
     {
         return new Secondary($this->dic, $content);
     }
+
+    /**
+     * @param string $content
+     * @return Tertiary
+     */
+    public function tertiary(string $content = '') : Tertiary
+    {
+        return new Tertiary($this->dic, $content);
+    }
 }

@@ -35,6 +35,13 @@ body {
     font-size: 1.2em;
     border-bottom: solid 1px #747474;
     margin-bottom: 20px;
+    clear: right;
+}
+
+.layoutPanelActions {
+    float: right;
+    position: relative;
+    top: -8px;
 }
 
 .layoutPanelSecondary {
@@ -43,6 +50,14 @@ body {
     background-color: #ebf1ff;
     border: solid 2px #a7abad;
     border-radius: 8px;
+}
+
+.layoutPanelTertiary {
+    border-radius: 24px;
+    border: 1px solid #b4b9c9;
+    margin: 25px 0 25px 0;
+    padding: 25px;
+    background-color: #ffffff;
 }
 
 @media (min-width: 576px) {
@@ -272,20 +287,9 @@ div.dropdown a img {
 }
 
 .presentationItem {
-    border-radius: 24px;
-    border: 1px solid #b4b9c9;
-    margin: 25px 0 25px 0;
-    padding: 15px;
 }
 
 .itemContent {
     padding-left: 30px;
     padding-right: 0px;
-}
-
-.presentationItem.odd {
-    background-color: #ffffff;
-}
-.presentationItem.even {
-    background-color: #ffffff;
 }
