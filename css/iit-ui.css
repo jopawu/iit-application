@@ -45,7 +45,7 @@ body {
 }
 
 .layoutPanelSecondary {
-    padding: 15px 25px;
+    padding: 0 25px;
     margin: 0 0 15px 0;
     background-color: #ebf1ff;
     border: solid 2px #a7abad;
@@ -193,10 +193,6 @@ fieldset > legend {
     margin-top: -25px;
     padding: 2px 8px;
     font-size: 1em;
-    background-color: #ebf1ff;
-}
-
-.presentationListing .presentationItem fieldset > legend {
     background-color: #ffffff;
 }
 
