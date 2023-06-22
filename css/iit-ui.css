@@ -223,7 +223,7 @@ fieldset > legend + * {
 }
 
 .chosen-container-active.chosen-with-drop .chosen-drop {
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .chosen-container-single .chosen-single {
