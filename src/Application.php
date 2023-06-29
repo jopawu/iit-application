@@ -55,7 +55,7 @@ abstract class Application
         if( $config->isDevmode() )
         {
             ini_set('display_errors', 1);
-            error_reporting(E_ALL & ~E_DEPRECATED & ~E_WARNING);
+            error_reporting(E_ALL & ~E_DEPRECATED & ~E_WARNING & ~E_NOTICE);
         }
     }
 
