@@ -30,7 +30,7 @@ class SelectRenderer extends RendererAbstract
         $template = $this->getTemplate();
 
         $template->assign('ID', $field->getId());
-        $template->assign('LABEL', $field->getLabel() . $chev);
+        $template->assign('LABEL', $field->getLabel());
         $template->assign('SELECT', $this->renderSelect($field));
         $template->assign('GLYPHS_HTML', $this->getChevronGlyphsHtml());
 
