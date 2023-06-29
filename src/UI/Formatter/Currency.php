@@ -11,7 +11,7 @@ class Currency extends Formatter
      * @param mixed $balance
      * @return string
      */
-    public function format(mixed $balance): string
+    public function format($balance): string
     {
         return $balance;
     }

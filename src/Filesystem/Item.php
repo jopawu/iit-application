@@ -60,7 +60,7 @@ abstract class Item
     /**
      * @return int
      */
-    public function getLastModified() : mixed
+    public function getLastModified()
     {
         return $this->lastModified;
     }
@@ -68,7 +68,7 @@ abstract class Item
     /**
      * @return int
      */
-    public function getSize() : mixed
+    public function getSize()
     {
         return $this->size;
     }
