@@ -11,7 +11,7 @@ class Plaintext extends Formatter
      * @param mixed $plaintext
      * @return string
      */
-    public function format(mixed $plaintext): string
+    public function format($plaintext): string
     {
         return $plaintext;
     }

@@ -15,5 +15,5 @@ abstract class Formatter
      * @param mixed $mixed
      * @return string
      */
-    abstract public function format(mixed $mixed): string;
+    abstract public function format($mixed): string;
 }

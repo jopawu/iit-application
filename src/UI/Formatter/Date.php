@@ -11,7 +11,7 @@ class Date extends Formatter
      * @param mixed $date
      * @return string
      */
-    public function format(mixed $date): string
+    public function format($date): string
     {
         return $date;
     }

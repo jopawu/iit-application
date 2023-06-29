@@ -24,7 +24,7 @@ class LineSplitted extends Formatter
      * @param mixed $unbroken
      * @return string
      */
-    public function format(mixed $unsplitted): string
+    public function format($unsplitted): string
     {
         return implode($this->splitter, explode($this->separator, $unsplitted));
     }
