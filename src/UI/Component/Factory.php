@@ -71,12 +71,18 @@ class Factory
     }
 
     /**
+     * @return Table\Factory
+     */
+    public function table() : Table\Factory
+    {
+        return new Table\Factory($this->dic);
+    }
+
+    /**
      * @return Confirmation
      */
     public function confirmation() : Confirmation
     {
         return new Confirmation($this->dic);
     }
-
-
 }

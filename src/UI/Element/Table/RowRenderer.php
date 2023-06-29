@@ -25,6 +25,8 @@ class RowRenderer extends RendererAbstract
 
         $template->assign('CELLS', $this->getRenderedCells($row->getCells()));
 
+        $this->renderCssClasses($template, $row);
+
         return $template->fetch(self::TEMPLATE_FILE);
     }
 

@@ -159,12 +159,30 @@ i.bi {
 
 table {
     border-collapse: collapse;
-    margin: 10px;
 }
 
-table td, table th {
-    border: solid #7c7c7c 1px;
-    padding: 5px;
+table th, table td {
+    padding: 15px;
+}
+
+.tableContainer .tableWrapper {
+    width: 100%;
+    overflow-x: scroll;
+}
+.tableContainer table {
+    width: 100%;
+}
+.tableContainer table thead tr {
+    line-height: 50px;
+}
+.tableContainer tbody tr td {
+    border-top: solid #b4b9c9 1px;
+}
+.tableContainer tbody tr:first-child td {
+    border-top: solid #b4b9c9 2px;
+}
+.tableContainer th, .tableContainer tr.even td {
+    background-color: #f3f3f3;
 }
 
 /* FORMS */
