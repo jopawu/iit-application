@@ -68,7 +68,7 @@ class Column extends ModuleAbstract
      * @param string $label
      * @return mixed
      */
-    public function withLabel(string $label): mixed
+    public function withLabel(string $label)
     {
         $clone = clone $this;
         $clone->label = $label;
@@ -79,7 +79,7 @@ class Column extends ModuleAbstract
      * @param Formatter $formatter
      * @return mixed
      */
-    public function withFormatter(Formatter $formatter): mixed
+    public function withFormatter(Formatter $formatter)
     {
         $clone = clone $this;
         $clone->formatter = $formatter;
