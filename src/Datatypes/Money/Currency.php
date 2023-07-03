@@ -7,19 +7,19 @@ namespace iit\Application\Datatypes\Money;
  */
 class Currency
 {
-    const CODE_EUR = 'EUR';
+    const ISO_CODE_EUR = 'EUR';
 
     /**
      * @var string
      */
-    protected $code;
+    protected $isoCode;
 
     /**
-     * @param string $code
+     * @param string $isoCode
      */
-    public function __construct(string $code)
+    public function __construct(string $isoCode)
     {
-        $this->code = $code;
+        $this->isoCode = $isoCode;
     }
 
     /**

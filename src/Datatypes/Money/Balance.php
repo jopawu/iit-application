@@ -2,12 +2,13 @@
 
 namespace iit\Application\Datatypes\Money;
 
+use iit\Application\Datatypes\Money\Currency;
 use NumberFormatter;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Amount
+class Balance
 {
     /**
      * @var int
@@ -22,20 +23,20 @@ class Amount
     /**
      * @param int    $value
      */
-    public function __construct(int $amountValue, string $currencyCode = Currency::CODE_EUR)
+    public function __construct(int $balanceValue, string $currencyCode = Currency::CODE_EUR)
     {
         $this->value = $value;
         $this->currency = new Currency($currencyCode);
     }
 
     /**
-     * @param Geldbetrag $betrag
-     * @return Geldbetrag
+     * @param Balance $betrag
+     * @return Balance
      */
-    public function addBetrag(Geldbetrag $betrag) : Geldbetrag
+    public function addBalance(Balance $balance) : Balance
     {
         $clone = clone $this;
-        $clone->wert = $this->wert + $betrag->getWert();
+        $clone->value = $this->value + $balance->getValue();
         return $clone;
     }
 
@@ -44,13 +45,13 @@ class Amount
      */
     public function getValue() : int
     {
-        return $this->wert;
+        return $this->value;
     }
 
     /**
-     * @return string
+     * @return Currency
      */
-    public function getWaehrung() : string
+    public function getCurrency() : Currency
     {
         return $this->waehrung;
     }
@@ -60,7 +61,7 @@ class Amount
      */
     public function isNegative() : bool
     {
-        return $this->wert < 0;
+        return $this->value < 0;
     }
 
     /**
@@ -68,8 +69,7 @@ class Amount
      */
     public function getPresentation() : string
     {
-        $formatter = NumberFormatter::create('de_DE', NumberFormatter::CURRENCY);
-        return $formatter->format($this->getWert() / 100);
+
     }
 
     /**

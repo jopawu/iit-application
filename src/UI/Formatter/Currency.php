@@ -7,12 +7,18 @@ namespace iit\Application\UI\Formatter;
  */
 class Currency extends Formatter
 {
+    const LOCALE = 'de_DE';
+
     /**
      * @param mixed $balance
      * @return string
      */
     public function format($balance): string
     {
+        /* @var  */
+        $formatter = NumberFormatter::create(self::LOCALE, NumberFormatter::CURRENCY);
+        return $formatter->format($balance->getValue() / 100);
+
         return $balance;
     }
 }

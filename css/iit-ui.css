@@ -157,6 +157,11 @@ i.bi {
 
 /* TABLES */
 
+div.tableWrapper {
+    border-radius: 8px;
+    border: solid #b4b9c9 1px;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -167,7 +172,7 @@ table th, table td {
 
 .tableContainer .tableWrapper {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 .tableContainer table {
     width: 100%;
