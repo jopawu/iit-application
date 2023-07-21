@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\Datatypes\DateTime;
+namespace iit\Application\Datatypes\Calendar\Date;
 
 use InvalidArgumentException;
 
@@ -19,7 +19,7 @@ class Date
      */
     public function __construct(int $unixTimestamp)
     {
-        $this->unixTimestamp = self::ensureUnixTimestampStartOfDay($unixTimestamp);
+        $this->unixTimestamp = $this->ensureUnixTimestampStartOfDay($unixTimestamp);
     }
 
     /**
@@ -60,15 +60,6 @@ class Date
     public function getYearMonth() : string
     {
         return date("Y.m", $this->unixTimestamp);
-    }
-
-    /**
-     * @param string $format
-     * @return string
-     */
-    public function getPresentation(string $format = 'd.m.Y') : string
-    {
-        return date($format, $this->unixTimestamp);
     }
 
     /**
@@ -161,39 +152,11 @@ class Date
      * @param int $unixTimestamp
      * @return int
      */
-    protected static function ensureUnixTimestampStartOfDay(int $unixTimestamp) : int
+    private function ensureUnixTimestampStartOfDay(int $unixTimestamp) : int
     {
         list($y, $m, $d) = explode('-', date('Y-m-d', $unixTimestamp));
         $unixTimestamp = mktime(0, 0, 0, (int)$m, (int)$d, (int)$y);
         return $unixTimestamp;
-    }
-
-    /**
-     * @param string $mysqlDate
-     * @return Date
-     */
-    public static function fromMysqlDate(string $mysqlDate) : Date
-    {
-        if( !self::isMysqlDate($mysqlDate) )
-        {
-            throw new InvalidArgumentException("invalid mysql date string given: {$mysqlDate}");
-        }
-
-        list($y, $m, $d) = explode('-', $mysqlDate);
-        return new self( mktime(0, 0, 0, (int)$m, (int)$d, (int)$y) );
-    }
-
-    /**
-     * @return Date
-     */
-    public static function fromNowDate() : Date
-    {
-        if( defined('DEVDATE') )
-        {
-            return self::fromMysqlDate(DEVDATE);
-        }
-
-        return new self( time() );
     }
 
     /**

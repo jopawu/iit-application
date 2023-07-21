@@ -30,10 +30,10 @@ class Balance
     }
 
     /**
-     * @param Balance $betrag
+     * @param Balance $balance
      * @return Balance
      */
-    public function addBalance(Balance $balance) : Balance
+    public function withBalanceAdded(Balance $balance) : Balance
     {
         $clone = clone $this;
         $clone->value = $this->value + $balance->getValue();
@@ -73,9 +73,9 @@ class Balance
     }
 
     /**
-     * @return Geldbetrag
+     * @return Balance
      */
-    public function clone() : Geldbetrag
+    public function clone() : Balance
     {
         return clone $this;
     }
@@ -90,29 +90,29 @@ class Balance
 
     /**
      * @param int $integer
-     * @return Geldbetrag
+     * @return Balance
      */
-    public static function fromInteger(int $integer) : Geldbetrag
+    public static function fromInteger(int $integer) : Balance
     {
-        return new Geldbetrag($integer);
+        return new Balance($integer);
     }
 
     /**
      * @param float $decimal
-     * @return Geldbetrag
+     * @return Balance
      */
-    public static function fromDecimal(float $decimal) : Geldbetrag
+    public static function fromDecimal(float $decimal) : Balance
     {
         return self::fromInteger( (int)($decimal * 100) );
     }
 
     /**
      * @param string $formatted
-     * @return Geldbetrag
+     * @return Balance
      */
-    public static function fromFormatted(string $formatted) : Geldbetrag
+    public static function fromFormatted(string $formatted) : Balance
     {
         $integer = (int) str_replace([',','.','€',' '], ['','','',''], $formatted);
-        return new Geldbetrag( $integer);
+        return new Balance( $integer);
     }
 }

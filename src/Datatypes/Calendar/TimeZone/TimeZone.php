@@ -1,11 +1,11 @@
 <?php
 
-namespace iit\Application\Datatypes\DateTime;
+namespace iit\Application\Datatypes\Calendar\TimeZone;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class DateTime
+class TimeZone
 {
 
 }
