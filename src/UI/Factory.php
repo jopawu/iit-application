@@ -29,14 +29,6 @@ class Factory
     }
 
     /**
-     * @return Formatter\Factory
-     */
-    public function formatter()
-    {
-        return new Formatter\Factory($this->dic);
-    }
-
-    /**
      * @return Component\Glyph\Factory
      */
     public function icon()

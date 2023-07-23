@@ -3,7 +3,6 @@
 namespace iit\Application\Datatypes;
 
 use iit\Application\Helper\DicTrait;
-use Sabre\CalDAV\Calendar;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>

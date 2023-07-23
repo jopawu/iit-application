@@ -10,6 +10,8 @@ use iit\Application\Database\Database;
 use iit\Application\UI\XHTML\Document;
 use iit\Application\UI\Layout\Page\HeaderContentFooter;
 use iit\Application\UI\Factory as UiFactory;
+use iit\Application\Formatter\Factory as FormatterFactory;
+use iit\Application\Datatypes\Factory as DatatypesFactory;
 use iit\Application\DI\Singletons\XhtmlDocument;
 use iit\Nextcloud\DAV\Service as NcDavService;
 use iit\Nextcloud\DAV\Config as NcDavConfig;
@@ -91,7 +93,23 @@ class Container extends DIC
      */
     public function ui()
     {
-        return $this['ui'];
+        return new UiFactory($this);
+    }
+
+    /**
+     * @return FormatterFactory
+     */
+    public function formatter()
+    {
+        return new FormatterFactory($this);
+    }
+
+    /**
+     * @return DatatypesFactory
+     */
+    public function datatypes()
+    {
+        return new DatatypesFactory($this);
     }
 
     /**
@@ -130,8 +148,6 @@ class Container extends DIC
             $config->getVariable('database', 'user'),
             $config->getVariable('database', 'pass')
         );
-
-        $dic['ui'] = new UiFactory($dic);
 
         $dic['doc'] = new XhtmlDocument($dic->ui()->xhtml()->document());
 

@@ -3,7 +3,7 @@
 namespace iit\Application\UI\Component\Table\Column;
 
 use iit\Application\DI\Container;
-use iit\Application\UI\Formatter\Formatter;
+use iit\Application\Formatter\Formatter;
 use iit\Application\UI\ModuleAbstract;
 
 /**
@@ -37,7 +37,7 @@ class Column extends ModuleAbstract
         $this->identifier = $identifier;
 
         $this->label = '';
-        $this->formatter = $this->dic->ui()->formatter()->plaintext();
+        $this->formatter = $this->dic->formatter()->plaintext();
     }
 
     /**

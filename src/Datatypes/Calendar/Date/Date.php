@@ -158,38 +158,4 @@ class Date
         $unixTimestamp = mktime(0, 0, 0, (int)$m, (int)$d, (int)$y);
         return $unixTimestamp;
     }
-
-    /**
-     * @param string $datePresentation
-     * @return Date
-     */
-    public static function fromDatePresentation(string $datePresentation) : Date
-    {
-        if( !self::isDatePresentation($datePresentation) )
-        {
-            throw new InvalidArgumentException("invalid date presentation string given: {$datePresentation}");
-        }
-
-        list($d, $m, $y) = explode('.', $datePresentation);
-
-        return new self( mktime(0, 0, 0, (int)$m, (int)$d, (int)$y) );
-    }
-
-    /**
-     * @param string $mysqlDate
-     * @return bool
-     */
-    public static function isMysqlDate(string $mysqlDate) : bool
-    {
-        return preg_match('/^\d{4}-\d{2}-\d{2}$/', $mysqlDate);
-    }
-
-    /**
-     * @param string $datePresentation
-     * @return bool
-     */
-    public static function isDatePresentation(string $datePresentation) : bool
-    {
-        return preg_match('/^\d{1,2}.\d{1,2}.\d{2,4}$/', $datePresentation);
-    }
 }

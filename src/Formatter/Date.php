@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Formatter;
+namespace iit\Application\Formatter;
 
 use iit\Application\Datatypes\Calendar\Date as DateObject;
 
@@ -17,6 +17,8 @@ class Date extends Formatter
      */
     public function format(mixed $date): string
     {
+        if($date === null) return '';
+
         /* @var DateObject $date */
         return date(self::FORMAT_STRING, $date->getUnixTimestamp());
     }

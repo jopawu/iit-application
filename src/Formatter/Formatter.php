@@ -1,6 +1,6 @@
 <?php
 
-namespace iit\Application\UI\Formatter;
+namespace iit\Application\Formatter;
 
 use iit\Application\Helper\DicTrait;
 

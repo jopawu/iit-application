@@ -39,7 +39,7 @@ class DateRenderer extends RendererAbstract
 
         if( $date->hasValue() )
         {
-            $value = $date->getValue()->getPresentation('d.m.Y');
+            $value = $this->dic->formatter()->date()->format($date->getValue());
         }
 
         $input = $this->dic->ui()->element()->form()->input(

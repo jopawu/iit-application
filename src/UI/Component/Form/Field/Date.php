@@ -3,7 +3,7 @@
 namespace iit\Application\UI\Component\Form\Field;
 
 use iit\Application\Helper\DicTrait;
-use iit\Application\Datatypes\Calendar\Date as DateValue;
+use iit\Application\Datatypes\Calendar\Date\Date as DateValue;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
