@@ -59,10 +59,10 @@ class Factory
      * @param string $id
      * @param string $name
      * @param string $label
-     * @return Currency
+     * @return Money
      */
-    public function currency(string $id, string $name, string $label) : Currency
+    public function money(string $id, string $name, string $label) : Money
     {
-        return new Currency($this->dic, $id, $name, $label);
+        return new Money($this->dic, $id, $name, $label);
     }
 }

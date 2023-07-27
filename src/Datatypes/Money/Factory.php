@@ -2,7 +2,6 @@
 
 namespace iit\Application\Datatypes\Money;
 
-use iit\Application\Datatypes\Money\Currency\Currency;
 use iit\Application\Helper\DicTrait;
 
 /**
@@ -15,16 +14,16 @@ class Factory
     /**
      * @return Balance\Factory
      */
-    public function balance(Currency $currency) : Balance\Factory
+    public function balance(Currency\Currency $currency) : Balance\Factory
     {
-        new Balance\Factory($this->dic, $currency);
+        return new Balance\Factory($this->dic, $currency);
     }
 
     /**
-     * @return Currency
+     * @return Currency\Factory
      */
     public function currency() : Currency\Factory
     {
-        new Currency\Factory($this->dic);
+        return new Currency\Factory($this->dic);
     }
 }

@@ -23,7 +23,7 @@ class Factory
      */
     public function __construct(Container $dic, Currency $currency)
     {
-        parent::__construct($dic);
+        $this->dic = $dic;
         $this->currency = $currency;
     }
 

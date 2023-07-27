@@ -8,7 +8,7 @@ use iit\Application\UI\ModuleAbstract;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class CurrencyRenderer extends RendererAbstract
+class MoneyRenderer extends RendererAbstract
 {
     const TEMPLATE = 'UI/Component/Form/Field/currency.html';
     /**
@@ -17,24 +17,24 @@ class CurrencyRenderer extends RendererAbstract
      */
     public function render(ModuleAbstract $field) : string
     {
-        /* @var Currency $field */
-        $this->assertInstanceOf($field, [Currency::class]);
+        /* @var Money $field */
+        $this->assertInstanceOf($field, [Money::class]);
 
         $template = $this->getTemplate();
 
         $template->assign('ID', $field->getId());
         $template->assign('LABEL', $field->getLabel());
-        $template->assign('CURRENCY', $field->getValue()->getWaehrung());
+        $template->assign('CURRENCY', $field->getValue()->getCurrency()->getIsoCode());
         $template->assign('INPUT', $this->renderInput($field));
 
         return $template->fetch(self::TEMPLATE);
     }
 
     /**
-     * @param Currency $field
+     * @param Money $field
      * @return string
      */
-    protected function renderInput(Currency $field) : string
+    protected function renderInput(Money $field) : string
     {
         $input = $this->dic->ui()->element()->form()->input(
             $field->getId(), $field->getName(), $field->getValue()->getDecimal()

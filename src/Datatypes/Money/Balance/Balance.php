@@ -55,6 +55,14 @@ class Balance
     }
 
     /**
+     * @return float
+     */
+    public function getDecimal() : float
+    {
+        return round($this->value / 100, 2);
+    }
+
+    /**
      * @param Balance $balance
      * @return Balance
      */

@@ -2,23 +2,23 @@
 
 namespace iit\Application\UI\Component\Form\Field;
 
-use iit\MLPV\Model\Datentypen\Geldbetrag;
+use iit\Application\Datatypes\Money\Balance\Balance;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Currency extends FieldAbstract
+class Money extends FieldAbstract
 {
     /**
-     * @var Geldbetrag
+     * @var string
      */
     protected $value = '';
 
     /**
-     * @param Geldbetrag $value
-     * @return Currency
+     * @param string $value
+     * @return Money
      */
-    public function withValue(Geldbetrag $value) : Currency
+    public function withValue(Balance $value) : Money
     {
         $clone = clone $this;
         $clone->value = $value;
@@ -26,9 +26,9 @@ class Currency extends FieldAbstract
     }
 
     /**
-     * @return Geldbetrag
+     * @return Balance
      */
-    public function getValue() : Geldbetrag
+    public function getValue() : Balance
     {
         return $this->value;
     }
