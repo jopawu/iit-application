@@ -42,7 +42,7 @@ class Factory
      */
     public function fromDecimal(float $decimal) : Balance
     {
-        return $this->fromInteger( (int)($decimal * 100) );
+        return $this->fromInteger( (int)($decimal * $this->currency->getSubunitFactor()) );
     }
 
     /**

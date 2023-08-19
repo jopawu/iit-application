@@ -85,4 +85,14 @@ class Config
     {
         return rtrim($this->getVariable('path', 'application'), '/');
     }
+
+    /**
+     * @return string
+     */
+    public function getVendorPath() : string
+    {
+        return $this->getApplicationPath() . '/' . trim(
+            $this->getVariable('path', 'vendor'), '/'
+        );
+    }
 }

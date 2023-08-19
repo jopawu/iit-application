@@ -25,6 +25,9 @@ class Currency extends Formatter
         $this->assertInstanceOf($balance, [Balance::class]);
 
         $formatter = NumberFormatter::create(self::LOCALE, NumberFormatter::CURRENCY);
-        return $formatter->format($balance->getValue() / 100);
+
+        return $formatter->format(
+            $balance->getValue() / $balance->getCurrency()->getSubunitFactor()
+        );
     }
 }

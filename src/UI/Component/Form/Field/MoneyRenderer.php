@@ -24,7 +24,7 @@ class MoneyRenderer extends RendererAbstract
 
         $template->assign('ID', $field->getId());
         $template->assign('LABEL', $field->getLabel());
-        $template->assign('CURRENCY', $field->getValue()->getCurrency()->getIsoCode());
+        $template->assign('CURRENCY', $field->getValue()->getCurrency()->getUnitSymbol());
         $template->assign('INPUT', $this->renderInput($field));
 
         return $template->fetch(self::TEMPLATE);
