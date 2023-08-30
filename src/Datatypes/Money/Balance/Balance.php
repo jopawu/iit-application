@@ -59,7 +59,10 @@ class Balance
      */
     public function getDecimal() : float
     {
-        return round($this->value / 100, 2);
+        return round(
+            $this->value / $this->currency->getSubunitFactor(),
+            $this->getCurrency()->getDecimalPrecision()
+        );
     }
 
     /**

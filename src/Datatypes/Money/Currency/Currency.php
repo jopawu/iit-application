@@ -148,6 +148,23 @@ class Currency
     }
 
     /**
+     * @return int
+     */
+    public function getDecimalPrecision(): int
+    {
+        $factor = $this->getSubunitFactor();
+        $precision = 0;
+
+        while($factor > 1)
+        {
+            $precision++;
+            $factor /= 10;
+        }
+
+        return $precision;
+    }
+
+    /**
      * @return string
      */
     public function getDecimalMark(): string
