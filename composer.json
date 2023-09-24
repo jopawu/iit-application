@@ -34,7 +34,8 @@
         "guzzlehttp/psr7": "1.8.*",
         "pimple/pimple" : "3.4.*",
         "ramsey/uuid": "3.9.*",
-        "harvesthq/chosen": "*"
+        "harvesthq/chosen": "*",
+        "tecnickcom/tcpdf": "*"
     },
     "config": {
         "sort-packages": true
