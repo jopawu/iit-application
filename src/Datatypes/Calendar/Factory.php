@@ -34,4 +34,12 @@ class Factory
     {
         return new TimeZone\Factory($this->dic);
     }
+
+    /**
+     * @return Calculation\Factory
+     */
+    public function calculation(): Calculation\Factory
+    {
+        return new Calculation\Factory($this->dic);
+    }
 }

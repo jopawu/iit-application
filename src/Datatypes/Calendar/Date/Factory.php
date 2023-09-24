@@ -2,6 +2,7 @@
 
 namespace iit\Application\Datatypes\Calendar\Date;
 
+use iit\Application\Datatypes\Calendar\Calculation\DateTimeCalculator;
 use iit\Application\Helper\DicTrait;
 
 /**
@@ -16,7 +17,7 @@ class Factory
      */
     public function today() : Date
     {
-        return new Date(time());
+        return new Date($this->dic, time());
     }
 
     /**
@@ -26,7 +27,10 @@ class Factory
     public function mysql(string $mysqlDate) : Date
     {
         list($y, $m, $d) = explode('-', $mysqlDate);
-        return new Date( mktime(0, 0, 0, (int)$m, (int)$d, (int)$y) );
+
+        $unixTimestamp = mktime(0, 0, 0, (int)$m, (int)$d, (int)$y);
+
+        return new Date($this->dic, $unixTimestamp);
     }
 
     /**

@@ -2,6 +2,10 @@
 
 namespace iit\Application\Datatypes\Calendar\Date;
 
+use iit\Application\Datatypes\Calendar\Calculation\DateTimeCalculator;
+use iit\Application\Datatypes\Calendar\Traits\DateGetter;
+use iit\Application\Datatypes\Calendar\Traits\UnixTimestamp;
+use iit\Application\DI\Container;
 use InvalidArgumentException;
 
 /**
@@ -9,17 +13,29 @@ use InvalidArgumentException;
  */
 class Date
 {
+    use DateGetter;
+
     /**
      * @var int
      */
     protected $unixTimestamp;
 
     /**
+     * @var DateTimeCalculator
+     */
+    protected $calculator;
+
+    /**
+     * @param Container $dic
      * @param int $unixTimestamp
      */
-    public function __construct(int $unixTimestamp)
+    public function __construct(Container $dic, int $unixTimestamp)
     {
         $this->unixTimestamp = $this->ensureUnixTimestampStartOfDay($unixTimestamp);
+
+        $this->calculator = $dic->datatypes()->calendar()->calculation()->datetime(
+            $this->unixTimestamp
+        );
     }
 
     /**
@@ -31,46 +47,6 @@ class Date
     }
 
     /**
-     * @return int
-     */
-    public function getDayInt() : int
-    {
-        return (int)date("d", $this->unixTimestamp);
-    }
-
-    /**
-     * @return int
-     */
-    public function getMonthInt() : int
-    {
-        return (int)date("m", $this->unixTimestamp);
-    }
-
-    /**
-     * @return int
-     */
-    public function getYearInt() : int
-    {
-        return (int)date("Y", $this->unixTimestamp);
-    }
-
-    /**
-     * @return string
-     */
-    public function getYearMonth() : string
-    {
-        return date("Y.m", $this->unixTimestamp);
-    }
-
-    /**
-     * @return string
-     */
-    public function getMysqlDate() : string
-    {
-        return date("Y-m-d", $this->unixTimestamp);
-    }
-
-    /**
      * @param int $days
      * @return Date
      */
@@ -78,23 +54,9 @@ class Date
     {
         $clone = clone $this;
 
-        if( $days == 0 )
-        {
-            return $clone;
-        }
-
-        if( $days > 0 )
-        {
-            $unit = $days > 1 ? 'days' : 'day';
-            $modify = "+{$days} {$unit}";
-        }
-        else
-        {
-            $unit = $days < -1 ? 'days' : 'day';
-            $modify = "{$days} {$unit}";
-        }
-
-        $clone->unixTimestamp = strtotime("{$this->getMysqlDate()} {$modify}");
+        $clone->unixTimestamp = $this->calculator->calculate(
+            $days, DateTimeCalculator::UNIT_DAYS
+        );
 
         return $clone;
     }
@@ -107,23 +69,24 @@ class Date
     {
         $clone = clone $this;
 
-        if( $months == 0 )
-        {
-            return $clone;
-        }
+        $clone->unixTimestamp = $this->calculator->calculate(
+            $months, DateTimeCalculator::UNIT_MONTHS
+        );
 
-        if( $months > 0 )
-        {
-            $unit = $months > 1 ? 'months' : 'month';
-            $modify = "+{$months} {$unit}";
-        }
-        else
-        {
-            $unit = $months < -1 ? 'months' : 'month';
-            $modify = "{$months} {$unit}";
-        }
+        return $clone;
+    }
 
-        $clone->unixTimestamp = strtotime("{$this->getMysqlDate()} {$modify}");
+    /**
+     * @param int $years
+     * @return Date
+     */
+    public function withAddedYears(int $years) : Date
+    {
+        $clone = clone $this;
+
+        $clone->unixTimestamp = $this->calculator->calculate(
+            $years, DateTimeCalculator::UNIT_YEARS
+        );
 
         return $clone;
     }
@@ -134,8 +97,10 @@ class Date
     public function withResetToFirstOfMonth() : Date
     {
         $clone = clone $this;
-        list($y, $m, $d) = explode('-', $this->getMysqlDate());
+
+        list($y, $m, $d) = explode('-', $this->getDateString());
         $clone->unixTimestamp = mktime(0, 0, 0, (int)$m, 1, (int)$y);
+
         return $clone;
     }
 
