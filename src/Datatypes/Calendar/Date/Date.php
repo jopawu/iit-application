@@ -98,7 +98,7 @@ class Date
     {
         $clone = clone $this;
 
-        list($y, $m, $d) = explode('-', $this->getDateString());
+        list($y, $m, $d) = explode('-', $this->getMysqlDate());
         $clone->unixTimestamp = mktime(0, 0, 0, (int)$m, 1, (int)$y);
 
         return $clone;
