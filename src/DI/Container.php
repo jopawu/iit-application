@@ -2,6 +2,7 @@
 
 namespace iit\Application\DI;
 
+use iit\Application\Filetypes\Factory as FiletypesFactory;
 use Pimple\Container as DIC;
 use iit\Application\Config\Config;
 use iit\Application\Http\Request;
@@ -46,6 +47,14 @@ class Container extends DIC
     public function filesystem()
     {
         return $this['filesystem'];
+    }
+
+    /**
+     * @return FsService
+     */
+    public function filetypes()
+    {
+        return new FiletypesFactory($this);
     }
 
     /**
