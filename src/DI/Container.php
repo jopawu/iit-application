@@ -50,7 +50,7 @@ class Container extends DIC
     }
 
     /**
-     * @return FsService
+     * @return FiletypesFactory
      */
     public function filetypes()
     {
