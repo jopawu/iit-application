@@ -1,0 +1,9 @@
+/* TABLES */
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: solid black 1px;
+}

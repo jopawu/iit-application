@@ -15,8 +15,8 @@ class Factory
      * @param string $html
      * @return PDF
      */
-    public function fromHtml(string $html) : PDF
+    public function fromHtml(string $html) : HtmlPDF
     {
-        return PDF::fromHtml($html);
+        return new HtmlPDF($this->dic, $html);
     }
 }
