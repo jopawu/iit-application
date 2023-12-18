@@ -4,6 +4,7 @@ namespace iit\Application\Filesystem;
 
 use iit\Application\Filesystem\CSV as CsvFile;
 use iit\Application\Filesystem\CSV\Reader as CsvReader;
+use iit\Application\Filesystem\CSV\Writer as CsvWriter;
 use iit\Application\Filesystem\Directory\Reader as DirReader;
 use iit\Application\DI\Container;
 
@@ -33,6 +34,16 @@ class Service
     {
         $reader = new CsvReader($filepath, $skipLines);
         return new CsvFile($reader->read());
+    }
+
+    /**
+     * @param string $filepath
+     * @param array $rows
+     */
+    public function writeCsv(string $filepath, array $rows)
+    {
+        $writer = new CsvWriter($filepath);
+        $writer->write(new CsvFile($rows));
     }
 
     /**
