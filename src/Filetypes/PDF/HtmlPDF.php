@@ -22,11 +22,19 @@ class HtmlPDF extends AbstractPDF
     protected $cssFiles;
 
     /**
+     * @param Container $dic
+     * @param Metadata $metadata
+     * @param PageProperties $pageProperties
      * @param string $html
      */
-    public function __construct(Container $dic, string $html)
+    public function __construct(
+        Container $dic,
+        Metadata $metadata,
+        PageProperties $pageProperties,
+        string $html
+)
     {
-        parent::__construct($dic);
+        parent::__construct($dic, $metadata, $pageProperties);
 
         $this->pdf->setAutoPageBreak(true, PDF_MARGIN_BOTTOM);
         $this->pdf->addPage();
@@ -54,11 +62,12 @@ class HtmlPDF extends AbstractPDF
      */
     public function deliver(string $filename)
     {
-        $this->writeContent();
+        $htmlContent = $this->buildHtmlContent();
+        $this->pdf->writeHTML($htmlContent);
         parent::deliver($filename);
     }
 
-    protected function writeContent()
+    protected function buildHtmlContent()
     {
         $htmlContent = '';
 
@@ -69,6 +78,6 @@ class HtmlPDF extends AbstractPDF
 
         $htmlContent .= $this->htmlContent;
 
-        $this->pdf->writeHTML($htmlContent);
+        return $htmlContent;
     }
 }

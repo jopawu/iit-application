@@ -21,19 +21,28 @@ abstract class AbstractPDF
 
     /**
      * @param Container $dic
+     * @param Metadata $metadata
+     * @param PageProperties $pageProperties
      */
-    public function __construct(Container $dic)
+    public function __construct(
+        Container $dic,
+        Metadata $metadata,
+        PageProperties $pageProperties
+    )
     {
         $this->dic = $dic;
 
         $this->pdf = new PDF(
-            Page::FORMAT_DIN_A4,
-            Page::DISTANCE_UNIT_MILLIMETER,
-            Page::ORIENTATION_PORTRAIT,
+            $pageProperties->getFormat(),
+            $pageProperties->getDistanceUnit(),
+            $pageProperties->getOrientation(),
             true,
             'UTF-8',
             false
         );
+
+        $this->pdf->applyMetadata($metadata);
+        $this->pdf->applyPageProperties($pageProperties);
 
         $this->pdf->SetPrintHeader(false);
         $this->pdf->SetPrintFooter(false);
@@ -54,5 +63,26 @@ abstract class AbstractPDF
     {
         $this->pdf->Output($filename, 'D');
         exit;
+    }
+
+    /**
+     * @param PageProperties $pageProperties
+     */
+    protected function withPageProperties(PageProperties $pageProperties)
+    {
+        $clone = clone $this;
+        $clone->pdf->applyPageProperties($pageProperties);
+        return $clone;
+    }
+
+    /**
+     * @param Metadata $metadata
+     * @return $this
+     */
+    public function withMetadata(Metadata $metadata): static
+    {
+        $clone = clone $this;
+        $clone->pdf->applyMetadata($metadata);
+        return $clone;
     }
 }
