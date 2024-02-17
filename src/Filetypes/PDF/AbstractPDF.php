@@ -3,6 +3,7 @@
 namespace iit\Application\Filetypes\PDF;
 
 use iit\Application\DI\Container;
+use iit\Application\Filetypes\PDF\Marginal\Horizontal;
 
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
@@ -66,16 +67,6 @@ abstract class AbstractPDF
     }
 
     /**
-     * @param PageProperties $pageProperties
-     */
-    protected function withPageProperties(PageProperties $pageProperties)
-    {
-        $clone = clone $this;
-        $clone->pdf->applyPageProperties($pageProperties);
-        return $clone;
-    }
-
-    /**
      * @param Metadata $metadata
      * @return $this
      */
@@ -83,6 +74,85 @@ abstract class AbstractPDF
     {
         $clone = clone $this;
         $clone->pdf->applyMetadata($metadata);
+        return $clone;
+    }
+
+    /**
+     * @param PageProperties $pageProperties
+     * @return $this
+     */
+    protected function withPageProperties(PageProperties $pageProperties): static
+    {
+        $clone = clone $this;
+        $clone->pdf->applyPageProperties($pageProperties);
+        return $clone;
+    }
+
+    /**
+     * @param Horizontal $header
+     * @return $this
+     */
+    public function withFirstPageHeader(Horizontal $header) : static
+    {
+        $clone = clone $this;
+        $clone->pdf->setFirstPageHeader($header);
+        return $clone;
+    }
+
+    /**
+     * @param Horizontal $header
+     * @return $this
+     */
+    public function withGeneralPageHeader(Horizontal $header) : static
+    {
+        $clone = clone $this;
+        $clone->pdf->setGeneralPageHeader($header);
+        return $clone;
+    }
+
+    /**
+     * @param Horizontal $header
+     * @return $this
+     */
+    public function withAllPagesHeader(Horizontal $header) : static
+    {
+        $clone = clone $this;
+        $clone->pdf->setFirstPageHeader($header);
+        $clone->pdf->setGeneralPageHeader($header);
+        return $clone;
+    }
+
+    /**
+     * @param Horizontal $footer
+     * @return $this
+     */
+    public function withFirstPageFooter(Horizontal $footer) : static
+    {
+        $clone = clone $this;
+        $clone->pdf->setFirstPageFooter($footer);
+        return $clone;
+    }
+
+    /**
+     * @param Horizontal $footer
+     * @return $this
+     */
+    public function withGeneralPageFooter(Horizontal $footer) : static
+    {
+        $clone = clone $this;
+        $clone->pdf->setGeneralPageFooter($footer);
+        return $clone;
+    }
+
+    /**
+     * @param Horizontal $footer
+     * @return $this
+     */
+    public function withAllPagesFooter(Horizontal $footer) : static
+    {
+        $clone = clone $this;
+        $clone->pdf->setFirstPageFooter($footer);
+        $clone->pdf->setGeneralPageFooter($footer);
         return $clone;
     }
 }

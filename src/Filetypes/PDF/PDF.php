@@ -91,70 +91,52 @@ class PDF extends TCPDF
 
     /**
      * @param Horizontal $header
-     * @return PDF
      */
-    public function withFirstPageHeader(Horizontal $header) : PDF
+    public function setFirstPageHeader(Horizontal $header)
     {
-        $clone = clone $this;
-        $clone->firstPageHeader = $header;
-        return $clone;
+        $this->firstPageHeader = $header;
     }
 
     /**
      * @param Horizontal $header
-     * @return PDF
      */
-    public function withGeneralPageHeader(Horizontal $header) : PDF
+    public function setGeneralPageHeader(Horizontal $header)
     {
-        $clone = clone $this;
-        $clone->generalPageHeader = $header;
-        return $clone;
+        $this->generalPageHeader = $header;
     }
 
     /**
      * @param Horizontal $header
-     * @return PDF
      */
-    public function withAllPagesHeader(Horizontal $header) : PDF
+    public function setAllPagesHeader(Horizontal $header)
     {
-        $clone = clone $this;
-        $clone->firstPageHeader = $header;
-        $clone->generalPageHeader = $header;
-        return $clone;
+        $this->firstPageHeader = $header;
+        $this->generalPageHeader = $header;
     }
 
     /**
      * @param Horizontal $footer
-     * @return PDF
      */
-    public function withFirstPageFooter(Horizontal $footer) : PDF
+    public function setFirstPageFooter(Horizontal $footer)
     {
-        $clone = clone $this;
-        $clone->firstPageFooter = $footer;
-        return $clone;
+        $this->firstPageFooter = $footer;
     }
 
     /**
      * @param Horizontal $footer
-     * @return PDF
      */
-    public function withGeneralPageFooter(Horizontal $footer) : PDF
+    public function setGeneralPageFooter(Horizontal $footer)
     {
-        $clone = clone $this;
-        $clone->generalPageFooter = $footer;
-        return $clone;
+        $this->generalPageFooter = $footer;
     }
 
     /**
      * @param Horizontal $footer
-     * @return PDF
      */
-    public function withAllPagesFooter(Horizontal $footer) : PDF
+    public function setAllPagesFooter(Horizontal $footer)
     {
-        $clone = clone $this;
-        $clone->firstPageFooter = $footer;
-        $clone->generalPageFooter = $footer;
-        return $clone;
+        $this->firstPageFooter = $footer;
+        $this->generalPageFooter = $footer;
     }
 
     /**
