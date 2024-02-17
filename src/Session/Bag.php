@@ -5,7 +5,7 @@ namespace iit\Application\Session;
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
-class Session
+class Bag
 {
 
 }
