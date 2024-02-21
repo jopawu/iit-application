@@ -45,8 +45,8 @@ abstract class AbstractPDF
         $this->pdf->applyMetadata($metadata);
         $this->pdf->applyPageProperties($pageProperties);
 
-        $this->pdf->SetPrintHeader(false);
-        $this->pdf->SetPrintFooter(false);
+        $this->pdf->SetPrintHeader(true);
+        $this->pdf->SetPrintFooter(true);
     }
 
     /**

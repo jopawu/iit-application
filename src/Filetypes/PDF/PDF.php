@@ -61,11 +61,11 @@ class PDF extends TCPDF
      */
     public function applyMetadata(Metadata $metadata)
     {
-        $this->pdf->setCreator($metadata->getCreator());
-        $this->pdf->setAuthor($metadata->getAuthor());
-        $this->pdf->setTitle($metadata->getTitle());
-        $this->pdf->setSubject($metadata->getSubject());
-        $this->pdf->setKeywords($metadata->getKeywordsString());
+        $this->setCreator($metadata->getCreator());
+        $this->setAuthor($metadata->getAuthor());
+        $this->setTitle($metadata->getTitle());
+        $this->setSubject($metadata->getSubject());
+        $this->setKeywords($metadata->getKeywordsString());
     }
 
     /**
@@ -82,7 +82,6 @@ class PDF extends TCPDF
 
         $this->setTopMargin($pageProperties->getMarginTop());
         $this->setRightMargin($pageProperties->getMarginRight());
-        $this->setBottomMargin($pageProperties->getMarginBottom());
         $this->setLeftMargin($pageProperties->getMarginLeft());
 
         $this->setHeaderMargin($pageProperties->getMarginHeader());
@@ -176,6 +175,8 @@ class PDF extends TCPDF
         {
             return;
         }
+
+        $this->renderPageHeader($this->firstPageHeader);
     }
 
     /**
@@ -187,6 +188,8 @@ class PDF extends TCPDF
         {
             return;
         }
+
+        $this->renderPageHeader($this->generalPageHeader);
     }
 
     /**
@@ -199,26 +202,7 @@ class PDF extends TCPDF
             return;
         }
 
-        $this->SetY(PDF_MARGIN_FOOTER * -1);
-        $border = $this->firstPageFooter->getBorder();
-
-        if( $this->firstPageFooter->hasLeftPlacedContent() )
-        {
-            $content = $this->firstPageFooter->getLeftPlacedContent();
-            $this->cell(0,5, $content->get(), $border, 0, 'L');
-        }
-
-        if( $this->firstPageFooter->hasCenterPlacedContent() )
-        {
-            $content = $this->firstPageFooter->getCenterPlacedContent();
-            $this->cell(0,5, $content->get(), $border, 0, 'C');
-        }
-
-        if( $this->firstPageFooter->hasRightPlacedContent() )
-        {
-            $content = $this->firstPageFooter->hasRightPlacedContent();
-            $this->cell(0,5, $content->get(), $border, 0, 'R');
-        }
+        $this->renderPageFooter($this->firstPageFooter);
     }
 
     /**
@@ -231,25 +215,41 @@ class PDF extends TCPDF
             return;
         }
 
+        $this->renderPageFooter($this->generalPageFooter);
+    }
+
+    /**
+     * @param Horizontal $footer
+     */
+    protected function renderPageHeader(Horizontal $footer)
+    {
+
+    }
+
+    /**
+     * @param Horizontal $footer
+     */
+    protected function renderPageFooter(Horizontal $footer)
+    {
         $this->SetY(PDF_MARGIN_FOOTER * -1);
-        $border = $this->generalPageFooter->getBorder();
+        $border = $footer->getBorder();
 
-        if( $this->generalPageFooter->hasLeftPlacedContent() )
+        if( $footer->hasLeftPlacedContent() )
         {
-            $content = $this->generalPageFooter->getLeftPlacedContent();
-            $this->cell(0,5, $content->get(), $border, 0, 'L');
+            $content = $footer->getLeftPlacedContent();
+            $this->cell(0,5, $content->get($this), $border, 0, 'L');
         }
 
-        if( $this->generalPageFooter->hasCenterPlacedContent() )
+        if( $footer->hasCenterPlacedContent() )
         {
-            $content = $this->generalPageFooter->getCenterPlacedContent();
-            $this->cell(0,5, $content->get(), $border, 0, 'C');
+            $content = $footer->getCenterPlacedContent();
+            $this->cell(0,5, $content->get($this), $border, 0, 'C');
         }
 
-        if( $this->generalPageFooter->hasRightPlacedContent() )
+        if( $footer->hasRightPlacedContent() )
         {
-            $content = $this->generalPageFooter->hasRightPlacedContent();
-            $this->cell(0,5, $content->get(), $border, 0, 'R');
+            $content = $footer->getRightPlacedContent();
+            $this->cell(0,5, $content->get($this), $border, 0, 'R');
         }
     }
 

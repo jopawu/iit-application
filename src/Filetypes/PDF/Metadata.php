@@ -97,7 +97,7 @@ class Metadata
     /**
      * @return string
      */
-    public function getKeywordsString(): array
+    public function getKeywordsString(): string
     {
         return implode(', ', $this->keywords);
     }

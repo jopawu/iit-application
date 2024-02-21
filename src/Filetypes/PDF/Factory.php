@@ -2,6 +2,7 @@
 
 namespace iit\Application\Filetypes\PDF;
 
+use iit\Application\DI\Container;
 use iit\Application\Helper\DicTrait;
 
 /**
@@ -12,12 +13,29 @@ class Factory
     use DicTrait;
 
     /**
+     * @param Container $dic
+     */
+    public function __construct(Container $dic)
+    {
+        $this->dic = $dic;
+
+        /**
+         * autoloads class file for TCPDF,
+         * provides global TCPDF constants availability
+         */
+        new \TCPDF();
+    }
+
+
+    /**
      * @param string $html
      * @return PDF
      */
     public function fromHtml(string $html) : HtmlPDF
     {
-        return new HtmlPDF($this->dic, $this->metadata(), $this->pageProperties());
+        return new HtmlPDF(
+            $this->dic, $this->metadata(), $this->pageProperties(), $html
+        );
     }
 
     /**

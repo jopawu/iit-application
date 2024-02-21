@@ -36,7 +36,7 @@ class HtmlPDF extends AbstractPDF
     {
         parent::__construct($dic, $metadata, $pageProperties);
 
-        $this->pdf->setAutoPageBreak(true, PDF_MARGIN_BOTTOM);
+        $this->pdf->setAutoPageBreak(true, $pageProperties->getMarginBottom());
         $this->pdf->addPage();
 
         $this->htmlContent = $html;

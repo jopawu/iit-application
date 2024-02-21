@@ -2,6 +2,8 @@
 
 namespace iit\Application\Filetypes\PDF\Content;
 
+use iit\Application\Filetypes\PDF\PDF;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
@@ -20,6 +22,19 @@ class PageXY extends Simple
         }
 
         $this->content = $content;
+    }
+
+    /**
+     * @param PDF $pdf
+     * @return string
+     */
+    public function get(PDF $pdf): string
+    {
+        return sprintf(
+            $this->content,
+            $pdf->getAliasNumPage(),
+            $pdf->getAliasNbPages()
+        );
     }
 
     /**

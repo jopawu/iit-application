@@ -2,6 +2,8 @@
 
 namespace iit\Application\Filetypes\PDF\Content;
 
+use iit\Application\Filetypes\PDF\PDF;
+
 /**
  * @author      Björn Heyser <info@bjoernheyser.de>
  */
@@ -28,9 +30,10 @@ class Date implements Content
     }
 
     /**
+     * @param PDF $pdf
      * @return string
      */
-    public function get(): string
+    public function get(PDF $pdf): string
     {
         return sprintf($this->content, date($this->format));
     }
