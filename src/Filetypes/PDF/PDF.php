@@ -143,7 +143,7 @@ class PDF extends TCPDF
      */
     public function Header()
     {
-        if( $this->PageNo == 1 )
+        if( $this->PageNo() == 1 )
         {
             $this->renderFirstPageHeader();
             return;
@@ -157,7 +157,7 @@ class PDF extends TCPDF
      */
     public function Footer()
     {
-        if( $this->PageNo == 1 )
+        if( $this->PageNo() == 1 )
         {
             $this->renderFirstPageFooter();
             return;
@@ -219,11 +219,29 @@ class PDF extends TCPDF
     }
 
     /**
-     * @param Horizontal $footer
+     * @param Horizontal $header
      */
-    protected function renderPageHeader(Horizontal $footer)
+    protected function renderPageHeader(Horizontal $header)
     {
+        $border = $header->getBorder();
 
+        if( $header->hasLeftPlacedContent() )
+        {
+            $content = $header->getLeftPlacedContent();
+            $this->cell(0,10, $content->get($this), $border, 0, 'L');
+        }
+
+        if( $header->hasCenterPlacedContent() )
+        {
+            $content = $header->getCenterPlacedContent();
+            $this->cell(0,10, $content->get($this), $border, 0, 'C');
+        }
+
+        if( $header->hasRightPlacedContent() )
+        {
+            $content = $header->getRightPlacedContent();
+            $this->cell(0,10, $content->get($this), $border, 0, 'R');
+        }
     }
 
     /**
@@ -251,30 +269,5 @@ class PDF extends TCPDF
             $content = $footer->getRightPlacedContent();
             $this->cell(0,5, $content->get($this), $border, 0, 'R');
         }
-    }
-
-    /**
-     * @return void
-     */
-    public function myFooter()
-    {
-        $this->SetY(PDF_MARGIN_FOOTER * -1);
-
-        $pageNumber = $this->getAliasNumPage();
-        $pagesTotal = $this->getAliasNbPages();
-
-        $this->writeHTML("Seite <b>{$pageNumber}</b> von {$pagesTotal}",
-            true, false, false, false, ''
-        );
-
-        return;
-
-        //echo $pageNumber . '/' . $pagesTotal;
-
-
-        $this->cell(0,5, "Seite {$pageNumber}</b> von {$pagesTotal}",
-            0, 0, 'C', false, '', 0, false,
-            'T', 'M'
-        );
     }
 }
