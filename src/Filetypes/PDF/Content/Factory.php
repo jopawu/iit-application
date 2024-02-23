@@ -27,7 +27,7 @@ class Factory
      */
     public function date(string $content, string $format) : Date
     {
-        return new Date($format, $content);
+        return new Date($content, $format);
     }
 
     /**
