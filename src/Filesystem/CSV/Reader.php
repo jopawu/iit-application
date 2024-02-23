@@ -21,6 +21,7 @@ class Reader
 
     /**
      * @param string $filename
+     * @param int $skipLines
      */
     public function __construct($filename, $skipLines)
     {
@@ -39,7 +40,7 @@ class Reader
 
         if( $handle === false )
         {
-            throw new \InvalidArgumentException("could not open csv file: {$this->filename}");
+            throw new \InvalidArgumentException("could not open csv file for reading: {$this->filename}");
         }
 
         $rows = [];

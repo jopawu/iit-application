@@ -151,12 +151,15 @@ class Container extends DIC
 
         $dic['config'] = $config;
 
-        $dic['db'] = new Database(
-            $config->getVariable('database', 'host'),
-            $config->getVariable('database', 'name'),
-            $config->getVariable('database', 'user'),
-            $config->getVariable('database', 'pass')
-        );
+        if( $config->getVariable('database', 'host') )
+        {
+            $dic['db'] = new Database(
+                $config->getVariable('database', 'host'),
+                $config->getVariable('database', 'name'),
+                $config->getVariable('database', 'user'),
+                $config->getVariable('database', 'pass')
+            );
+        }
 
         $dic['doc'] = new XhtmlDocument($dic->ui()->xhtml()->document());
 
