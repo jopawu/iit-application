@@ -37,7 +37,6 @@ class HtmlPDF extends AbstractPDF
         parent::__construct($dic, $metadata, $pageProperties);
 
         $this->pdf->setAutoPageBreak(true, $pageProperties->getMarginBottom());
-        $this->pdf->addPage();
 
         $this->htmlContent = $html;
 
@@ -62,8 +61,11 @@ class HtmlPDF extends AbstractPDF
      */
     public function deliver(string $filename)
     {
+        $this->pdf->addPage();
+
         $htmlContent = $this->buildHtmlContent();
         $this->pdf->writeHTML($htmlContent);
+
         parent::deliver($filename);
     }
 
