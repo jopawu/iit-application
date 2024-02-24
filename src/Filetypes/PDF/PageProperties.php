@@ -135,7 +135,7 @@ class PageProperties
      * @param string $format
      * @return Page
      */
-    public function withFormat(string $format): Page
+    public function withFormat(string $format): PageProperties
     {
         $clone = clone $this;
         $clone->format = $format;
@@ -146,7 +146,7 @@ class PageProperties
      * @param string $orientation
      * @return Page
      */
-    public function withOrientation(string $orientation): Page
+    public function withOrientation(string $orientation): PageProperties
     {
         $clone = clone $this;
         $clone->orientation = $orientation;
@@ -157,7 +157,7 @@ class PageProperties
      * @param string $distanceUnit
      * @return Page
      */
-    public function withDistanceUnit(string $distanceUnit): Page
+    public function withDistanceUnit(string $distanceUnit): PageProperties
     {
         $clone = clone $this;
         $clone->distanceUnit = $distanceUnit;
@@ -168,7 +168,7 @@ class PageProperties
      * @param string $marginTop
      * @return Page
      */
-    public function withMarginTop(string $marginTop): Page
+    public function withMarginTop(string $marginTop): PageProperties
     {
         $clone = clone $this;
         $clone->marginTop = $marginTop;
@@ -179,7 +179,7 @@ class PageProperties
      * @param string $marginRight
      * @return Page
      */
-    public function withMarginRight(string $marginRight): Page
+    public function withMarginRight(string $marginRight): PageProperties
     {
         $clone = clone $this;
         $clone->marginRight = $marginRight;
@@ -190,7 +190,7 @@ class PageProperties
      * @param string $marginBottom
      * @return Page
      */
-    public function withMarginBottom(string $marginBottom): Page
+    public function withMarginBottom(string $marginBottom): PageProperties
     {
         $clone = clone $this;
         $clone->marginBottom = $marginBottom;
@@ -201,7 +201,7 @@ class PageProperties
      * @param string $marginLeft
      * @return Page
      */
-    public function withMarginLeft(string $marginLeft): Page
+    public function withMarginLeft(string $marginLeft): PageProperties
     {
         $clone = clone $this;
         $clone->marginLeft = $marginLeft;
@@ -212,7 +212,7 @@ class PageProperties
      * @param string $marginHeader
      * @return Page
      */
-    public function withMarginHeader(string $marginHeader): Page
+    public function withMarginHeader(string $marginHeader): PageProperties
     {
         $clone = clone $this;
         $clone->marginHeader = $marginHeader;
@@ -223,7 +223,7 @@ class PageProperties
      * @param string $marginFooter
      * @return Page
      */
-    public function withMarginFooter(string $marginFooter): Page
+    public function withMarginFooter(string $marginFooter): PageProperties
     {
         $clone = clone $this;
         $clone->marginFooter = $marginFooter;
