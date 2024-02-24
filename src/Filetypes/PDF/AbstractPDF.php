@@ -81,7 +81,7 @@ abstract class AbstractPDF
      * @param PageProperties $pageProperties
      * @return $this
      */
-    protected function withPageProperties(PageProperties $pageProperties)//: static
+    public function withPageProperties(PageProperties $pageProperties)//: static
     {
         $clone = clone $this;
         $clone->pdf->applyPageProperties($pageProperties);
