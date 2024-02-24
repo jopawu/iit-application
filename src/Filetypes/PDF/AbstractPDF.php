@@ -70,7 +70,7 @@ abstract class AbstractPDF
      * @param Metadata $metadata
      * @return $this
      */
-    public function withMetadata(Metadata $metadata): static
+    public function withMetadata(Metadata $metadata)//: static
     {
         $clone = clone $this;
         $clone->pdf->applyMetadata($metadata);
@@ -81,7 +81,7 @@ abstract class AbstractPDF
      * @param PageProperties $pageProperties
      * @return $this
      */
-    protected function withPageProperties(PageProperties $pageProperties): static
+    protected function withPageProperties(PageProperties $pageProperties)//: static
     {
         $clone = clone $this;
         $clone->pdf->applyPageProperties($pageProperties);
@@ -92,7 +92,7 @@ abstract class AbstractPDF
      * @param Horizontal $header
      * @return $this
      */
-    public function withFirstPageHeader(Horizontal $header) : static
+    public function withFirstPageHeader(Horizontal $header) //: static
     {
         $clone = clone $this;
         $clone->pdf->setFirstPageHeader($header);
@@ -103,7 +103,7 @@ abstract class AbstractPDF
      * @param Horizontal $header
      * @return $this
      */
-    public function withGeneralPageHeader(Horizontal $header) : static
+    public function withGeneralPageHeader(Horizontal $header) //: static
     {
         $clone = clone $this;
         $clone->pdf->setGeneralPageHeader($header);
@@ -114,7 +114,7 @@ abstract class AbstractPDF
      * @param Horizontal $header
      * @return $this
      */
-    public function withAllPagesHeader(Horizontal $header) : static
+    public function withAllPagesHeader(Horizontal $header) //: static
     {
         $clone = clone $this;
         $clone->pdf->setFirstPageHeader($header);
@@ -126,7 +126,7 @@ abstract class AbstractPDF
      * @param Horizontal $footer
      * @return $this
      */
-    public function withFirstPageFooter(Horizontal $footer) : static
+    public function withFirstPageFooter(Horizontal $footer) //: static
     {
         $clone = clone $this;
         $clone->pdf->setFirstPageFooter($footer);
@@ -137,7 +137,7 @@ abstract class AbstractPDF
      * @param Horizontal $footer
      * @return $this
      */
-    public function withGeneralPageFooter(Horizontal $footer) : static
+    public function withGeneralPageFooter(Horizontal $footer) //: static
     {
         $clone = clone $this;
         $clone->pdf->setGeneralPageFooter($footer);
@@ -148,7 +148,7 @@ abstract class AbstractPDF
      * @param Horizontal $footer
      * @return $this
      */
-    public function withAllPagesFooter(Horizontal $footer) : static
+    public function withAllPagesFooter(Horizontal $footer) //: static
     {
         $clone = clone $this;
         $clone->pdf->setFirstPageFooter($footer);
